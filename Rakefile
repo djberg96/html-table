@@ -1,24 +1,21 @@
 require 'rake'
+require 'rake/clean'
 require 'rake/testtask'
 
-desc "Install the html-table package (non-gem)"
-task :install do
-   dest = File.join(Config::CONFIG['sitelibdir'], 'html')
-   Dir.mkdir(dest) unless File.exists? dest
-   Dir['lib/html/*.rb'].each{ |f|
-      cp f, dest, :verbose => true
-   }
-end
+CLEAN.include("**/*.gem", "**/*.rbc")
 
-desc 'Build the html-table gem'
-task :gem do
-   spec = eval(IO.read('html-table.gemspec'))
-   Gem::Builder.new(spec).buildend
+namespace :gem do
+  desc 'Build the html-table gem'
+  task :create => [:clean] do
+    spec = eval(IO.read('html-table.gemspec'))
+    Gem::Builder.new(spec).build
+  end
 
-desc "Install the html-table package as a gem"
-task :install_gem => [:gem] do
-   file = Dir["*.gem"].first
-   sh "gem install #{file}"
+  desc "Install the html-table package as a gem"
+  task :install => [:create] do
+    file = Dir["*.gem"].first
+    sh "gem install #{file}"
+  end
 end
 
 namespace 'example' do
@@ -143,3 +140,5 @@ namespace 'test' do
       t.test_files = FileList['test/test_tag_handler.rb']
    end
 end
+
+task :default => :test
