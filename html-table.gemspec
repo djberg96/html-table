@@ -2,15 +2,14 @@ require 'rubygems'
 
 Gem::Specification.new do |gem|
    gem.name       = 'html-table'
-   gem.version    = '1.3.4'
+   gem.version    = '1.3.5'
    gem.author     = 'Daniel J. Berger'
    gem.license    = 'Artistic 2.0'
    gem.email      = 'djberg96@gmail.com'
    gem.homepage   = 'http://shards.rubyforge.org'
    gem.summary    = 'A Ruby interface for generating HTML tables'
    gem.test_files = Dir['test/*.rb']
-   gem.has_rdoc   = true
-   gem.files      = Dir['**/*'].reject{ |f| f.include?('CVS') }
+   gem.files      = Dir['**/*'].reject{ |f| f.include?('git') }
 
    gem.rubyforge_project = 'shards'
    gem.extra_rdoc_files  = ['README', 'CHANGES'] + Dir['doc/*.rdoc']
