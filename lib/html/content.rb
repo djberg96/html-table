@@ -7,12 +7,12 @@
 require File.join(File.dirname(__FILE__), 'tag_handler')
 
 module HTML
-   class Table::Content < String
-      include TagHandler
+  class Table::Content < String
+    include TagHandler
 
-      def initialize(string, &block)
-         super(string)
-         instance_eval(&block) if block_given?
-      end
-   end
+    def initialize(string, &block)
+      super(string)
+      instance_eval(&block) if block_given?
+    end
+  end
 end
