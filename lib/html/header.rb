@@ -22,11 +22,12 @@ module HTML
       instance_eval(&block) if block_given?
       self.content = arg if arg
     end
-      
+
     # Adds content to the Table::Row::Header object.
     #
     def content=(arg)
-      @html_body = Table::Content.new(arg.to_s)
+      arg = arg.is_a?(Array) ? arg.join : arg.to_s
+      @html_body = Table::Content.new(arg)
     end
 
     # Returns the indentation level for the tags of this class.  The
