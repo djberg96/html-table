@@ -19,7 +19,7 @@ class TC_HTML_Table < Test::Unit::TestCase
    end   
    
    def test_version
-      assert_equal('1.3.5', Table::VERSION)
+      assert_equal('1.3.6', Table::VERSION)
    end
 
    def test_constructor
