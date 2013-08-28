@@ -4,10 +4,7 @@
 # Test suite for the AttributeHandler module. For these tests, we'll use an
 # instance of the Table class where the module has been mixed in.
 ############################################################################
-require 'rubygems'
-gem 'test-unit'
-
-require 'test/unit'
+require 'test-unit'
 require 'html/table'
 include HTML
 
@@ -19,7 +16,7 @@ class TC_AttributeHandler < Test::Unit::TestCase
    def setup
       @table = Table.new(['foo',1,'bar'])
    end
-   
+
    def test_abbr_basic
       assert_respond_to(@table, :abbr)
       assert_respond_to(@table, :abbr=)
@@ -31,7 +28,7 @@ class TC_AttributeHandler < Test::Unit::TestCase
       assert_nothing_raised{ @table.abbr = 'foo' }
       assert_equal('foo', @table.abbr)
    end
-   
+
    def test_align_basic
       assert_respond_to(@table, :align)
       assert_respond_to(@table, :align=)
@@ -47,14 +44,14 @@ class TC_AttributeHandler < Test::Unit::TestCase
    def test_align_expected_errors
       assert_raises(ArgumentError){ @table.align = 'foo' }
    end
-   
+
    def test_axis
       assert_respond_to(@table, :axis)
       assert_respond_to(@table, :axis=)
       assert_nothing_raised{ @table.axis }
       assert_nothing_raised{ @table.axis = 'foo' }
    end
-   
+
    def test_background_basic
       assert_respond_to(@table, :background)
       assert_respond_to(@table, :background=)
@@ -70,7 +67,7 @@ class TC_AttributeHandler < Test::Unit::TestCase
    def test_background_expected_errors
       assert_raises(TypeError){ @table.background = 1 }
    end
-   
+
    def test_bgcolor_basic
       assert_respond_to(@table, :bgcolor)
       assert_respond_to(@table, :bgcolor=)
@@ -94,7 +91,7 @@ class TC_AttributeHandler < Test::Unit::TestCase
       assert_nothing_raised{ @table.border = true }
       assert_nothing_raised{ @table.border = false }
    end
-   
+
    def test_bordercolor_basic
       assert_respond_to(@table, :bordercolor)
       assert_respond_to(@table, :bordercolor=)
@@ -106,7 +103,7 @@ class TC_AttributeHandler < Test::Unit::TestCase
       assert_nothing_raised{ @table.bordercolor = 'foo' }
       assert_equal('foo', @table.bordercolor)
    end
-   
+
    def test_bordercolordark_basic
       assert_respond_to(@table, :bordercolordark)
       assert_respond_to(@table, :bordercolordark=)
@@ -118,14 +115,14 @@ class TC_AttributeHandler < Test::Unit::TestCase
       assert_nothing_raised{ @table.bordercolordark = 'foo' }
       assert_equal('foo', @table.bordercolordark)
    end
-   
+
    def test_bordercolorlight
       assert_respond_to(@table, :bordercolorlight)
       assert_respond_to(@table, :bordercolorlight=)
       assert_nothing_raised{ @table.bordercolorlight }
       assert_nothing_raised{ @table.bordercolorlight = 'foo' }
    end
-   
+
    def test_cellpadding
       assert_respond_to(@table, :cellpadding)
       assert_respond_to(@table, :cellpadding=)
@@ -135,8 +132,8 @@ class TC_AttributeHandler < Test::Unit::TestCase
 
    def test_cellpadding_expected_errors
       assert_raises(ArgumentError){ @table.cellpadding = -1 }
-   end  
-   
+   end
+
    def test_cellspacing
       assert_respond_to(@table, :cellspacing)
       assert_respond_to(@table, :cellspacing=)
@@ -147,7 +144,7 @@ class TC_AttributeHandler < Test::Unit::TestCase
    def test_cellspacing_expected_errors
       assert_raises(ArgumentError){ @table.cellspacing = -1 }
    end
-   
+
    def test_char
       assert_respond_to(@table, :char)
       assert_respond_to(@table, :char=)
@@ -158,7 +155,7 @@ class TC_AttributeHandler < Test::Unit::TestCase
    def test_char_expected_errors
       assert_raises(ArgumentError){ @table.char = 'xx' }
    end
-   
+
    def test_charoff
       assert_respond_to(@table, :charoff)
       assert_respond_to(@table, :charoff=)
@@ -176,7 +173,7 @@ class TC_AttributeHandler < Test::Unit::TestCase
       assert_nothing_raised{ @table.class_ }
       assert_nothing_raised{ @table.class_ = 'myclass' }
    end
-   
+
    def test_col
       assert_respond_to(@table, :col)
       assert_respond_to(@table, :col=)
@@ -187,7 +184,7 @@ class TC_AttributeHandler < Test::Unit::TestCase
    def test_col_expected_errors
       assert_raises(ArgumentError){ @table.col = -1 }
    end
-   
+
    def test_colspan
       assert_respond_to(@table, :colspan)
       assert_respond_to(@table, :colspan=)
@@ -198,7 +195,7 @@ class TC_AttributeHandler < Test::Unit::TestCase
    def test_colspan_expected_errors
       assert_raises(ArgumentError){ @table.colspan = -1 }
    end
-   
+
    def test_configure
       assert_respond_to(@table, :configure)
       assert_nothing_raised{ @table.configure(0){} }
@@ -208,7 +205,7 @@ class TC_AttributeHandler < Test::Unit::TestCase
    def test_configure_expected_errors
       assert_raises(ArgumentError){ @table.configure(0,0,0){} }
    end
-   
+
    ########################################################################
    # This test could probably be broken out into separate tests for each
    # type that we want to add as content.
@@ -227,7 +224,7 @@ class TC_AttributeHandler < Test::Unit::TestCase
       assert_nothing_raised{ @table.content = Table::Foot.create }
       assert_nothing_raised{ @table.content = Table::Body.new }
    end
-   
+
    def test_frame
       assert_respond_to(@table, :frame)
       assert_respond_to(@table, :frame=)
@@ -238,7 +235,7 @@ class TC_AttributeHandler < Test::Unit::TestCase
    def test_frame_expected_errors
       assert_raises(ArgumentError){ @table.frame = 'foo' }
    end
-   
+
    def test_height
       assert_respond_to(@table, :height)
       assert_respond_to(@table, :height=)
@@ -249,7 +246,7 @@ class TC_AttributeHandler < Test::Unit::TestCase
    def test_height_expected_errors
       assert_raises(ArgumentError){ @table.height = -1 }
    end
-   
+
    def test_hspace
       assert_respond_to(@table, :hspace)
       assert_respond_to(@table, :hspace=)
@@ -260,7 +257,7 @@ class TC_AttributeHandler < Test::Unit::TestCase
    def test_hspace_expected_errors
       assert_raises(ArgumentError){ @table.hspace = -1 }
    end
-   
+
    def test_nowrap
       assert_respond_to(@table, :nowrap)
       assert_respond_to(@table, :nowrap=)
@@ -271,7 +268,7 @@ class TC_AttributeHandler < Test::Unit::TestCase
    def test_nowrap_expected_errors
       assert_raises(TypeError){ @table.nowrap = 'foo' }
    end
-   
+
    def test_rowspan
       assert_respond_to(@table, :rowspan)
       assert_respond_to(@table, :rowspan=)
@@ -282,7 +279,7 @@ class TC_AttributeHandler < Test::Unit::TestCase
    def test_rowspan_expected_errors
       assert_raises(ArgumentError){ @table.rowspan = -1 }
    end
-   
+
    def test_rules
       assert_respond_to(@table, :rules)
       assert_respond_to(@table, :rules=)
@@ -293,7 +290,7 @@ class TC_AttributeHandler < Test::Unit::TestCase
    def test_rules_expected_errors
       assert_raises(ArgumentError){ @table.rules = 'foo' }
    end
-   
+
    def test_span
       assert_respond_to(@table, :span)
       assert_respond_to(@table, :span=)
@@ -311,7 +308,7 @@ class TC_AttributeHandler < Test::Unit::TestCase
       assert_nothing_raised{ @table.style }
       assert_nothing_raised{ @table.style = 'color: blue' }
    end
-   
+
    def test_summary
       assert_respond_to(@table, :summary)
       assert_respond_to(@table, :summary=)
@@ -319,7 +316,7 @@ class TC_AttributeHandler < Test::Unit::TestCase
       assert_nothing_raised{ @table.summary = 'foo' }
       assert_nothing_raised{ @table.summary = 1 }
    end
-   
+
    def test_valign
       assert_respond_to(@table, :valign)
       assert_respond_to(@table, :valign=)
@@ -330,7 +327,7 @@ class TC_AttributeHandler < Test::Unit::TestCase
    def test_valign_expected_errors
       assert_raises(ArgumentError){ @table.valign = 'foo' }
    end
-   
+
    def test_vspace
       assert_respond_to(@table, :vspace)
       assert_respond_to(@table, :vspace=)
@@ -341,7 +338,7 @@ class TC_AttributeHandler < Test::Unit::TestCase
    def test_vspace_expected_errors
       assert_raises(ArgumentError){ @table.vspace = -1 }
    end
-   
+
    def test_width
       assert_respond_to(@table, :width)
       assert_respond_to(@table, :width=)
@@ -353,7 +350,7 @@ class TC_AttributeHandler < Test::Unit::TestCase
    def test_width_expected_errors
       assert_raises(ArgumentError){ @table.width = -1 }
    end
-   
+
    def teardown
       @table = nil
    end

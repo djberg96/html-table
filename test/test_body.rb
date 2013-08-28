@@ -3,10 +3,7 @@
 #
 # Test suite for the Table::Body class
 ############################################
-require 'rubygems'
-gem 'test-unit'
-
-require 'test/unit'
+require 'test-unit'
 require 'html/table'
 include HTML
 
@@ -24,25 +21,25 @@ class TC_HTML_Table_Body < Test::Unit::TestCase
       assert_nothing_raised{ Table::Body.new([1,2,3]) }
       assert_nothing_raised{ Table::Body.new([[1,2,3],["foo","bar"]]) }
    end
-   
+
    def test_basic
       html = "<tbody></tbody>"
       assert_equal(html, @tbody.html.gsub(/\s{2,}|\n/,''))
    end
-   
+
    def test_with_attributes
       html = "<tbody align='left' char='x'></tbody>"
       @tbody.align = "left"
       @tbody.char = 'x'
       assert_equal(html, @tbody.html.gsub(/\s{2,}|\n/,''))
    end
-   
+
    def test_push_single_row
       html = "<tbody><tr><td>test</td></tr></tbody>"
       @tbody.push Table::Row.new{|r| r.content = "test" }
       assert_equal(html, @tbody.html.gsub(/\s{2,}|\n/,''))
    end
-   
+
    def test_push_multiple_rows
       html = "<tbody><tr><td>test</td></tr><tr><td>foo</td></tr></tbody>"
       r1 = Table::Row.new{|r| r.content = "test" }
@@ -50,7 +47,7 @@ class TC_HTML_Table_Body < Test::Unit::TestCase
       @tbody.push r1, r2
       assert_equal(html, @tbody.html.gsub(/\s{2,}|\n/,''))
    end
-   
+
    def test_add_content_directly
       html = "<tbody><tr><td>hello</td><td>world</td></tr></tbody>"
       @tbody.content = "hello","world"
@@ -62,7 +59,7 @@ class TC_HTML_Table_Body < Test::Unit::TestCase
       tb = Table::Body.new(%w/hello world/)
       assert_equal(html, tb.html.gsub(/\s{2,}|\n+/,''))
    end
-   
+
    def test_configure_column
       html = "<tbody><tr><td>hello</td><td abbr='test' width=3 nowrap>world"
       html += "</td></tr></tbody>"
@@ -82,7 +79,7 @@ class TC_HTML_Table_Body < Test::Unit::TestCase
       assert_raises(ArgumentTypeError){ Table::Body.end_tags = 1 }
       assert_nothing_raised{ Table::Body.end_tags = true }
    end
-   
+
    def teardown
       @table = nil
       @tbody = nil

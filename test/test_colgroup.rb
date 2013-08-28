@@ -3,10 +3,7 @@
 #
 # Test suite for the Table::ColGroup class
 ############################################
-require 'rubygems'
-gem 'test-unit'
-
-require 'test/unit'
+require 'test-unit'
 require 'html/table'
 include HTML
 
@@ -21,19 +18,19 @@ class TC_HTML_Table_ColGroup < Test::Unit::TestCase
       assert_nothing_raised{ Table::ColGroup.new(@col) }
       assert_raises(TypeError){ Table::ColGroup.new("foo") }
    end
-   
+
    def test_basic
       html = "<colgroup></colgroup>"
       assert_equal(html,@cgroup.html.gsub(/\s+/,''))
    end
-   
+
    def test_with_attributes
       html = "<colgroup align='center' width='20%'></colgroup>"
       @cgroup.align = "center"
       @cgroup.width = "20%"
       assert_equal(html,@cgroup.html.gsub(/\s{2,}|\n+/,''))
    end
-   
+
    def test_push_single_col_element
       html = "<colgroup><col></colgroup>"
       @cgroup.push(@col)
@@ -61,11 +58,11 @@ class TC_HTML_Table_ColGroup < Test::Unit::TestCase
       assert_raises(TypeError){ @cgroup << Table::Row.new }
       assert_nothing_raised{ @cgroup << Table::ColGroup::Col.new }
    end
-   
+
    def test_configure_error
       assert_raises(ArgumentError){ @cgroup.configure(0,0){ } }
    end
-  
+
    def test_content_error
       assert_raises(NoMethodError){ @cgroup.content }
       assert_raises(NoMethodError){ @cgroup.content = 'blah' }
@@ -85,7 +82,7 @@ class TC_HTML_Table_ColGroup < Test::Unit::TestCase
       assert_raises(ArgumentTypeError){ Table::ColGroup.end_tags = 1 }
       assert_nothing_raised{ Table::ColGroup.end_tags = true }
    end
-   
+
    def teardown
       @cgroup = nil
    end

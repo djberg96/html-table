@@ -4,10 +4,7 @@
 # Test suite for the TagHandler module. For these tests, we'll use an
 # instance of the Table class where the module has been mixed in.
 ############################################################################
-require 'rubygems'
-gem 'test-unit'
-
-require 'test/unit'
+require 'test-unit'
 require 'html/table'
 include HTML
 
@@ -19,7 +16,7 @@ class TC_TagHandler < Test::Unit::TestCase
    def setup
       @tcontent = Table::Content.new('test')
    end
-   
+
    def test_bold
       assert_respond_to(@tcontent, :bold)
       assert_respond_to(@tcontent, :bold=)
@@ -82,7 +79,7 @@ class TC_TagHandler < Test::Unit::TestCase
       assert_nothing_raised{ @tcontent.underline }
       assert_nothing_raised{ @tcontent.underline = true }
    end
-   
+
    def teardown
       @tcontent = nil
    end

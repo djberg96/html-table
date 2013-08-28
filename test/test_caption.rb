@@ -3,10 +3,7 @@
 #
 # Test suite for the Table::Caption class
 ################################################
-require 'rubygems'
-gem 'test-unit'
-
-require 'test/unit'
+require 'test-unit'
 require 'html/table'
 include HTML
 

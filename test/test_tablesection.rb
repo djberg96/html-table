@@ -3,10 +3,7 @@
 #
 # Test suite for the Table::TableSection class
 ################################################
-require 'rubygems'
-gem 'test-unit'
-
-require "test/unit"
+require "test-unit"
 require "html/table"
 include HTML
 
@@ -15,7 +12,7 @@ class TC_HTML_Table_TableSection < Test::Unit::TestCase
       @table = Table.new
       @tsection = Table::TableSection.new
    end
-   
+
    def test_indent_level
       assert_respond_to(Table::Caption,:indent_level)
       assert_respond_to(Table::Caption,:indent_level=)
@@ -37,7 +34,7 @@ class TC_HTML_Table_TableSection < Test::Unit::TestCase
       assert_raises(ArgumentTypeError){ @tsection.unshift("foo") }
       assert_nothing_raised{ @tsection.unshift(Table::Row.new) }
    end
-   
+
    def teardown
       @table = nil
       @tsection = nil

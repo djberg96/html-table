@@ -3,10 +3,7 @@
 #
 # Test suite for the Table::ColGroup::Col class
 ##################################################
-require 'rubygems'
-gem 'test-unit'
-
-require 'test/unit'
+require 'test-unit'
 require 'html/table'
 include HTML
 
@@ -24,7 +21,7 @@ class TC_HTML_Table_Col < Test::Unit::TestCase
    def test_no_configure
       assert_raises(NoMethodError){ @col.configure }
    end
-   
+
    def test_no_content_allowed
       assert_raises(NoMethodError){ @col.content }
       assert_raises(NoMethodError){ @col.content = "foo" }
@@ -36,7 +33,7 @@ class TC_HTML_Table_Col < Test::Unit::TestCase
       assert_raises(ArgumentTypeError){ Table::ColGroup::Col.indent_level = "foo" }
       assert_nothing_raised{ Table::ColGroup::Col.indent_level = 6 }
    end
-   
+
    def teardown
       @col = nil
    end

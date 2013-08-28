@@ -3,10 +3,7 @@
 #
 # Test suite for the Table::Row class
 ############################################
-require 'rubygems'
-gem 'test-unit'
-
-require 'test/unit'
+require 'test-unit'
 require 'html/table'
 include HTML
 
@@ -22,7 +19,7 @@ class TC_HTML_Table_Row < Test::Unit::TestCase
       assert_nothing_raised{ Table::Row.new([1,2,3]) }
       assert_nothing_raised{ Table::Row.new([[1,2,3],["foo","bar"]]) }
    end
-   
+
    def test_basic
       html = "<tr></tr>"
       assert_equal(html,@trow.html.gsub(/\s+/,''))
@@ -34,7 +31,7 @@ class TC_HTML_Table_Row < Test::Unit::TestCase
       assert_nothing_raised{ @trow.header? }
       assert_nothing_raised{ @trow.header = true }
    end
-   
+
    def test_with_attributes
       html = "<tr align='center'></tr>"
       @trow.align = "center"
@@ -72,7 +69,7 @@ class TC_HTML_Table_Row < Test::Unit::TestCase
       html = "<tr><th>test</th></tr>"
       assert_equal(html, @trow.html.gsub(/\s+/,''))
    end
-   
+
    def test_push_single_data_element
       html = "<tr><td>hello</td></tr>"
       @trow.push Table::Row::Data.new{ |d| d.content = "hello" }
@@ -86,7 +83,7 @@ class TC_HTML_Table_Row < Test::Unit::TestCase
       @trow.push d1, d2
       assert_equal(html, @trow.html.gsub(/\s{2,}|\n+/,''))
    end
-   
+
    def test_add_content_directly
       html = "<tr><td>hello</td><td>world</td></tr>"
       @trow.content = "hello","world"
@@ -98,7 +95,7 @@ class TC_HTML_Table_Row < Test::Unit::TestCase
       @trow = Table::Row.new(%w/hello world/)
       assert_equal(html, @trow.html.gsub(/\s{2,}|\n+/,''))
    end
-   
+
    def test_configure_column
       html = "<tr><td>hello</td><td abbr='test' width=3 nowrap>world</td></tr>"
       @trow.content = "hello","world"
@@ -118,7 +115,7 @@ class TC_HTML_Table_Row < Test::Unit::TestCase
       assert_nothing_raised{ @trow.unshift(Table::Row::Data.new) }
       assert_nothing_raised{ @trow.unshift(Table::Row::Header.new) }
    end
-   
+
    def test_configure_error
       assert_raises(ArgumentError){ @trow.configure(0,0){ } }
    end
@@ -137,7 +134,7 @@ class TC_HTML_Table_Row < Test::Unit::TestCase
       assert_raises(ArgumentTypeError){ Table::Row.end_tags = 1 }
       assert_nothing_raised{ Table::Row.end_tags = true }
    end
-   
+
    def teardown
       @trow = nil
    end

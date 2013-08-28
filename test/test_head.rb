@@ -5,10 +5,7 @@
 # class, so we have to take extra measures to ensure that a fresh instance
 # is created between tests.
 ###############################################################################
-require 'rubygems'
-gem 'test-unit'
-
-require 'test/unit'
+require 'test-unit'
 require 'html/table'
 include HTML
 
@@ -37,7 +34,7 @@ class TC_HTML_Table_Head < Test::Unit::TestCase
       assert_nothing_raised{ Table::Head.create([1,2,3]) }
       assert_nothing_raised{ Table::Head.create([[1,2,3],["foo","bar"]]) }
    end
-   
+
    def test_basic
       html = "<thead></thead>"
       assert_equal(html,@thead.html.gsub(/\s{2,}|\n/,''))
@@ -59,7 +56,7 @@ class TC_HTML_Table_Head < Test::Unit::TestCase
       @thead.char = 'x'
       assert_equal(html,@thead.html.gsub(/\s{2,}|\n/,''))
    end
-   
+
    def test_push_single_row
       html = "<thead><tr><td>test</td></tr></thead>"
       @thead.push Table::Row.new{|r| r.content = "test"}
@@ -73,7 +70,7 @@ class TC_HTML_Table_Head < Test::Unit::TestCase
       @thead.push(r1, r2)
       assert_equal(html,@thead.html.gsub(/\s{2,}|\n/,''))
    end
-   
+
    def test_add_content_directly
       html = "<thead><tr><td>hello</td><td>world</td></tr></thead>"
       @thead.content = "hello","world"
@@ -86,7 +83,7 @@ class TC_HTML_Table_Head < Test::Unit::TestCase
       @thead = Table::Head.create(["hello","world"])
       assert_equal(html,@thead.html.gsub(/\s{2,}|\n+/,''))
    end
-   
+
    def test_configure_column
       html = "<thead><tr><td>hello</td><td abbr='test' width=3 nowrap>world"
       html += "</td></tr></thead>"
@@ -98,7 +95,7 @@ class TC_HTML_Table_Head < Test::Unit::TestCase
       }
       assert_equal(html,@thead.html.gsub(/\s{2,}|\n+/,''))
    end
-   
+
    def teardown
       @table = nil
       @thead.send(:refresh)

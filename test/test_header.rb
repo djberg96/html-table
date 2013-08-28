@@ -3,10 +3,7 @@
 #
 # Test suite for the Table::Row::Header class
 ################################################
-require 'rubygems'
-gem 'test-unit'
-
-require 'test/unit'
+require 'test-unit'
 require 'html/table'
 include HTML
 
@@ -14,7 +11,7 @@ class TC_HTML_Table_Row_Header < Test::Unit::TestCase
    def setup
       @theader = Table::Row::Header.new
    end
-   
+
    def test_basic
       html = "<th></th>"
       assert_equal(html, @theader.html.gsub(/\s+/,''))
@@ -36,17 +33,17 @@ class TC_HTML_Table_Row_Header < Test::Unit::TestCase
       @theader.nowrap = true
       assert_equal(html, @theader.html.gsub(/\s{2,}|\n+/,''))
    end
-   
+
    def test_configure_not_allowed
       assert_raises(NoMethodError){ @theader.configure }
    end
-   
+
    def test_add_content
       html = "<th>hello world</th>"
       @theader.content = "hello world"
       assert_equal(html, @theader.html.gsub(/\s{2,}/,''))
    end
-   
+
    def test_add_multiple_content_items
       html = "<th>hello world</th>"
       @theader.content = "hello"," world"
@@ -73,7 +70,7 @@ class TC_HTML_Table_Row_Header < Test::Unit::TestCase
       assert_raises(ArgumentTypeError){ Table::Row::Header.end_tags = 1 }
       assert_nothing_raised{ Table::Row::Header.end_tags = true }
    end
-   
+
    def teardown
       @theader = nil
    end

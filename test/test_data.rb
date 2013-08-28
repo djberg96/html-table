@@ -3,10 +3,7 @@
 #
 # Test suite for the Table::Row::Data class
 ##############################################
-require 'rubygems'
-gem 'test-unit'
-
-require 'test/unit'
+require 'test-unit'
 require 'html/table'
 include HTML
 
@@ -23,12 +20,12 @@ class TC_HTML_Table_Row_Data < Test::Unit::TestCase
       assert_nothing_raised{ Table::Row::Data.new([1,2,3]) }
       assert_nothing_raised{ Table::Row::Data.new([[1,2,3],["foo","bar"]]) }
    end
-   
+
    def test_basic
       html = "<td></td>"
       assert_equal(html,@tdata.html.gsub(/\s+/,''))
    end
-   
+
    def test_with_attributes
       html = "<td align='left' width=3 nowrap></td>"
       @tdata.align = 'left'
@@ -36,11 +33,11 @@ class TC_HTML_Table_Row_Data < Test::Unit::TestCase
       @tdata.nowrap = true
       assert_equal(html,@tdata.html.gsub(/\s{2,}|\n+/,''))
    end
-   
+
    def test_configure_not_allowed
       assert_raises(NoMethodError){ @tdata.configure }
    end
-   
+
    def test_add_content
       html = "<td>hello world</td>"
       @tdata.content = "hello world"
@@ -52,7 +49,7 @@ class TC_HTML_Table_Row_Data < Test::Unit::TestCase
       td = Table::Row::Data.new("hello world")
       assert_equal(html,td.html.gsub(/\s{2,}/,''))
    end
-   
+
    def test_add_multiple_content_items
       html = "<td>hello world</td>"
       @tdata.content = "hello"," world"
@@ -73,7 +70,7 @@ class TC_HTML_Table_Row_Data < Test::Unit::TestCase
       assert_raises(ArgumentTypeError){ Table::Row::Data.end_tags = 1 }
       assert_nothing_raised{ Table::Row::Data.end_tags = true }
    end
-   
+
    def teardown
       @tdata = nil
    end

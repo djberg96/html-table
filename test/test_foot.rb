@@ -5,10 +5,7 @@
 # class, so we have to take extra measures to ensure that a fresh instance
 # is created between tests.
 ###############################################################################
-require 'rubygems'
-gem 'test-unit'
-
-require 'test/unit'
+require 'test-unit'
 require 'html/table'
 include HTML
 
@@ -41,7 +38,7 @@ class TC_HTML_Table_Foot < Test::Unit::TestCase
       assert_nothing_raised{ Table::Foot.create([1,2,3]) }
       assert_nothing_raised{ Table::Foot.create([[1,2,3], ["foo","bar"]]) }
    end
-   
+
    def test_basic
       html = "<tfoot></tfoot>"
       assert_equal(html, @tfoot.html.gsub(/\s{2,}|\n/,''))
@@ -66,7 +63,7 @@ class TC_HTML_Table_Foot < Test::Unit::TestCase
       @tfoot.char = 'x'
       assert_equal(html, @tfoot.html.gsub(/\s{2,}|\n/,''))
    end
-   
+
    def test_push_single_row
       html = "<tfoot><tr><td>test</td></tr></tfoot>"
       @tfoot.push Table::Row.new{|r| r.content = "test"}
@@ -80,7 +77,7 @@ class TC_HTML_Table_Foot < Test::Unit::TestCase
       @tfoot.push r1, r2
       assert_equal(html, @tfoot.html.gsub(/\s{2,}|\n/,''))
    end
-   
+
    def test_add_content_directly
       html = "<tfoot><tr><td>hello</td><td>world</td></tr></tfoot>"
       @tfoot.content = "hello","world"
@@ -93,7 +90,7 @@ class TC_HTML_Table_Foot < Test::Unit::TestCase
       @tfoot = Table::Foot.create(["hello","world"])
       assert_equal(html, @tfoot.html.gsub(/\s{2,}|\n+/,''))
    end
-   
+
    def test_configure_column
       html = "<tfoot><tr><td>hello</td><td abbr='test' width=3 nowrap>world"
       html += "</td></tr></tfoot>"
