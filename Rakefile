@@ -8,7 +8,12 @@ namespace :gem do
   desc 'Build the html-table gem'
   task :create => [:clean] do
     spec = eval(IO.read('html-table.gemspec'))
-    Gem::Builder.new(spec).build
+    if Gem::VERSION.to_f < 2.0
+      Gem::Builder.new(spec).build
+    else
+      require 'rubygems/package'
+      Gem::Package.build(spec)
+    end
   end
 
   desc "Install the html-table package as a gem"
