@@ -1,5 +1,5 @@
-require File.join(File.dirname(__FILE__), 'attribute_handler')
-require File.join(File.dirname(__FILE__), 'html_handler')
+require_relative 'attribute_handler'
+require_relative 'html_handler'
 require 'strongtyping'
 require 'structured_warnings'
 include StrongTyping
@@ -20,7 +20,7 @@ module HTML
     include HtmlHandler
 
     # The version of the html-table library
-    VERSION = '1.4.0'
+    VERSION = '1.4.1'
 
     # The indentation level for the <table> and </table> tags
     @indent_level = 0
@@ -310,14 +310,14 @@ module HTML
   end
 end
 
-require File.join(File.dirname(__FILE__), 'content')
-require File.join(File.dirname(__FILE__), 'caption')
-require File.join(File.dirname(__FILE__), 'colgroup')
-require File.join(File.dirname(__FILE__), 'col')
-require File.join(File.dirname(__FILE__), 'row')
-require File.join(File.dirname(__FILE__), 'header')
-require File.join(File.dirname(__FILE__), 'data')
-require File.join(File.dirname(__FILE__), 'tablesection')
-require File.join(File.dirname(__FILE__), 'head')
-require File.join(File.dirname(__FILE__), 'foot')
-require File.join(File.dirname(__FILE__), 'body')
+require_relative 'content'
+require_relative 'caption'
+require_relative 'colgroup'
+require_relative 'col'
+require_relative 'row'
+require_relative 'header'
+require_relative 'data'
+require_relative 'tablesection'
+require_relative 'head'
+require_relative 'foot'
+require_relative 'body'
