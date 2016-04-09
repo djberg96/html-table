@@ -1,3 +1,9 @@
+== 1.4.2 - 8-Apr-2016
+* This gem is now signed.
+* Added the html-table.rb file for convenience.
+* Updated the gem related rake tasks.
+* Corrections to the README.
+
 == 1.4.1 - 8-Nov-2014
 * Minor updates to Rakefile and gemspec.
 * Use require_relative where appropriate.
