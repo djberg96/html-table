@@ -4,6 +4,8 @@ README
 Rakefile
 html-table.gemspec
 
+certs/djberg96_pub.pem
+
 doc/attributes.rdoc
 doc/table_body.rdoc
 doc/table_caption.rdoc
@@ -25,6 +27,7 @@ doc/examples/simple1.rb
 doc/examples/simple2.rb
 doc/examples/simple3.rb
 
+lib/html-table.rb
 lib/html/attribute_handler.rb
 lib/html/body.rb
 lib/html/caption.rb
