@@ -1,15 +1,16 @@
 require 'rubygems'
 
 Gem::Specification.new do |gem|
-  gem.name       = 'html-table'
-  gem.version    = '1.4.1'
-  gem.author     = 'Daniel J. Berger'
-  gem.license    = 'Artistic 2.0'
-  gem.email      = 'djberg96@gmail.com'
-  gem.homepage   = 'http://github.com/djberg96/html-table'
-  gem.summary    = 'A Ruby interface for generating HTML tables'
-  gem.test_files = Dir['test/*.rb']
-  gem.files      = Dir['**/*'].reject{ |f| f.include?('git') }
+  gem.name        = 'html-table'
+  gem.version     = '1.4.2'
+  gem.author      = 'Daniel J. Berger'
+  gem.license     = 'Artistic 2.0'
+  gem.email       = 'djberg96@gmail.com'
+  gem.homepage    = 'http://github.com/djberg96/html-table'
+  gem.summary     = 'A Ruby interface for generating HTML tables'
+  gem.test_files  = Dir['test/*.rb']
+  gem.files       = Dir['**/*'].reject{ |f| f.include?('git') }
+  spec.cert_chain = ['certs/djberg96_pub.pem']
 
   gem.extra_rdoc_files  = ['README', 'CHANGES'] + Dir['doc/*.rdoc']
 
