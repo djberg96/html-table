@@ -1,26 +1,26 @@
 require 'rubygems'
 
-Gem::Specification.new do |gem|
-  gem.name        = 'html-table'
-  gem.version     = '1.4.2'
-  gem.author      = 'Daniel J. Berger'
-  gem.license     = 'Artistic 2.0'
-  gem.email       = 'djberg96@gmail.com'
-  gem.homepage    = 'http://github.com/djberg96/html-table'
-  gem.summary     = 'A Ruby interface for generating HTML tables'
-  gem.test_files  = Dir['test/*.rb']
-  gem.files       = Dir['**/*'].reject{ |f| f.include?('git') }
+Gem::Specification.new do |spec|
+  spec.name       = 'html-table'
+  spec.version    = '1.4.2'
+  spec.author     = 'Daniel J. Berger'
+  spec.license    = 'Artistic 2.0'
+  spec.email      = 'djberg96@gmail.com'
+  spec.homepage   = 'http://github.com/djberg96/html-table'
+  spec.summary    = 'A Ruby interface for generating HTML tables'
+  spec.test_files = Dir['test/*.rb']
+  spec.files      = Dir['**/*'].reject{ |f| f.include?('git') }
   spec.cert_chain = ['certs/djberg96_pub.pem']
 
-  gem.extra_rdoc_files  = ['README', 'CHANGES'] + Dir['doc/*.rdoc']
+  spec.extra_rdoc_files  = ['README', 'CHANGES'] + Dir['doc/*.rdoc']
 
-  gem.add_dependency('strongtyping')
-  gem.add_dependency('structured_warnings')
+  spec.add_dependency('strongtyping')
+  spec.add_dependency('structured_warnings')
 
-  gem.add_development_dependency('test-unit')
-  gem.add_development_dependency('rake')
+  spec.add_development_dependency('test-unit')
+  spec.add_development_dependency('rake')
 
-  gem.description = <<-EOF
+  spec.description = <<-EOF
     The html-table library provides an interface for generating HTML tables
     in a syntax comfortable to Ruby programmers, but with some enforcement
     of where certain elements can be placed.
