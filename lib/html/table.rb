@@ -20,7 +20,7 @@ module HTML
     include HtmlHandler
 
     # The version of the html-table library
-    VERSION = '1.4.1'
+    VERSION = '1.4.2'
 
     # The indentation level for the <table> and </table> tags
     @indent_level = 0
