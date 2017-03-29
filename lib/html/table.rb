@@ -5,10 +5,10 @@ require 'structured_warnings'
 include StrongTyping
 
 # Warning raised if a non-standard extension is used.
-class NonStandardExtensionWarning < Warning; end
+class NonStandardExtensionWarning < StructuredWarnings::StandardWarning; end
 
 # Please, think of the children before using the blink tag.
-class BlinkWarning < Warning; end
+class BlinkWarning < StructuredWarnings::StandardWarning; end
 
 # The HTML module serves as a namespace only.
 module HTML
@@ -20,7 +20,7 @@ module HTML
     include HtmlHandler
 
     # The version of the html-table library
-    VERSION = '1.4.2'
+    VERSION = '1.5.0'.freeze
 
     # The indentation level for the <table> and </table> tags
     @indent_level = 0
@@ -187,7 +187,7 @@ module HTML
     #
     def self.indent_level=(num)
       expect(num, Integer)
-      raise ArgumentError,"indent level must be >= 0" if num < 0
+      raise ArgumentError, "indent level must be >= 0" if num < 0
       @indent_level = num
     end
 
