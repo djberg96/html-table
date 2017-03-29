@@ -2,7 +2,7 @@ require 'rubygems'
 
 Gem::Specification.new do |spec|
   spec.name       = 'html-table'
-  spec.version    = '1.4.2'
+  spec.version    = '1.5.0'
   spec.author     = 'Daniel J. Berger'
   spec.license    = 'Artistic 2.0'
   spec.email      = 'djberg96@gmail.com'
@@ -15,7 +15,7 @@ Gem::Specification.new do |spec|
   spec.extra_rdoc_files  = ['README', 'CHANGES'] + Dir['doc/*.rdoc']
 
   spec.add_dependency('strongtyping')
-  spec.add_dependency('structured_warnings')
+  spec.add_dependency('structured_warnings', '~> 0.3.0')
 
   spec.add_development_dependency('test-unit')
   spec.add_development_dependency('rake')
