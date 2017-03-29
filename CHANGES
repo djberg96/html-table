@@ -2,6 +2,7 @@
 * Updated the structured_warnings dependency to 0.3.0, and modified the
   warning classes to subclass the new warning types.
 * The VERSION constant is now frozen.
+* Updated cert file.
 
 == 1.4.2 - 8-Apr-2016
 * This gem is now signed.
