@@ -3,7 +3,7 @@
 
 == Prerequisites
   * strongtyping 2.0.6 or later
-  * structured_warnings 0.1.1 or later
+  * structured_warnings 0.3.0 or later
 
 == Installation
   gem install html-table
@@ -100,7 +100,7 @@
   Artistic 2.0
 
 == Copyright
-  (C) 2003-2016 Daniel J. Berger
+  (C) 2003-2017 Daniel J. Berger
   All Rights Reserved
 
 == Warranty
