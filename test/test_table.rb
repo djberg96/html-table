@@ -16,7 +16,8 @@ class TC_HTML_Table < Test::Unit::TestCase
   end
 
   def test_version
-    assert_equal('1.5.0', Table::VERSION)
+    assert_equal('1.5.1', Table::VERSION)
+    assert_true(Table::VERSION.frozen?)
   end
 
   def test_constructor
