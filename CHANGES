@@ -1,3 +1,7 @@
+== 1.5.1 - 31-Mar-2018
+* Fixed deprecation warnings.
+* Updated cert.
+
 == 1.5.0 - 29-Mar-2017
 * Updated the structured_warnings dependency to 0.3.0, and modified the
   warning classes to subclass the new warning types.
