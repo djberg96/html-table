@@ -38,7 +38,7 @@ module HTML
       def header=(bool)
          @header = bool
       end
-      
+
       # Adds content to the Row object.
       #
       # Because a Row object doesn't store any of its own content, the
@@ -102,7 +102,7 @@ module HTML
          raise ArgumentError if num < 0
          @indent_level = num
       end
-      
+
       # Returns true or false, depending on whether or not the end tags for
       # this class, </tr>, are included for each row or not. By default, this
       # is set to true.
@@ -128,14 +128,14 @@ module HTML
       def []=(index, obj)
          if obj.kind_of?(Array)
             obj.each{ |o| expect(o, [Data, Header]) }
-         else   
+         else
             expect(obj, [Data, Header])
          end
          super
       end
 
       # This method has been redefined to only allow certain classes to be
-      # accepted as arguments.  Specifically, they are String, Fixnum,
+      # accepted as arguments.  Specifically, they are String, Integer,
       # Data and Header.
       #
       # A plain string or number pushed onto a Row is automatically
@@ -143,7 +143,7 @@ module HTML
       #
       def push(*args)
          args.each do |obj|
-            if obj.kind_of?(String) || obj.kind_of?(Fixnum)
+            if obj.kind_of?(String) || obj.kind_of?(Integer)
                td = Table::Row::Data.new(obj.to_s)
                super(td)
                next
@@ -159,7 +159,7 @@ module HTML
       # Row#push.
       #
       def <<(obj)
-         if obj.kind_of?(String) || obj.kind_of?(Fixnum)
+         if obj.kind_of?(String) || obj.kind_of?(Integer)
             td = Table::Row::Data.new(obj.to_s)
             super(td)
          else
@@ -173,7 +173,7 @@ module HTML
       # Row#push.
       #
       def unshift(obj)
-         if obj.kind_of?(String) || obj.kind_of?(Fixnum)
+         if obj.kind_of?(String) || obj.kind_of?(Integer)
             td = Table::Row::Data.new(obj.to_s)
             super(td)
          else

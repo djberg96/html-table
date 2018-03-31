@@ -10,7 +10,7 @@ module HtmlHandler
   #
   def modify_html(attribute,arg=nil)
     if @html_begin.scan(/\b#{attribute}\b/).empty?
-      if arg.kind_of?(Fixnum)
+      if arg.kind_of?(Integer)
         @html_begin << " #{attribute}=#{arg}"
       elsif arg.kind_of?(TrueClass)
         @html_begin << " #{attribute}"
@@ -18,7 +18,7 @@ module HtmlHandler
         @html_begin << " #{attribute}='#{arg}'"
       end
     else
-      if arg.kind_of?(Fixnum)
+      if arg.kind_of?(Integer)
         @html_begin.gsub!(/#{attribute}=\d+/,"#{attribute}=#{arg}")
       elsif arg.kind_of?(FalseClass)
         @html_begin.gsub!(/#{attribute}/,'')
