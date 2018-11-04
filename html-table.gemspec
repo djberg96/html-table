@@ -2,7 +2,7 @@ require 'rubygems'
 
 Gem::Specification.new do |spec|
   spec.name       = 'html-table'
-  spec.version    = '1.5.1'
+  spec.version    = '1.5.2'
   spec.author     = 'Daniel J. Berger'
   spec.license    = 'Artistic 2.0'
   spec.email      = 'djberg96@gmail.com'
@@ -19,6 +19,15 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency('test-unit')
   spec.add_development_dependency('rake')
+
+  spec.metadata = {
+    'homepage_uri'      => 'https://github.com/djberg96/html-table',
+    'bug_tracker_uri'   => 'https://github.com/djberg96/html-table/issues',
+    'changelog_uri'     => 'https://github.com/djberg96/html-table/blob/master/CHANGES',
+    'documentation_uri' => 'https://github.com/djberg96/html-table/wiki',
+    'source_code_uri'   => 'https://github.com/djberg96/html-table',
+    'wiki_uri'          => 'https://github.com/djberg96/html-table/wiki'
+  }
 
   spec.description = <<-EOF
     The html-table library provides an interface for generating HTML tables
