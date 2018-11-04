@@ -1,3 +1,6 @@
+== 1.5.2 - 4-Nov-2018
+* Added metadata to gemspec.
+
 == 1.5.1 - 31-Mar-2018
 * Fixed deprecation warnings.
 * Updated cert.
