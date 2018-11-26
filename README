@@ -2,7 +2,6 @@
   An interface for generating HTML Tables with Ruby.
 
 == Prerequisites
-  * strongtyping 2.0.6 or later
   * structured_warnings 0.3.0 or later
 
 == Installation
@@ -97,7 +96,7 @@
   Holden Glova and Culley Harrelson for API suggestions and comments.
 
 == License
-  Artistic 2.0
+  Apache 2.0
 
 == Copyright
   (C) 2003-2018 Daniel J. Berger
@@ -112,8 +111,8 @@
   Daniel J. Berger
 
 == Developer's Notes
-  Some people might be a little annoyed with the fact that I required Ryan
-  Pavlik's strongtyping library. I'm not a big fan of strong typing myself.
+  Some people might be a little annoyed with the fact that I use a
+  strongtyping library. I'm not a big fan of strong typing myself.
   So, why did I do this?
 
   Normally when creating code, you setup your own rules as far as what is
@@ -124,9 +123,13 @@
   that you don't need the strong typing training wheels after all, right?
 
   However, HTML tables have a predefined set of rules as far as what content
-  is valid, and where it's placed in order to be HTML 4.0 compliant. For
+  is valid, and where it's placed in order to be HTML compliant. For
   example, if a caption is included, it should be at the 'top' of your table
   syntax, you can only have one foot section, and so on. I therefore chose to
-  enforce these conventions and rules in Ruby via Ryan's module. I could have
-  lived without it, and instead chose to do a plethora of "kind_of?" checks.
-  However, Ryan's package is both faster and required less typing on my part.
+  enforce these conventions and rules in Ruby via a module. I could have
+  lived without it, and instead chose to do a plethora of "kind_of?" checks,
+  but the strongtyping lib is simply more convenient all around.
+
+  UPDATE: I originally used Ryan Pavlik's strongtyping library as a dependency.
+  As of version 1.6.0 I now simply include a pure Ruby version with this library.
+  This makes it easier to work with JRuby and eliminates a dependency.
