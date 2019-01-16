@@ -2,9 +2,9 @@ require 'rubygems'
 
 Gem::Specification.new do |spec|
   spec.name       = 'html-table'
-  spec.version    = '1.5.2'
+  spec.version    = '1.6.0'
   spec.author     = 'Daniel J. Berger'
-  spec.license    = 'Artistic 2.0'
+  spec.license    = 'Apache-2.0'
   spec.email      = 'djberg96@gmail.com'
   spec.homepage   = 'http://github.com/djberg96/html-table'
   spec.summary    = 'A Ruby interface for generating HTML tables'
@@ -14,7 +14,6 @@ Gem::Specification.new do |spec|
 
   spec.extra_rdoc_files  = ['README', 'CHANGES'] + Dir['doc/*.rdoc']
 
-  spec.add_dependency('strongtyping')
   spec.add_dependency('structured_warnings', '~> 0.3.0')
 
   spec.add_development_dependency('test-unit')
