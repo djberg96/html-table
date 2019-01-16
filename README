@@ -1,9 +1,6 @@
 == Description
   An interface for generating HTML Tables with Ruby.
 
-== Prerequisites
-  * structured_warnings 0.3.0 or later
-
 == Installation
   gem install html-table
    
