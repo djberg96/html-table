@@ -141,10 +141,10 @@ Table#unshift(obj)
    Holden Glova and Culley Harrelson for API suggestions and comments.
 
 == License
-   Ruby's
+   Apache-2.0
 
 == Copyright
-   (C) 2003-2008 Daniel J. Berger
+   (C) 2003-2019 Daniel J. Berger
    All Rights Reserved
 
 == Warranty
@@ -154,5 +154,3 @@ Table#unshift(obj)
 
 == Author
    Daniel J. Berger
-   djberg96 at nospam at gmail dot com
-   imperator on IRC (irc.freenode.net)
