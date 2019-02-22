@@ -3,8 +3,8 @@ module HTML
    # name, it is not a subclass of ColGroup or Table.
    #
    class Table::ColGroup::Col
-      include AttributeHandler
-      include HtmlHandler
+      include HTML::Mixin::AttributeHandler
+      include HTML::Mixin::HtmlHandler
 
       undef_method :configure, :content
       @indent_level = 6

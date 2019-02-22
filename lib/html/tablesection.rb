@@ -2,8 +2,8 @@ module HTML
    # Superclass for THEAD, TBODY, TFOOT
    #
    class Table::TableSection < Array
-      include AttributeHandler
-      include HtmlHandler
+      include HTML::Mixin::AttributeHandler
+      include HTML::Mixin::HtmlHandler
 
       def initialize(&block)
          instance_eval(&block) if block_given?

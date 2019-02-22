@@ -4,8 +4,8 @@ module HTML
    # of the ColGroup::Col class.
    #
    class Table::ColGroup < Array
-      include AttributeHandler
-      include HtmlHandler
+      include HTML::Mixin::AttributeHandler
+      include HTML::Mixin::HtmlHandler
 
       @indent_level = 3
       @end_tags     = true
@@ -89,8 +89,8 @@ module HTML
             raise TypeError, msg
          end
          super
-      end   
-      
+      end
+
       # Returns a boolean indicating whether or not end tags are included for
       # each ColGroup object in the final HTML output.  The default is true.
       #

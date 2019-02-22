@@ -1,7 +1,7 @@
 module HTML
    class Table::Row < Array
-      include AttributeHandler
-      include HtmlHandler
+      include HTML::Mixin::AttributeHandler
+      include HTML::Mixin::HtmlHandler
 
       @indent_level = 3
       @end_tags     = true
