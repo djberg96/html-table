@@ -4,11 +4,11 @@
 # This class handles content for Table::Row::Data, Table::Row::Header,
 # and Table::Row::Caption objects.
 ########################################################################
-require File.join(File.dirname(__FILE__), 'tag_handler')
+require_relative 'mixin/tag_handler'
 
 module HTML
   class Table::Content < String
-    include TagHandler
+    include HTML::Mixin::TagHandler
 
     def initialize(string, &block)
       super(string)

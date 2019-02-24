@@ -4,8 +4,8 @@ module HTML
   # a subclass of Table.  Note that end tags for this class are mandatory.
   #
   class Table::Caption
-    include AttributeHandler
-    include HtmlHandler
+    include HTML::Mixin::AttributeHandler
+    include HTML::Mixin::HtmlHandler
 
     undef_method :configure
     @indent_level = 3

@@ -4,8 +4,8 @@ module HTML
   # it is not a subclass of Table::Row or Table.
   #
   class Table::Row::Data
-    include AttributeHandler
-    include HtmlHandler
+    include HTML::Mixin::AttributeHandler
+    include HTML::Mixin::HtmlHandler
 
     undef_method :configure
 

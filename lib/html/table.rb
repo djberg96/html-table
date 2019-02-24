@@ -1,8 +1,8 @@
-require_relative 'attribute_handler'
-require_relative 'html_handler'
-require 'strongtyping'
+require_relative 'mixin/attribute_handler'
+require_relative 'mixin/html_handler'
+require_relative 'mixin/strongtyping'
 require 'structured_warnings'
-include StrongTyping
+include HTML::Mixin::StrongTyping
 
 # Warning raised if a non-standard extension is used.
 class NonStandardExtensionWarning < StructuredWarnings::StandardWarning; end
@@ -16,8 +16,8 @@ module HTML
   # The Table class encapsulates methods associated with an html table
   # element. It is the "outermost" class of the html-table classes.
   class Table < Array
-    include AttributeHandler
-    include HtmlHandler
+    include HTML::Mixin::AttributeHandler
+    include HTML::Mixin::HtmlHandler
 
     # The version of the html-table library
     VERSION = '1.6.0'.freeze
