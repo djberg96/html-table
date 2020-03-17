@@ -1,5 +1,6 @@
-MANIFEST
 CHANGES
+LICENSE
+MANIFEST
 README
 Rakefile
 html-table.gemspec
