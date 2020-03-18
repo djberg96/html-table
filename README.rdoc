@@ -48,7 +48,7 @@ An interface for generating HTML Tables with Ruby.
      </tr>
   </table>
 
-  See the 'examples' directory under 'doc' for more examples.
+See the 'examples' directory under 'doc' for more examples.
 
 == Mixins
 Table is a subclass of Array, and therefore mixes in Enumerable. The
