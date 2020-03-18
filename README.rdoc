@@ -52,7 +52,7 @@ See the 'examples' directory under 'doc' for more examples.
 
 == Mixins
 Table is a subclass of Array, and therefore mixes in Enumerable. The
-+push+, +unshift+ and +[]=+ methods have been modified. See below for details.    
++push+, +unshift+ and []= methods have been modified. See below for details.    
    
 Table also mixes in AttributeHandler which provides methods for adding
 attributes to each of the tag types. See attributes.rdoc for more details.
