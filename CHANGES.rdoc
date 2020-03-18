@@ -1,3 +1,8 @@
+== 1.6.3 - 18-Mar-2020
+* Fixed the LICENSE file, which inadvertently included some unrelated
+  copyright notices. I also removed some unnecessary boilerplate.
+* Added an explicit .rdoc extension to files that were already in that format.
+
 == 1.6.2 - 17-Mar-2020
 * Include copy of Apache-2.0 license in distribution.
 

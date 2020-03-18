@@ -2,7 +2,7 @@ require 'rubygems'
 
 Gem::Specification.new do |spec|
   spec.name       = 'html-table'
-  spec.version    = '1.6.2'
+  spec.version    = '1.6.3'
   spec.author     = 'Daniel J. Berger'
   spec.license    = 'Apache-2.0'
   spec.email      = 'djberg96@gmail.com'
@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
   spec.files      = Dir['**/*'].reject{ |f| f.include?('git') }
   spec.cert_chain = ['certs/djberg96_pub.pem']
 
-  spec.extra_rdoc_files  = ['README', 'CHANGES'] + Dir['doc/*.rdoc']
+  spec.extra_rdoc_files  = ['README.rdoc', 'CHANGES.rdoc'] + Dir['doc/*.rdoc']
 
   spec.add_dependency('structured_warnings', '~> 0.3.0')
 
