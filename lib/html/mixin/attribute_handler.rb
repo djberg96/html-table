@@ -2,7 +2,7 @@
 # with HTML tables.  In some cases validation is done on the setters.
 #--
 # The seemingly redundant writer methods were left here for backwards
-# compatibility and for those who may not prefer the DSI.
+# compatibility and for those who may not prefer the DSL.
 #
 module HTML
   module Mixin
@@ -394,7 +394,7 @@ module HTML
       end
 
       def width=(num)
-        if num =~ /%/
+        if num.to_s =~ /%/
           @width = num
         else
           raise ArgumentError if num.to_i < 0
