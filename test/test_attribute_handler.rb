@@ -344,7 +344,11 @@ class TC_AttributeHandler < Test::Unit::TestCase
       assert_respond_to(@table, :width=)
       assert_nothing_raised{ @table.width}
       assert_nothing_raised{ @table.width = 10 }
+   end
+
+   def test_width_with_percent
       assert_nothing_raised{ @table.width = '5%' }
+      assert_equal('5%', @table.width)
    end
 
    def test_width_expected_errors
