@@ -2,7 +2,7 @@ require 'rake'
 require 'rake/clean'
 require 'rake/testtask'
 
-CLEAN.include("**/*.gem", "**/*.rbc")
+CLEAN.include("**/*.gem", "**/*.rbc", "**/*.lock")
 
 namespace :gem do
   desc 'Build the html-table gem'
@@ -57,7 +57,7 @@ Rake::TestTask.new do |t|
   t.verbose = true
 end
 
-namespace 'test' do 
+namespace 'test' do
   Rake::TestTask.new('attribute_handler') do |t|
     t.warning = true
     t.verbose = true
