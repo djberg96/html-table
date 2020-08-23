@@ -1,0 +1,20 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    power_assert (1.2.0)
+    rake (13.0.1)
+    structured_warnings (0.4.0)
+    test-unit (3.3.6)
+      power_assert
+
+PLATFORMS
+  ruby
+  x86_64-darwin-19
+
+DEPENDENCIES
+  rake!
+  structured_warnings (~> 0.4.0)!
+  test-unit (~> 3.0)!
+
+BUNDLED WITH
+   2.1.4

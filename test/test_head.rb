@@ -45,7 +45,7 @@ class TC_HTML_Table_Head < Test::Unit::TestCase
       assert_respond_to(Table::Head, :end_tags=)
       assert_nothing_raised{ Table::Head.end_tags? }
       assert_nothing_raised{ Table::Head.end_tags = true }
-      assert_raises(StrongTyping::ArgumentTypeError){
+      assert_raises(HTML::Mixin::StrongTyping::ArgumentTypeError){
          Table::Head.end_tags = "foo"
       }
    end
