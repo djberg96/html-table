@@ -25,8 +25,6 @@
 * doc/examples/simple2.rb
 * doc/examples/simple3.rb
 * lib/html-table.rb
-* lib/strongtyping.rb
-* lib/html/attribute_handler.rb
 * lib/html/body.rb
 * lib/html/caption.rb
 * lib/html/col.rb
@@ -36,11 +34,13 @@
 * lib/html/foot.rb
 * lib/html/head.rb
 * lib/html/header.rb
-* lib/html/html_handler.rb
 * lib/html/row.rb
 * lib/html/table.rb
 * lib/html/tablesection.rb
-* lib/html/tag_handler.rb
+* lib/html/mixin/attribute_handler.rb
+* lib/html/mixin/html_handler.rb
+* lib/html/mixin/strongtyping.rb
+* lib/html/mixin/tag_handler.rb
 * test/test_attribute_handler.rb
 * test/test_body.rb
 * test/test_caption.rb
