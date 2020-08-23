@@ -6,8 +6,6 @@
 #######################################################################
 require 'test-unit'
 require 'html/table'
-require 'strongtyping'
-include StrongTyping
 include HTML
 
 class TC_HTML_Table < Test::Unit::TestCase

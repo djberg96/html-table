@@ -52,7 +52,7 @@ class TC_HTML_Table_Foot < Test::Unit::TestCase
    end
 
    def test_end_tags_expected_errors
-      assert_raises(StrongTyping::ArgumentTypeError){
+      assert_raises(HTML::Mixin::StrongTyping::ArgumentTypeError){
          Table::Foot.end_tags = "foo"
       }
    end
