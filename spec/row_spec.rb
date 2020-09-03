@@ -1,7 +1,7 @@
 ############################################
-# test_row.rb
+# row_spec.rb
 #
-# Test suite for the Table::Row class
+# Specs for the Table::Row class.
 ############################################
 require 'rspec'
 require 'html/table'
