@@ -3,8 +3,8 @@
 #
 # Test suite for the HTML::Table::TableSection class.
 ######################################################
-require "test-unit"
-require "html/table"
+require 'rspec'
+require 'html/table'
 
 RSpec.describe HTML::Table::TableSection do
   before do
