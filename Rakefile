@@ -52,11 +52,6 @@ namespace 'example' do
    end
 end
 
-RSpec::Core::RakeTask.new do |t|
-  t.warning = true
-  t.verbose = true
-end
-
 namespace :spec do
   RSpec::Core::RakeTask.new(:attribute_handler) do |t|
     t.pattern = 'spec/attribute_handler_spec.rb'
