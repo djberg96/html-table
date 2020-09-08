@@ -13,8 +13,8 @@ RSpec.describe HTML::Table do
   end
 
   example "version" do
-    expect(described_class::VERSION).to eq('1.6.3')
-    expect(described_class::VERSION.frozen?).to be true
+    expect(described_class::VERSION).to eq('1.7.0')
+    expect(described_class::VERSION).to be_frozen
   end
 
   example "constructor" do

@@ -20,7 +20,7 @@ module HTML
     include HTML::Mixin::HtmlHandler
 
     # The version of the html-table library
-    VERSION = '1.6.3'.freeze
+    VERSION = '1.7.0'.freeze
 
     # The indentation level for the <table> and </table> tags
     @indent_level = 0
