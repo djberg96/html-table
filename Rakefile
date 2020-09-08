@@ -21,35 +21,35 @@ namespace :gem do
 end
 
 namespace 'example' do
-   desc "Run the first simple html-table example"
-   task :simple1 do
-      sh 'ruby -Ilib examples/simple1.rb'
-   end
+  desc "Run the first simple html-table example"
+  task :simple1 do
+    sh 'ruby -Ilib examples/simple1.rb'
+  end
 
-   desc "Run the second simple html-table example"
-   task :simple2 do
-      sh 'ruby -Ilib examples/simple2.rb'
-   end
+  desc "Run the second simple html-table example"
+  task :simple2 do
+    sh 'ruby -Ilib examples/simple2.rb'
+  end
 
-   desc "Run the third simple html-table example"
-   task :simple3 do
-      sh 'ruby -Ilib examples/simple3.rb'
-   end
+  desc "Run the third simple html-table example"
+  task :simple3 do
+    sh 'ruby -Ilib examples/simple3.rb'
+  end
 
-   desc "Run the first intermediate html-table example"
-   task :intermediate1 do
-      sh 'ruby -Ilib examples/intermediate1.rb'
-   end
+  desc "Run the first intermediate html-table example"
+  task :intermediate1 do
+    sh 'ruby -Ilib examples/intermediate1.rb'
+  end
 
-   desc "Run the second intermediate html-table example"
-   task :intermediate2 do
-      sh 'ruby -Ilib examples/intermediate2.rb'
-   end
+  desc "Run the second intermediate html-table example"
+  task :intermediate2 do
+    sh 'ruby -Ilib examples/intermediate2.rb'
+  end
 
-   desc "Run the advanced html-table example"
-   task :advanced do
-      sh 'ruby -Ilib examples/advanced.rb'
-   end
+  desc "Run the advanced html-table example"
+  task :advanced do
+    sh 'ruby -Ilib examples/advanced.rb'
+  end
 end
 
 namespace :spec do
