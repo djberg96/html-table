@@ -1,3 +1,7 @@
+== 1.7.0 - 8-Sep-2020
+* Switched from test-unit to rspec.
+* Added a Gemfile.
+
 == 1.6.3 - 18-Mar-2020
 * Fixed the LICENSE file, which inadvertently included some unrelated
   copyright notices. I also removed some unnecessary boilerplate.
