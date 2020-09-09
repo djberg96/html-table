@@ -1,6 +1,6 @@
 require 'rake'
 require 'rake/clean'
-require 'rake/testtask'
+require 'rspec/core/rake_task'
 
 CLEAN.include("**/*.gem", "**/*.rbc", "**/*.lock")
 
@@ -21,126 +21,97 @@ namespace :gem do
 end
 
 namespace 'example' do
-   desc "Run the first simple html-table example"
-   task :simple1 do
-      sh 'ruby -Ilib examples/simple1.rb'
-   end
-
-   desc "Run the second simple html-table example"
-   task :simple2 do
-      sh 'ruby -Ilib examples/simple2.rb'
-   end
-
-   desc "Run the third simple html-table example"
-   task :simple3 do
-      sh 'ruby -Ilib examples/simple3.rb'
-   end
-
-   desc "Run the first intermediate html-table example"
-   task :intermediate1 do
-      sh 'ruby -Ilib examples/intermediate1.rb'
-   end
-
-   desc "Run the second intermediate html-table example"
-   task :intermediate2 do
-      sh 'ruby -Ilib examples/intermediate2.rb'
-   end
-
-   desc "Run the advanced html-table example"
-   task :advanced do
-      sh 'ruby -Ilib examples/advanced.rb'
-   end
-end
-
-Rake::TestTask.new do |t|
-  t.warning = true
-  t.verbose = true
-end
-
-namespace 'test' do
-  Rake::TestTask.new('attribute_handler') do |t|
-    t.warning = true
-    t.verbose = true
-    t.test_files = FileList['test/test_attribute_handler.rb']
+  desc "Run the first simple html-table example"
+  task :simple1 do
+    sh 'ruby -Ilib examples/simple1.rb'
   end
 
-  Rake::TestTask.new('body') do |t|
-    t.warning = true
-    t.verbose = true
-    t.test_files = FileList['test/test_body.rb']
+  desc "Run the second simple html-table example"
+  task :simple2 do
+    sh 'ruby -Ilib examples/simple2.rb'
   end
 
-  Rake::TestTask.new('caption') do |t|
-    t.warning = true
-    t.verbose = true
-    t.test_files = FileList['test/test_caption.rb']
+  desc "Run the third simple html-table example"
+  task :simple3 do
+    sh 'ruby -Ilib examples/simple3.rb'
   end
 
-  Rake::TestTask.new('col') do |t|
-    t.warning = true
-    t.verbose = true
-    t.test_files = FileList['test/test_col.rb']
+  desc "Run the first intermediate html-table example"
+  task :intermediate1 do
+    sh 'ruby -Ilib examples/intermediate1.rb'
   end
 
-  Rake::TestTask.new('colgroup') do |t|
-    t.warning = true
-    t.verbose = true
-    t.test_files = FileList['test/test_colgroup.rb']
+  desc "Run the second intermediate html-table example"
+  task :intermediate2 do
+    sh 'ruby -Ilib examples/intermediate2.rb'
   end
 
-  Rake::TestTask.new('data') do |t|
-    t.warning = true
-    t.verbose = true
-    t.test_files = FileList['test/test_data.rb']
-  end
-
-  Rake::TestTask.new('foot') do |t|
-    t.warning = true
-    t.verbose = true
-    t.test_files = FileList['test/test_foot.rb']
-  end
-
-  Rake::TestTask.new('head') do |t|
-    t.warning = true
-    t.verbose = true
-    t.test_files = FileList['test/test_head.rb']
-  end
-
-  Rake::TestTask.new('header') do |t|
-    t.warning = true
-    t.verbose = true
-    t.test_files = FileList['test/test_header.rb']
-  end
-
-  Rake::TestTask.new('html_handler') do |t|
-    t.warning = true
-    t.verbose = true
-    t.test_files = FileList['test/test_html_handler.rb']
-  end
-
-  Rake::TestTask.new('row') do |t|
-    t.warning = true
-    t.verbose = true
-    t.test_files = FileList['test/test_row.rb']
-  end
-
-  Rake::TestTask.new('table') do |t|
-    t.warning = true
-    t.verbose = true
-    t.test_files = FileList['test/test_table.rb']
-  end
-
-  Rake::TestTask.new('tablesection') do |t|
-    t.warning = true
-    t.verbose = true
-    t.test_files = FileList['test/test_tablesection.rb']
-  end
-
-  Rake::TestTask.new('tag_handler') do |t|
-    t.warning = true
-    t.verbose = true
-    t.test_files = FileList['test/test_tag_handler.rb']
+  desc "Run the advanced html-table example"
+  task :advanced do
+    sh 'ruby -Ilib examples/advanced.rb'
   end
 end
 
-task :default => [:test, :clean]
+namespace :spec do
+  RSpec::Core::RakeTask.new(:attribute_handler) do |t|
+    t.pattern = 'spec/attribute_handler_spec.rb'
+  end
+
+  RSpec::Core::RakeTask.new(:body) do |t|
+    t.pattern = 'spec/body_spec.rb'
+  end
+
+  RSpec::Core::RakeTask.new(:caption) do |t|
+    t.pattern = 'spec/caption_spec.rb'
+  end
+
+  RSpec::Core::RakeTask.new(:col) do |t|
+    t.pattern = 'spec/col_spec.rb'
+  end
+
+  RSpec::Core::RakeTask.new(:colgroup) do |t|
+    t.pattern = 'spec/colgroup_spec.rb'
+  end
+
+  RSpec::Core::RakeTask.new(:data) do |t|
+    t.pattern = 'spec/data_spec.rb'
+  end
+
+  RSpec::Core::RakeTask.new(:foot) do |t|
+    t.pattern = 'spec/foot_spec.rb'
+  end
+
+  RSpec::Core::RakeTask.new(:head) do |t|
+    t.pattern = 'spec/head_spec.rb'
+  end
+
+  RSpec::Core::RakeTask.new(:header) do |t|
+    t.pattern = 'spec/header_spec.rb'
+  end
+
+  RSpec::Core::RakeTask.new(:html_handler) do |t|
+    t.pattern = 'spec/html_handler_spec.rb'
+  end
+
+  RSpec::Core::RakeTask.new(:row) do |t|
+    t.pattern = 'spec/row_spec.rb'
+  end
+
+  RSpec::Core::RakeTask.new(:table) do |t|
+    t.pattern = 'spec/table_spec.rb'
+  end
+
+  RSpec::Core::RakeTask.new(:tablesection) do |t|
+    t.pattern = 'spec/tablesection_spec.rb'
+  end
+
+  RSpec::Core::RakeTask.new(:tag_handler) do |t|
+    t.pattern = 'spec/tag_handler_spec.rb'
+  end
+
+  RSpec::Core::RakeTask.new(:all) do |t|
+    t.pattern = 'spec/*_spec.rb'
+  end
+end
+
+task :default => ['spec:all', :clean]
