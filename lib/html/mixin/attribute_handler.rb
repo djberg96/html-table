@@ -215,7 +215,7 @@ module HTML
 
       # Allows you to configure various attributes by row or row + column.
       #
-      def configure(row, col=nil, &block)
+      def configure(row, col=nil)
         if col
           begin
             yield self[row][col]
