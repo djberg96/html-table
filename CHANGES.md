@@ -102,7 +102,7 @@
 * The content method now creates a Table::Content object behind the scenes
   (a subclass of String) and allows physical tags to generated on the fly
   via a block.
-* Added support for physical tags for content, e.g. `&lt;b&gt;`, `&lt;i&gt;` etc.
+* Added support for physical tags for content, e.g. `&ltb&gt`, `&lti&gt` etc.
   See the documentation for more details.
 * Added the 'style' and 'class_' attribute handlers for you CSS lovers.
 * Added the 'data' alias for the 'content' method.
