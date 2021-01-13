@@ -102,7 +102,7 @@
 * The content method now creates a Table::Content object behind the scenes
   (a subclass of String) and allows physical tags to generated on the fly
   via a block.
-* Added support for physical tags for content, e.g. `&ltb&gt`, `&lti&gt` etc.
+* Added support for physical tags for content, e.g. `<b>`, `<i>` etc.
   See the documentation for more details.
 * Added the 'style' and 'class_' attribute handlers for you CSS lovers.
 * Added the 'data' alias for the 'content' method.
@@ -136,7 +136,7 @@
   you to configure you want end tags or not for all classes, rather than
   having to configure each class individually.  Note that classes which
   require end tags are unaffected.
-* Added handling for `&lt;&lt;` for those classes where it was appropriate (i.e.
+* Added handling for `<<` for those classes where it was appropriate (i.e.
   any class that also used `push`).
 * Minor update in the Table::Row#unshift method.
 * Modified the `border=` method in the AttributeHandler module to accept true
