@@ -1,70 +1,66 @@
-== Description
+## Description
    A list of attributes handled by html-table.  Each of the writers has a
    corresponding reader unless otherwise stated.
 
-== Attributes
-abbr=(string)
-   Sets the value for the abbr attribute.
+## Attributes
+`abbr=(string)`
+Sets the value for the abbr attribute.
 
-align=(string)
-   Sets the align attribute.  Valid arguments are 'left', 'center' and
-   'right'.  An ArgumentError is raised if an invalid argument is passed.
+`align=(string)`
+Sets the align attribute. Valid arguments are 'left', 'center' and
+'right'.  An ArgumentError is raised if an invalid argument is passed.
 
-axis=(string)
-   Sets the value for the axis attribute.
+`axis=(string)`
+Sets the value for the axis attribute.
 
-background=(url)
-   Sets the background attribute.  The url must be a String or a TypeError
+`background=(url)`
+Sets the background attribute. The url must be a String or a TypeError
    is raised.  This is a non-standard extension.
 
-bgcolor=(color)
-   Sets the color for the bgcolor attribute.  Hex values should still be
-   quoted, e.g. "#F80000".
+`bgcolor=(color)`
+Sets the color for the bgcolor attribute. Hex values should still be
+quoted, e.g. "#F80000".
 
-border=(num)
-   Sets the value for the border attribute.
+`border=(num)`
+Sets the value for the border attribute.
 
-bordercolor=(color)
-   Sets the color for the bordercolor attribute.  This is a non-standard
-   extension.
+`bordercolor=(color)`
+Sets the color for the bordercolor attribute. This is a non-standard extension.
 
-bordercolordark=(color)
-   Sets the color for the bordercolordark attribute.  This is a non-standard
-   extension.
+`bordercolordark=(color)`
+Sets the color for the bordercolordark attribute. This is a non-standard extension.
 
-bordercolorlight=(color)
-   Sets the color for the bordercolorlight attribute.  This is a non-standard
-   extension.
+`bordercolorlight=(color)`
+Sets the color for the bordercolorlight attribute. This is a non-standard extension.
 
-cellpadding=(num)
-   Sets the value for the cellpadding attribute.  Raises an ArgumentError if
-   num.to_i is less than 0.
+`cellpadding=(num)`
+Sets the value for the cellpadding attribute.  Raises an ArgumentError if num.to_i is less than 0.
 
-cellspacing=(num)
-   Sets the value for the cellspacing attribute.  Raises an ArgumentError if
-   num.to_i is less than 0.
+`cellspacing=(num)`
+Sets the value for the cellspacing attribute.  Raises an ArgumentError if
+ num.to_i is less than 0.
 
-char=(character)
-   Sets the value for the char attribute.  An ArgumentError is raised if the
-   argument passed has a length greater than 1 (i.e. it may only be a char).
+`char=(character)`
+Sets the value for the char attribute.  An ArgumentError is raised if the
+argument passed has a length greater than 1 (i.e. it may only be a char).
 
-charoff=(value)
-   Sets the value for the charoff attribute.
+`charoff=(value)`
+Sets the value for the charoff attribute.
 
-colspan=(num)
-   Sets the colspan attribute.
+`colspan=(num)`
+Sets the colspan attribute.
 
-content=(*args)
-   The behavior of this method varies largely based on the type of instance
-   that invokes it.  Here are the rules for each +arg+ in +args+:
+`content=(*args)`
+The behavior of this method varies largely based on the type of instance
+that invokes it. Here are the rules for each argument in `args`:
     
-   +Table+:
+* Table
     
-   If +arg+ is a Row, Head, Foot, Body or ColGroup object, it is
-   pushed onto the table.  If +arg+ is a string, one Row object with
-   one one Data object is pushed onto the Table.  If +arg+ is an Array,
-   one Row object is created and each element of the array is pushed
-   onto that Row.
+If `arg` is a `Row`, `Head`, `Foot`, `Body` or `ColGroup` object, it is
+pushed onto the table. If `arg` is a string, one `Row` object with
+one one `Data` object is pushed onto the `Table`. If `arg` is an `Array`,
+then one `Row` object is created and each element of the array is pushed
+onto that Row.
     
    +Table::Row+:
     
