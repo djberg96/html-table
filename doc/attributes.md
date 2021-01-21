@@ -68,7 +68,7 @@ Sets the colspan attribute.
 The behavior of this method varies largely based on the type of instance
 that invokes it. Here are the rules for each argument in `args`:
     
-* Table
+`Table`:
     
 If `arg` is a `Row`, `Head`, `Foot`, `Body` or `ColGroup` object, it is
 pushed onto the table. If `arg` is a string, one `Row` object with
@@ -76,78 +76,85 @@ one one `Data` object is pushed onto the `Table`. If `arg` is an `Array`,
 then one `Row` object is created and each element of the array is pushed
 onto that Row.
     
-   +Table::Row+:
+`Table::Row`:
     
-   If +arg+ is a Header or Data object, it is pushed onto the Row.  If
-   +arg+ is a String, it is created as a single Data object.  Attempts
-   to assign any other type will raise a TypeError.
+If `arg` is a `Header` or `Data` object, it is pushed onto the `Row`. If
+`arg` is a `String`, it is created as a single `Data` object. Any attempt
+to assign any other type will raise a `TypeError`.
        
-   +Table::Head, Table::Foot, Table::Body+:
+`Table::Head`, `Table::Foot`, `Table::Body`:
     
-   Behave identically to Table::Row except that they accept Table::Row
-   objects as well.
+Behave identically to `Table::Row` except that they accept Table::Row objects as well.
        
-   +Table::ColGroup+:
+`Table::ColGroup`:
     
-   Behaves identically to Table::Row except that it only accepts Col objects.
+Behaves identically to Table::Row except that it only accepts Col objects.
        
-   +Table::Col+:
+`Table::Col`:
     
-   This method is undefined for Table::Col, because they do not accept
-   content.
+This method is undefined for Table::Col, because they do not accept content.
        
-   +Table::Data and Table::Header+:
+`Table::Data and Table::Header`:
     
-   Sets the text string for the Data or Header object.  Arrays are join'd.
-   Any other type raises a TypeError.  
+Sets the text string for the `Data` or `Header` object. Arrays are join'd.
+Any other type raises a `TypeError`.
 
-frame=(type)
-   Sets the value for the frame attribute.  Valid values are border, void,
-   above, below, hsides, lhs, rhs, vsides, and box.  An ArgumentError is
-   raised if an invalid type is detected.
+`frame=(type)`
 
-height=(num)
-   Sets the value for the height attribute.  Raises an ArgumentError if
-   num.to_i is less than 0.
+Sets the value for the frame attribute. Valid values are border, void,
+above, below, hsides, lhs, rhs, vsides, and box. An ArgumentError is
+raised if an invalid type is detected.
 
-hspace=(num)
-   Sets the value for the hspace attribute.  Raises an ArgumentError if
-   num.to_i is less than 0.
+`height=(num)`
 
-nowrap=(bool)
-   Sets the value for the nowrap attribute.  Setting it to true means it will
-   be included as an attribute for the Table object.  The default is false
-   (i.e. not included).
+Sets the value for the height attribute. Raises an ArgumentError if
+num.to_i is less than 0.
 
-rowspan=(num)
-   Sets the value for the rowspan attribute.
+`hspace=(num)`
 
-rules=(edges)
-   Sets the value for the rules attribute.  Valid values are all, groups,
-   rows, cols, or none.  An ArgumentError is raised if an invalid edges value
-   is detected.
+Sets the value for the hspace attribute. Raises an ArgumentError if
+num.to_i is less than 0.
 
-scope=(scope)
-   Sets the value for the scope attribute.  Valid values for +scope+ are
-   row, col, rowgroup or colgroup.  An ArgumentError is raised if an invalid
-   scope value is passed.
+`nowrap=(bool)`
 
-span=(num)
-   Sets the span attribute.  If num.to_i is less than 0, and ArgumentError
-   is raised.
+Sets the value for the nowrap attribute. Setting it to true means it will be
+included as an attribute for the Table object. The default is false (i.e. not included).
 
-summary=(string)
-   Sets the value for the summary attribute.
+`rowspan=(num)`
 
-valign=(position)
-   Sets the value for the valign attribute.  Valid values are top, center,
-   bottom, and baseline.  This is a non-standard extension.
+Sets the value for the rowspan attribute.
 
-vspace=(num)
-   Sets the value for the vspace attribute.  This is a non-standard
-   extension.
+`rules=(edges)`
 
-width=(num)
-   Sets the value for the width attribute.  If num is in 'x%' format, it
-   is retained as a string.  If num is a Fixnum (or stringified number), an
-   ArgumentError is raised if num.to_i is less than 0.
+Sets the value for the rules attribute. Valid values are "all", "groups",
+"rows", "cols", or "none". An `ArgumentError` is raised if an invalid edges value
+is detected.
+
+`scope=(scope)`
+
+Sets the value for the scope attribute.  Valid values for +scope+ are
+row, col, rowgroup or colgroup.  An ArgumentError is raised if an invalid
+scope value is passed.
+
+`span=(num)`
+
+Sets the span attribute. If num.to_i is less than 0, and ArgumentError is raised.
+
+`summary=(string)`
+
+Sets the value for the summary attribute.
+
+`valign=(position)`
+
+Sets the value for the valign attribute. Valid values are top, center,
+bottom, and baseline. This is a non-standard extension.
+
+`vspace=(num)`
+
+Sets the value for the vspace attribute. This is a non-standard extension.
+
+`width=(num)`
+
+Sets the value for the width attribute.  If num is in 'x%' format, it
+is retained as a string.  If num is a Fixnum (or stringified number), an
+ArgumentError is raised if num.to_i is less than 0.
