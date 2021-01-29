@@ -47,7 +47,7 @@
 * Use require_relative where appropriate.
 
 ## 1.4.0 - 28-Aug-2013
-* The HTML::Table constructor now accepts an optional hash of options.
+* The `HTML::Table` constructor now accepts an optional hash of options.
   If present, they are treated as table attributes.
 * Some Rakefile and gemspec updates.
 * Minor test file cleanup.
