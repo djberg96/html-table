@@ -57,11 +57,11 @@ module HTML
         len           = html.length
         html[len, len] = '>'
 
-        if self.kind_of?(Array)
+        if kind_of?(Array)
           if formatting
-            html << self.map{ |e| "\n" + e.html(formatting).to_s }.join
+            html << map{ |e| "\n" + e.html(formatting).to_s }.join
           else
-            html << self.map{ |e| e.html(formatting).to_s }.join
+            html << map{ |e| e.html(formatting).to_s }.join
           end
         else
           html << @html_body
@@ -75,7 +75,7 @@ module HTML
         # The Table.global_end_tags method overrides the individual class
         # preferences with regards to end tags.
         #####################################################################
-        if self.kind_of?(Array)
+        if kind_of?(Array)
           if HTML::Table.global_end_tags?
             if self.class.respond_to?(:end_tags?)
               if formatting

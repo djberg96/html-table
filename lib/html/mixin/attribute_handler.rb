@@ -239,7 +239,7 @@ module HTML
               if e.kind_of?(Array)
                 row = Table::Row.new
                 e.each{ |element| row.push(Table::Content.new(element, &block)) }
-                self.push(row)
+                push(row)
               else
                 self.content = Table::Content.new(e, &block)
               end

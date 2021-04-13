@@ -14,7 +14,7 @@ module HTML
      #
     def content=(arg)
       tr = Table::Row.new(arg)
-      self.push(tr)
+      push(tr)
     end
 
     def self.indent_level

@@ -95,7 +95,7 @@ module HTML
 
       # Assume html_options are attributes
       html_options.each{ |key, val|
-        self.send("#{key}=", val)
+        send("#{key}=", val)
       }
     end
 
@@ -247,19 +247,19 @@ module HTML
 
         case obj
           when Table::Row::Data, Table::Row::Header
-            self.push(Table::Row.new(obj))
+            push(Table::Row.new(obj))
           when Table::Caption
             if self[0].kind_of?(Table::Caption)
               self[0] = obj
             else
-              self.unshift(obj)
+              unshift(obj)
             end
           when Table::Head
             if self[0].kind_of?(Table::Caption)
-              self.unshift(obj)
+              unshift(obj)
               self[0], self[1] = self[1], self[0]
             else
-              self.unshift(obj)
+              unshift(obj)
             end
           else
             super(obj)
@@ -282,14 +282,14 @@ module HTML
           if self[0].kind_of?(Table::Caption)
             self[0] = obj
           else
-            self.unshift(obj)
+            unshift(obj)
           end
         when Table::Head                          # Always at row 0 or 1
           if self[0].kind_of?(Table::Caption)
-            self.unshift(obj)
+            unshift(obj)
             self[0], self[1] = self[1], self[0]
           else
-            self.unshift(obj)
+            unshift(obj)
           end
         else
           super(obj)

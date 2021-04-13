@@ -20,7 +20,7 @@ module HTML
       @html_body  = ''
       @html_end   = '</colgroup>'
       instance_eval(&block) if block_given?
-      self.push(arg) if arg
+      push(arg) if arg
     end
 
      # Returns the indentation level for the tags of this class.  The

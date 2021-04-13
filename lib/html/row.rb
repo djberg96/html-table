@@ -67,24 +67,24 @@ module HTML
       case arg
          when String
            if @header
-             self.push(Table::Row::Header.new(arg))
+             push(Table::Row::Header.new(arg))
            else
-             self.push(Table::Row::Data.new(arg))
+             push(Table::Row::Data.new(arg))
            end
          when Array
            arg.each{ |e|
              if e.kind_of?(Table::Row::Data) || e.kind_of?(Table::Row::Header)
-               self.push(e)
+               push(e)
              else
                if @header
-                 self.push(Table::Row::Header.new(e))
+                 push(Table::Row::Header.new(e))
                else
-                 self.push(Table::Row::Data.new(e))
+                 push(Table::Row::Data.new(e))
                end
              end
            }
          else
-           self.push(arg)
+           push(arg)
       end
     end
 
