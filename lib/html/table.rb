@@ -94,9 +94,9 @@ module HTML
       self.content = arg if arg
 
       # Assume html_options are attributes
-      html_options.each { |key, val|
+      html_options.each do |key, val|
         send("#{key}=", val)
-      }
+      end
     end
 
     # Adds content to the table. How this method behaves depends on the
@@ -242,7 +242,7 @@ module HTML
     # element, or the second element if a Caption already exists.
     #
     def push(*args)
-      args.each { |obj|
+      args.each do |obj|
         expect(obj, [Caption, ColGroup, Body, Foot, Head, Row, Row::Data, Row::Header])
 
         case obj
@@ -264,7 +264,7 @@ module HTML
           else
           super(obj)
         end
-      }
+      end
     end
 
     # This method has been redefined to only allow certain subclasses to

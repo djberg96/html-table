@@ -72,7 +72,7 @@ module HTML
           push(Table::Row::Data.new(arg))
         end
       when Array
-        arg.each { |e|
+        arg.each do |e|
           if e.is_a?(Table::Row::Data) || e.is_a?(Table::Row::Header)
             push(e)
           else
@@ -82,7 +82,7 @@ module HTML
               push(Table::Row::Data.new(e))
             end
           end
-        }
+        end
          else
         push(arg)
       end

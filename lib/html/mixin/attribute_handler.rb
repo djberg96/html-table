@@ -235,7 +235,7 @@ module HTML
         when String
           self.content = Table::Content.new(arg, &block)
         when Array
-          arg.each { |e|
+          arg.each do |e|
             if e.is_a?(Array)
               row = Table::Row.new
               e.each { |element| row.push(Table::Content.new(element, &block)) }
@@ -243,7 +243,7 @@ module HTML
             else
               self.content = Table::Content.new(e, &block)
             end
-          }
+          end
           else
           self.content = arg if arg
         end
