@@ -14,7 +14,7 @@ module HTML
     # class.  Optionally, a block may be provided.  If an argument is 
     # provided it is treated as content.
     #
-    def self.create(arg=nil, &block)
+    def self.create(arg = nil, &block)
       @@foot = new(arg, &block) unless @@foot
       @@foot
     end      

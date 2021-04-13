@@ -10,7 +10,7 @@ module HTML
       #--
       # This is private method.
       #
-      def modify_html(attribute, arg=nil)
+      def modify_html(attribute, arg = nil)
         if @html_begin.scan(/\b#{attribute}\b/).empty?
           if arg.is_a?(Integer)
             @html_begin << " #{attribute}=#{arg}"
