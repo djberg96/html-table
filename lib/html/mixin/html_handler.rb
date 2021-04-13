@@ -10,22 +10,22 @@ module HTML
       #--
       # This is private method.
       #
-      def modify_html(attribute,arg=nil)
+      def modify_html(attribute, arg = nil)
         if @html_begin.scan(/\b#{attribute}\b/).empty?
-          if arg.kind_of?(Integer)
+          if arg.is_a?(Integer)
             @html_begin << " #{attribute}=#{arg}"
-          elsif arg.kind_of?(TrueClass)
+          elsif arg.is_a?(TrueClass)
             @html_begin << " #{attribute}"
           else
             @html_begin << " #{attribute}='#{arg}'"
           end
         else
-          if arg.kind_of?(Integer)
-            @html_begin.gsub!(/#{attribute}=\d+/,"#{attribute}=#{arg}")
-          elsif arg.kind_of?(FalseClass)
-            @html_begin.gsub!(/#{attribute}/,'')
+          if arg.is_a?(Integer)
+            @html_begin.gsub!(/#{attribute}=\d+/, "#{attribute}=#{arg}")
+          elsif arg.is_a?(FalseClass)
+            @html_begin.gsub!(/#{attribute}/, '')
           else
-            @html_begin.gsub!(/#{attribute}=['\w\.]+/,"#{attribute}='#{arg}'")
+            @html_begin.gsub!(/#{attribute}=['\w\.]+/, "#{attribute}='#{arg}'")
           end
         end
       end
@@ -39,7 +39,7 @@ module HTML
       #
       def html(formatting = true)
         if self.class.respond_to?(:html_case)
-          $upper = true if self.class.html_case == "upper"
+          $upper = true if self.class.html_case == 'upper'
         end
 
         if $upper
@@ -55,13 +55,13 @@ module HTML
 
         html          = ' ' * ilevel + @html_begin[0..-1]
         len           = html.length
-        html[len,len] = '>'
+        html[len, len] = '>'
 
-        if self.kind_of?(Array)
+        if is_a?(Array)
           if formatting
-            html << self.map{ |e| "\n" + e.html(formatting).to_s }.join
+            html << map { |e| "\n#{e.html(formatting)}" }.join
           else
-            html << self.map{ |e| e.html(formatting).to_s }.join
+            html << map { |e| e.html(formatting).to_s }.join
           end
         else
           html << @html_body
@@ -75,19 +75,19 @@ module HTML
         # The Table.global_end_tags method overrides the individual class
         # preferences with regards to end tags.
         #####################################################################
-        if self.kind_of?(Array)
+        if is_a?(Array)
           if HTML::Table.global_end_tags?
             if self.class.respond_to?(:end_tags?)
               if formatting
                 if self.class.end_tags?
-                  html << "\n" + (' ' * ilevel) + @html_end
+                  html << "\n#{(' ' * ilevel)}#{@html_end}"
                 end
               else
                 html << (' ' * ilevel) + @html_end if self.class.end_tags?
               end
             else
               if formatting
-                html << "\n" + (' ' * ilevel) + @html_end
+                html << "\n#{(' ' * ilevel)}#{@html_end}"
               else
                 html << (' ' * ilevel) + @html_end
               end
@@ -95,7 +95,7 @@ module HTML
           else
             unless self.class.respond_to?(:end_tags?)
               if formatting
-                html << "\n" + (' ' * ilevel) + @html_end
+                html << "\n#{(' ' * ilevel)}#{@html_end}"
               else
                 html << (' ' * ilevel) + @html_end
               end
@@ -115,7 +115,7 @@ module HTML
           end
         end
 
-        return html
+        html
       end
 
       private :modify_html

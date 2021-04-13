@@ -11,8 +11,8 @@ module HTML
     # an argument is provided, it is treated as content.
     #
     def initialize(arg = nil, &block)
-      @html_begin = "<tbody"
-      @html_end   = "</tbody>"
+      @html_begin = '<tbody'
+      @html_end   = '</tbody>'
       instance_eval(&block) if block_given?
       self.content = arg if arg
     end
@@ -30,7 +30,7 @@ module HTML
     # valid arguments.
     #
     def self.end_tags=(bool)
-      expect(bool,[TrueClass, FalseClass])
+      expect(bool, [TrueClass, FalseClass])
       @end_tags = bool
     end
   end

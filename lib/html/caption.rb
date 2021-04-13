@@ -38,8 +38,8 @@ module HTML
     # Sets the number of spaces that tags for this class are indented.
     #
     def self.indent_level=(num)
-      expect(num,Integer)
-      raise ArgumentError, "indent level must be >= 0" if num < 0
+      expect(num, Integer)
+      raise ArgumentError, 'indent level must be >= 0' if num < 0
       @indent_level = num
     end
 
