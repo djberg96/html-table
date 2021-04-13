@@ -166,7 +166,7 @@ module HTML
     def self.html_case=(arg)
       expect(arg, String)
       arg.downcase!
-      unless arg == "upper" || arg == "lower"
+      unless arg == 'upper' || arg == 'lower'
         msg = "Argument to html_case() must be 'upper' or 'lower'"
         raise ArgumentError, msg
       end
@@ -187,7 +187,7 @@ module HTML
     #
     def self.indent_level=(num)
       expect(num, Integer)
-      raise ArgumentError, "indent level must be >= 0" if num < 0
+      raise ArgumentError, 'indent level must be >= 0' if num < 0
       @indent_level = num
     end
 
@@ -205,25 +205,25 @@ module HTML
 
       # Only allow Caption objects at index 0
       if index != 0 && obj.is_a?(HTML::Table::Caption)
-        msg = "CAPTION can only be added at index 0"
+        msg = 'CAPTION can only be added at index 0'
         raise ArgumentError, msg
       end
 
       # Only allow Head objects at index 0 or 1
       if obj.is_a?(HTML::Table::Head)
         if self[0].is_a?(HTML::Table::Caption) && index != 1
-          msg = "THEAD must be at index 1 when Caption is included"
+          msg = 'THEAD must be at index 1 when Caption is included'
           raise ArgumentError, msg
         end
 
         if !self[0].is_a?(HTML::Table::Caption) && index != 0
-          msg = "THEAD must be at index 0 when no Caption is included"
+          msg = 'THEAD must be at index 0 when no Caption is included'
           raise ArgumentError, msg
         end
       end
 
       if obj.is_a?(HTML::Table::Foot) && index != -1
-        msg = "FOOT must be last element"
+        msg = 'FOOT must be last element'
         raise ArgumentError, msg
       end
 

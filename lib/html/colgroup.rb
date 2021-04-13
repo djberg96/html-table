@@ -35,7 +35,7 @@ module HTML
      #
     def self.indent_level=(num)
       expect(num, Integer)
-      raise ArgumentError, "indent_level must be >= 0" if num < 0
+      raise ArgumentError, 'indent_level must be >= 0' if num < 0
       @indent_level = num
     end
 
@@ -60,8 +60,8 @@ module HTML
     def push(*args)
       args.each do |obj|
         unless obj.is_a?(Table::ColGroup::Col)
-          msg = "Can only assign Col objects to ColGroup class"
-          msg += ": " + obj.class.to_s
+          msg = 'Can only assign Col objects to ColGroup class'
+          msg += ': ' + obj.class.to_s
           raise TypeError, msg
         end
         super(obj)
@@ -73,8 +73,8 @@ module HTML
      #
     def <<(obj)
       unless obj.is_a?(Table::ColGroup::Col)
-        msg = "Can only assign Col objects to ColGroup class"
-        msg += ": " + obj.class.to_s
+        msg = 'Can only assign Col objects to ColGroup class'
+        msg += ': ' + obj.class.to_s
         raise TypeError, msg
       end
       super(obj)
@@ -85,7 +85,7 @@ module HTML
      #
     def unshift(obj)
       unless obj.is_a?(Table::ColGroup::Col)
-        msg = "Can only assign Data and Header objects to Row class"
+        msg = 'Can only assign Data and Header objects to Row class'
         raise TypeError, msg
       end
       super

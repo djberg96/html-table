@@ -15,7 +15,7 @@ module HTML
 
       def abbr=(string)
         @abbr = string
-        modify_html("abbr", string)
+        modify_html('abbr', string)
       end
 
       def align(position = nil)
@@ -28,7 +28,7 @@ module HTML
         valid = %w/top bottom left center right/
         raise ArgumentError unless valid.include?(position.downcase)
         @align = position
-        modify_html("align", position)
+        modify_html('align', position)
       end
 
       def axis(string = nil)
@@ -39,7 +39,7 @@ module HTML
 
       def axis=(string)
         @axis = string
-        modify_html("axis", string)
+        modify_html('axis', string)
       end
 
       def background(url = nil)
@@ -53,7 +53,7 @@ module HTML
         msg =  "'background' is a non-standard extension"
         warn NonStandardExtensionWarning, msg
         @background = url
-        modify_html("background", url)
+        modify_html('background', url)
       end
 
       def bgcolor(color = nil)
@@ -64,7 +64,7 @@ module HTML
 
       def bgcolor=(color)
         @bgcolor = color
-        modify_html("bgcolor", color)
+        modify_html('bgcolor', color)
       end
 
       def border(num = nil)
@@ -76,12 +76,12 @@ module HTML
       # Allow either true/false or an integer
       def border=(num)
         if num.is_a?(TrueClass)
-          modify_html("border", true)
+          modify_html('border', true)
         elsif num.is_a?(FalseClass)
           # Do nothing
         else
           @border = num.to_i
-          modify_html("border", num.to_i)
+          modify_html('border', num.to_i)
         end
       end
 
@@ -95,7 +95,7 @@ module HTML
         @bordercolor = color
         msg =  "'bordercolor' is a non-standard extension"
         warn NonStandardExtensionWarning, msg
-        modify_html("bordercolor", color)
+        modify_html('bordercolor', color)
       end
 
       def bordercolordark(color = nil)
@@ -108,7 +108,7 @@ module HTML
         @bordercolordark = color
         msg = "'bordercolordark' is a non-standard extension"
         warn NonStandardExtensionWarning, msg
-        modify_html("bordercolordark", color)
+        modify_html('bordercolordark', color)
       end
 
       def bordercolorlight(color = nil)
@@ -121,7 +121,7 @@ module HTML
         @bordercolorlight = color
         msg = "'bordercolorlight' is a non-standard extension"
         warn NonStandardExtensionWarning, msg
-        modify_html("bordercolorlight", @bordercolorlight)
+        modify_html('bordercolorlight', @bordercolorlight)
       end
 
       def cellpadding(num = nil)
@@ -133,7 +133,7 @@ module HTML
       def cellpadding=(num)
         raise ArgumentError if num.to_i < 0
         @cellpadding = num.to_i
-        modify_html("cellpadding", @cellpadding)
+        modify_html('cellpadding', @cellpadding)
       end
 
       def cellspacing(num = nil)
@@ -145,7 +145,7 @@ module HTML
       def cellspacing=(num)
         raise ArgumentError if num.to_i < 0
         @cellspacing = num.to_i
-        modify_html("cellspacing", @cellspacing)
+        modify_html('cellspacing', @cellspacing)
       end
 
       def char(character = nil)
@@ -157,7 +157,7 @@ module HTML
       def char=(character)
         raise ArgumentError if character.to_s.length > 1
         @char = character.to_s
-        modify_html("char", character.to_s)
+        modify_html('char', character.to_s)
       end
 
       def charoff(offset = nil)
@@ -169,7 +169,7 @@ module HTML
       def charoff=(offset)
         raise ArgumentError if offset.to_i < 0
         @charoff = offset
-        modify_html("charoff", offset)
+        modify_html('charoff', offset)
       end
 
       # Returns the CSS class. The trailing underscore is necessary in order
@@ -198,7 +198,7 @@ module HTML
       def col=(num)
         raise ArgumentError if num.to_i < 0
         @col = num.to_i
-        modify_html("col", @col)
+        modify_html('col', @col)
       end
 
       def colspan(span = nil)
@@ -210,7 +210,7 @@ module HTML
       def colspan=(span)
         raise ArgumentError if span.to_i < 0
         @colspan = span.to_i
-        modify_html("colspan", @colspan)
+        modify_html('colspan', @colspan)
       end
 
       # Allows you to configure various attributes by row or row + column.
@@ -220,7 +220,7 @@ module HTML
           begin
             yield self[row][col]
           rescue NameError
-            msg = "No column to configure in a " + self.class.to_s + " class"
+            msg = 'No column to configure in a ' + self.class.to_s + ' class'
             raise ArgumentError, msg
           end
         else
@@ -262,7 +262,7 @@ module HTML
         valid = %w/border void above below hsides lhs rhs vsides box/
         raise ArgumentError unless valid.include?(type.downcase)
         @frame = type
-        modify_html("frame", @frame)
+        modify_html('frame', @frame)
       end
 
       def height(num = nil)
@@ -274,7 +274,7 @@ module HTML
       def height=(num)
         raise ArgumentError if num.to_i < 0
         @height = num.to_i
-        modify_html("height", @height)
+        modify_html('height', @height)
       end
 
       def hspace(num = nil)
@@ -286,7 +286,7 @@ module HTML
       def hspace=(num)
         raise ArgumentError if num.to_i < 0
         @hspace = num.to_i
-        modify_html("hspace", @hspace)
+        modify_html('hspace', @hspace)
       end
 
       def nowrap(bool = nil)
@@ -300,7 +300,7 @@ module HTML
           raise TypeError
         end
         @nowrap = bool
-        modify_html("nowrap", @nowrap)
+        modify_html('nowrap', @nowrap)
       end
 
       def rowspan(num = nil)
@@ -312,7 +312,7 @@ module HTML
       def rowspan=(num)
         raise ArgumentError if num.to_i < 0
         @rowspan = num.to_i
-        modify_html("rowspan", @rowspan)
+        modify_html('rowspan', @rowspan)
       end
 
       def rules(edges = nil)
@@ -325,7 +325,7 @@ module HTML
         valid = %w/all groups rows cols none/
         raise ArgumentError unless valid.include?(edges.to_s.downcase)
         @rules = edges
-        modify_html("rules", @rules)
+        modify_html('rules', @rules)
       end
 
       def span(num = nil)
@@ -337,7 +337,7 @@ module HTML
       def span=(num)
         raise ArgumentError if num.to_i < 0
         @span = num.to_i
-        modify_html("span", @span)
+        modify_html('span', @span)
       end
 
       def style(string = nil)
@@ -348,7 +348,7 @@ module HTML
 
       def style=(string)
         @style = string.to_s
-        modify_html("style", @style)
+        modify_html('style', @style)
       end
 
       def summary(string = nil)
@@ -359,7 +359,7 @@ module HTML
 
       def summary=(string)
         @summary = string.to_s
-        modify_html("summary", @summary)
+        modify_html('summary', @summary)
       end
 
       def valign(position = nil)
@@ -372,7 +372,7 @@ module HTML
         valid = %w/top center bottom baseline/
         raise ArgumentError unless valid.include?(position.to_s.downcase)
         @valign = position
-        modify_html("valign", @valign)
+        modify_html('valign', @valign)
       end
 
       def vspace(num = nil)
@@ -384,7 +384,7 @@ module HTML
       def vspace=(num)
         raise ArgumentError if num.to_i < 0
         @vspace = num.to_i
-        modify_html("vspace", @vspace)
+        modify_html('vspace', @vspace)
       end
 
       def width(num = nil)
@@ -400,7 +400,7 @@ module HTML
           raise ArgumentError if num.to_i < 0
           @width = num.to_i
         end
-        modify_html("width", @width)
+        modify_html('width', @width)
       end
     end
   end

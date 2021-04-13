@@ -23,8 +23,8 @@ module HTML
      # Called by create() instead of new().  This initializes the Head class.
      #
     def initialize(arg, &block)
-      @html_begin = "<thead"
-      @html_end   = "</thead>"
+      @html_begin = '<thead'
+      @html_end   = '</thead>'
       instance_eval(&block) if block_given?
       self.content = arg if arg
     end

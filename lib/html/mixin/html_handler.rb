@@ -39,7 +39,7 @@ module HTML
       #
       def html(formatting = true)
         if self.class.respond_to?(:html_case)
-          $upper = true if self.class.html_case == "upper"
+          $upper = true if self.class.html_case == 'upper'
         end
 
         if $upper

@@ -22,8 +22,8 @@ module HTML
      # Called by create() instead of new().  This initializes the Foot class.
      #
     def initialize(arg, &block)
-      @html_begin = "<tfoot"
-      @html_end   = "</tfoot>"
+      @html_begin = '<tfoot'
+      @html_end   = '</tfoot>'
       instance_eval(&block) if block_given?
       self.content = arg if arg
     end
