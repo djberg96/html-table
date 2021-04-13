@@ -59,7 +59,7 @@ module HTML
 
         if is_a?(Array)
           if formatting
-            html << map { |e| "\n" + e.html(formatting).to_s }.join
+            html << map { |e| "\n#{e.html(formatting)}" }.join
           else
             html << map { |e| e.html(formatting).to_s }.join
           end
@@ -80,14 +80,14 @@ module HTML
             if self.class.respond_to?(:end_tags?)
               if formatting
                 if self.class.end_tags?
-                  html << "\n" + (' ' * ilevel) + @html_end
+                  html << "\n#{(' ' * ilevel)}#{@html_end}"
                 end
               else
                 html << (' ' * ilevel) + @html_end if self.class.end_tags?
               end
             else
               if formatting
-                html << "\n" + (' ' * ilevel) + @html_end
+                html << "\n#{(' ' * ilevel)}#{@html_end}"
               else
                 html << (' ' * ilevel) + @html_end
               end
@@ -95,7 +95,7 @@ module HTML
           else
             unless self.class.respond_to?(:end_tags?)
               if formatting
-                html << "\n" + (' ' * ilevel) + @html_end
+                html << "\n#{(' ' * ilevel)}#{@html_end}"
               else
                 html << (' ' * ilevel) + @html_end
               end

@@ -220,7 +220,7 @@ module HTML
           begin
             yield self[row][col]
           rescue NameError
-            msg = 'No column to configure in a ' + self.class.to_s + ' class'
+            msg = "No column to configure in a #{self.class.to_s} class"
             raise ArgumentError, msg
           end
         else

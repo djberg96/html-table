@@ -61,7 +61,7 @@ module HTML
       args.each do |obj|
         unless obj.is_a?(Table::ColGroup::Col)
           msg = 'Can only assign Col objects to ColGroup class'
-          msg += ': ' + obj.class.to_s
+          msg += ": #{obj.class.to_s}"
           raise TypeError, msg
         end
         super(obj)
@@ -74,7 +74,7 @@ module HTML
     def <<(obj)
       unless obj.is_a?(Table::ColGroup::Col)
         msg = 'Can only assign Col objects to ColGroup class'
-        msg += ': ' + obj.class.to_s
+        msg += ": #{obj.class.to_s}"
         raise TypeError, msg
       end
       super(obj)
