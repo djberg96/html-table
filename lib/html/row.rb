@@ -65,13 +65,13 @@ module HTML
      #
     def content=(arg)
       case arg
-         when String
+      when String
            if @header
              push(Table::Row::Header.new(arg))
            else
              push(Table::Row::Data.new(arg))
            end
-         when Array
+      when Array
            arg.each{ |e|
              if e.is_a?(Table::Row::Data) || e.is_a?(Table::Row::Header)
                push(e)
