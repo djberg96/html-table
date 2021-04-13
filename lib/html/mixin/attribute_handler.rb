@@ -297,7 +297,7 @@ module HTML
 
       def nowrap=(bool)
         unless bool.kind_of?(TrueClass) || bool.kind_of?(FalseClass)
-           raise TypeError
+          raise TypeError
         end
         @nowrap = bool
         modify_html("nowrap", @nowrap)
