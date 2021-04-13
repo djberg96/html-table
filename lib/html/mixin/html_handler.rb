@@ -10,7 +10,7 @@ module HTML
       #--
       # This is private method.
       #
-      def modify_html(attribute,arg=nil)
+      def modify_html(attribute, arg=nil)
         if @html_begin.scan(/\b#{attribute}\b/).empty?
           if arg.kind_of?(Integer)
             @html_begin << " #{attribute}=#{arg}"
@@ -21,11 +21,11 @@ module HTML
           end
         else
           if arg.kind_of?(Integer)
-            @html_begin.gsub!(/#{attribute}=\d+/,"#{attribute}=#{arg}")
+            @html_begin.gsub!(/#{attribute}=\d+/, "#{attribute}=#{arg}")
           elsif arg.kind_of?(FalseClass)
-            @html_begin.gsub!(/#{attribute}/,'')
+            @html_begin.gsub!(/#{attribute}/, '')
           else
-            @html_begin.gsub!(/#{attribute}=['\w\.]+/,"#{attribute}='#{arg}'")
+            @html_begin.gsub!(/#{attribute}=['\w\.]+/, "#{attribute}='#{arg}'")
           end
         end
       end
@@ -55,7 +55,7 @@ module HTML
 
         html          = ' ' * ilevel + @html_begin[0..-1]
         len           = html.length
-        html[len,len] = '>'
+        html[len, len] = '>'
 
         if self.kind_of?(Array)
           if formatting

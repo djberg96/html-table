@@ -41,7 +41,7 @@ module HTML
       # valid arguments.
       #
       def self.end_tags=(bool)
-         expect(bool, [TrueClass,FalseClass])
+         expect(bool, [TrueClass, FalseClass])
          @end_tags = bool
       end
    end

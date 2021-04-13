@@ -41,8 +41,8 @@ module HTML
     # is 6.
     #
     def self.indent_level=(num)
-      expect(num,Integer)
-      raise ArgumentError,"indent_level must be >= 0" if num < 0
+      expect(num, Integer)
+      raise ArgumentError, "indent_level must be >= 0" if num < 0
       @indent_level = num
     end
 
@@ -58,7 +58,7 @@ module HTML
     # valid arguments.
     #
     def self.end_tags=(bool)
-      expect(bool,[TrueClass,FalseClass])
+      expect(bool, [TrueClass, FalseClass])
       @end_tags = bool
     end
   end

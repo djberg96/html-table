@@ -30,7 +30,7 @@ module HTML
       # is 6.
       #
       def self.indent_level=(num)
-         expect(num,Integer)
+         expect(num, Integer)
          raise ArgumentError, "num must be >= 0" if num < 0
          @indent_level = num
       end

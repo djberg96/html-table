@@ -117,7 +117,7 @@ module HTML
         if bool
           self.replace(begin_tag << self << end_tag)
         else
-          self.replace(self.gsub(/#{begin_tag}|#{end_tag}/,''))
+          self.replace(self.gsub(/#{begin_tag}|#{end_tag}/, ''))
         end
       end
     end

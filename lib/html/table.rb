@@ -200,7 +200,7 @@ module HTML
     # only be assigned to index 0, or index 1 if a Caption already exists.
     # A Foot may only be assigned as the last element.
     #
-    def []=(index,obj)
+    def []=(index, obj)
       expect(obj, [Caption, ColGroup, Body, Foot, Head, Row])
 
       # Only allow Caption objects at index 0
@@ -257,7 +257,7 @@ module HTML
           when Table::Head
             if self[0].kind_of?(Table::Caption)
               self.unshift(obj)
-              self[0],self[1] = self[1],self[0]
+              self[0], self[1] = self[1], self[0]
             else
               self.unshift(obj)
             end

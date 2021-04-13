@@ -34,22 +34,22 @@ module HTML
       # is 3.
       #
       def self.indent_level=(num)
-         expect(num,Integer)
-         raise ArgumentError,"indent_level must be >= 0" if num < 0
+         expect(num, Integer)
+         raise ArgumentError, "indent_level must be >= 0" if num < 0
          @indent_level = num
       end
 
       # This method has been redefined to only allow ColGroup::Col objects
       # to be assigned.
       #
-      def []=(index,obj)
+      def []=(index, obj)
          if obj.kind_of?(Array)
-            expect(obj.first,Col) # In case of 0 length Array
+            expect(obj.first, Col) # In case of 0 length Array
             obj.each{ |o|
-                expect(o,Col)
+                expect(o, Col)
             }
          else
-            expect(obj,Col)
+            expect(obj, Col)
          end
          super
       end
@@ -103,7 +103,7 @@ module HTML
       # valid arguments.
       #
       def self.end_tags=(bool)
-         expect(bool,[TrueClass,FalseClass])
+         expect(bool, [TrueClass, FalseClass])
          @end_tags = bool
       end
 

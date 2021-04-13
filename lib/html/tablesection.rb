@@ -27,18 +27,18 @@ module HTML
          @indent_level = num
       end
 
-      def []=(index,obj)
-         expect(obj,Table::Row)
+      def []=(index, obj)
+         expect(obj, Table::Row)
          super
       end
 
       def push(*args)
-         args.each{ |obj| expect(obj,Table::Row) }
+         args.each{ |obj| expect(obj, Table::Row) }
          super
       end
 
       def unshift(obj)
-         expect(obj,Table::Row)
+         expect(obj, Table::Row)
          super
       end
 

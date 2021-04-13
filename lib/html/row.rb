@@ -116,7 +116,7 @@ module HTML
       # valid arguments.
       #
       def self.end_tags=(bool)
-         expect(bool,[TrueClass,FalseClass])
+         expect(bool, [TrueClass, FalseClass])
          @end_tags = bool
       end
 
@@ -177,7 +177,7 @@ module HTML
             td = Table::Row::Data.new(obj.to_s)
             super(td)
          else
-            expect(obj,[Data,Header])
+            expect(obj, [Data, Header])
          end
          super(obj)
       end
