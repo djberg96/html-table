@@ -16,16 +16,16 @@ module HTML
      #
     def self.create(arg=nil, &block)
       @@foot = new(arg, &block) unless @@foot
-       @@foot
+      @@foot
     end      
      
      # Called by create() instead of new().  This initializes the Foot class.
      #
     def initialize(arg, &block)
       @html_begin = "<tfoot"
-       @html_end   = "</tfoot>"
-       instance_eval(&block) if block_given?
-       self.content = arg if arg
+      @html_end   = "</tfoot>"
+      instance_eval(&block) if block_given?
+      self.content = arg if arg
     end
      
      # Returns a boolean indicating whether or not end tags, </tfoot>, are
@@ -42,7 +42,7 @@ module HTML
      #
     def self.end_tags=(bool)
       expect(bool, [TrueClass, FalseClass])
-       @end_tags = bool
+      @end_tags = bool
     end
   end
 

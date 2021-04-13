@@ -17,12 +17,12 @@ module HTML
      #
     def initialize(arg = nil, header = false, &block)
       @html_begin = '<tr'
-       @html_end   = '</tr>'
+      @html_end   = '</tr>'
 
-       @header = header
+      @header = header
 
-       instance_eval(&block) if block_given?
-       self.content = arg if arg
+      instance_eval(&block) if block_given?
+      self.content = arg if arg
     end
 
      # Returns whether or not content is converted into a Row::Header object
@@ -99,8 +99,8 @@ module HTML
      #
     def self.indent_level=(num)
       expect(num, Integer)
-       raise ArgumentError if num < 0
-       @indent_level = num
+      raise ArgumentError if num < 0
+      @indent_level = num
     end
 
      # Returns true or false, depending on whether or not the end tags for
@@ -117,7 +117,7 @@ module HTML
      #
     def self.end_tags=(bool)
       expect(bool, [TrueClass, FalseClass])
-       @end_tags = bool
+      @end_tags = bool
     end
 
      # This method has been redefined to only allow certain classes to be
@@ -131,7 +131,7 @@ module HTML
       else
         expect(obj, [Data, Header])
       end
-       super
+      super
     end
 
      # This method has been redefined to only allow certain classes to be
@@ -145,12 +145,12 @@ module HTML
       args.each do |obj|
         if obj.kind_of?(String) || obj.kind_of?(Integer)
           td = Table::Row::Data.new(obj.to_s)
-           super(td)
-           next
+          super(td)
+          next
         else
           expect(obj, [Data, Header])
         end
-         super(obj)
+        super(obj)
       end
     end
 
@@ -161,11 +161,11 @@ module HTML
     def <<(obj)
       if obj.kind_of?(String) || obj.kind_of?(Integer)
         td = Table::Row::Data.new(obj.to_s)
-         super(td)
+        super(td)
       else
         expect(obj, [Data, Header])
       end
-       super(obj)
+      super(obj)
     end
 
      # This method has been redefined to only allow certain classes to be
@@ -175,11 +175,11 @@ module HTML
     def unshift(obj)
       if obj.kind_of?(String) || obj.kind_of?(Integer)
         td = Table::Row::Data.new(obj.to_s)
-         super(td)
+        super(td)
       else
         expect(obj, [Data, Header])
       end
-       super(obj)
+      super(obj)
     end
 
     alias to_s html

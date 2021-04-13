@@ -17,10 +17,10 @@ module HTML
      #
     def initialize(arg = nil, &block)
       @html_begin = '<colgroup'
-       @html_body  = ''
-       @html_end   = '</colgroup>'
-       instance_eval(&block) if block_given?
-       self.push(arg) if arg
+      @html_body  = ''
+      @html_end   = '</colgroup>'
+      instance_eval(&block) if block_given?
+      self.push(arg) if arg
     end
 
      # Returns the indentation level for the tags of this class.  The
@@ -35,8 +35,8 @@ module HTML
      #
     def self.indent_level=(num)
       expect(num, Integer)
-       raise ArgumentError, "indent_level must be >= 0" if num < 0
-       @indent_level = num
+      raise ArgumentError, "indent_level must be >= 0" if num < 0
+      @indent_level = num
     end
 
      # This method has been redefined to only allow ColGroup::Col objects
@@ -45,13 +45,13 @@ module HTML
     def []=(index, obj)
       if obj.kind_of?(Array)
         expect(obj.first, Col) # In case of 0 length Array
-         obj.each{ |o|
-           expect(o, Col)
-         }
+        obj.each{ |o|
+          expect(o, Col)
+        }
       else
         expect(obj, Col)
       end
-       super
+      super
     end
 
      # This method has been redefined to only allow ColGroup::Col objects
@@ -61,10 +61,10 @@ module HTML
       args.each do |obj|
         unless obj.kind_of?(Table::ColGroup::Col)
           msg = "Can only assign Col objects to ColGroup class"
-           msg += ": " + obj.class.to_s
-           raise TypeError, msg
+          msg += ": " + obj.class.to_s
+          raise TypeError, msg
         end
-         super(obj)
+        super(obj)
       end
     end
 
@@ -74,10 +74,10 @@ module HTML
     def <<(obj)
       unless obj.kind_of?(Table::ColGroup::Col)
         msg = "Can only assign Col objects to ColGroup class"
-         msg += ": " + obj.class.to_s
-         raise TypeError, msg
+        msg += ": " + obj.class.to_s
+        raise TypeError, msg
       end
-       super(obj)
+      super(obj)
     end
 
      # This method has been redefined to only allow ColGroup::Col objects
@@ -86,9 +86,9 @@ module HTML
     def unshift(obj)
       unless obj.kind_of?(Table::ColGroup::Col)
         msg = "Can only assign Data and Header objects to Row class"
-         raise TypeError, msg
+        raise TypeError, msg
       end
-       super
+      super
     end
 
      # Returns a boolean indicating whether or not end tags are included for
@@ -104,7 +104,7 @@ module HTML
      #
     def self.end_tags=(bool)
       expect(bool, [TrueClass, FalseClass])
-       @end_tags = bool
+      @end_tags = bool
     end
 
     alias to_s html

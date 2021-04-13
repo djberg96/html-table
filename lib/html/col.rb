@@ -14,9 +14,9 @@ module HTML
      #
     def initialize(&block)
       @html_begin = '<col'
-       @html_body  = ''
-       @html_end   = ''
-       instance_eval(&block) if block_given?
+      @html_body  = ''
+      @html_end   = ''
+      instance_eval(&block) if block_given?
     end
 
      # Returns the indentation level for the tags of this class.  The
@@ -31,8 +31,8 @@ module HTML
      #
     def self.indent_level=(num)
       expect(num, Integer)
-       raise ArgumentError, "num must be >= 0" if num < 0
-       @indent_level = num
+      raise ArgumentError, "num must be >= 0" if num < 0
+      @indent_level = num
     end
 
     alias to_s html

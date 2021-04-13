@@ -14,7 +14,7 @@ module HTML
      #
     def content=(arg)
       tr = Table::Row.new(arg)
-       self.push(tr)
+      self.push(tr)
     end
 
     def self.indent_level
@@ -23,23 +23,23 @@ module HTML
 
     def self.indent_level=(num)
       expect(num, Integer)
-       raise ArgumentError, "indent_level must be >= 0" if num < 0
-       @indent_level = num
+      raise ArgumentError, "indent_level must be >= 0" if num < 0
+      @indent_level = num
     end
 
     def []=(index, obj)
       expect(obj, Table::Row)
-       super
+      super
     end
 
     def push(*args)
       args.each{ |obj| expect(obj, Table::Row) }
-       super
+      super
     end
 
     def unshift(obj)
       expect(obj, Table::Row)
-       super
+      super
     end
 
     alias to_s html
