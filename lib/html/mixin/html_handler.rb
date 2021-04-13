@@ -12,17 +12,17 @@ module HTML
       #
       def modify_html(attribute, arg=nil)
         if @html_begin.scan(/\b#{attribute}\b/).empty?
-          if arg.kind_of?(Integer)
+          if arg.is_a?(Integer)
             @html_begin << " #{attribute}=#{arg}"
-          elsif arg.kind_of?(TrueClass)
+          elsif arg.is_a?(TrueClass)
             @html_begin << " #{attribute}"
           else
             @html_begin << " #{attribute}='#{arg}'"
           end
         else
-          if arg.kind_of?(Integer)
+          if arg.is_a?(Integer)
             @html_begin.gsub!(/#{attribute}=\d+/, "#{attribute}=#{arg}")
-          elsif arg.kind_of?(FalseClass)
+          elsif arg.is_a?(FalseClass)
             @html_begin.gsub!(/#{attribute}/, '')
           else
             @html_begin.gsub!(/#{attribute}=['\w\.]+/, "#{attribute}='#{arg}'")
@@ -57,7 +57,7 @@ module HTML
         len           = html.length
         html[len, len] = '>'
 
-        if kind_of?(Array)
+        if is_a?(Array)
           if formatting
             html << map{ |e| "\n" + e.html(formatting).to_s }.join
           else
@@ -75,7 +75,7 @@ module HTML
         # The Table.global_end_tags method overrides the individual class
         # preferences with regards to end tags.
         #####################################################################
-        if kind_of?(Array)
+        if is_a?(Array)
           if HTML::Table.global_end_tags?
             if self.class.respond_to?(:end_tags?)
               if formatting

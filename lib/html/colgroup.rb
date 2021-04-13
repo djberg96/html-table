@@ -43,7 +43,7 @@ module HTML
      # to be assigned.
      #
     def []=(index, obj)
-      if obj.kind_of?(Array)
+      if obj.is_a?(Array)
         expect(obj.first, Col) # In case of 0 length Array
         obj.each{ |o|
           expect(o, Col)
@@ -59,7 +59,7 @@ module HTML
      #
     def push(*args)
       args.each do |obj|
-        unless obj.kind_of?(Table::ColGroup::Col)
+        unless obj.is_a?(Table::ColGroup::Col)
           msg = "Can only assign Col objects to ColGroup class"
           msg += ": " + obj.class.to_s
           raise TypeError, msg
@@ -72,7 +72,7 @@ module HTML
      # to be pushed onto a ColGroup instance.
      #
     def <<(obj)
-      unless obj.kind_of?(Table::ColGroup::Col)
+      unless obj.is_a?(Table::ColGroup::Col)
         msg = "Can only assign Col objects to ColGroup class"
         msg += ": " + obj.class.to_s
         raise TypeError, msg
@@ -84,7 +84,7 @@ module HTML
      # to be unshifted onto a ColGroup instance.
      #
     def unshift(obj)
-      unless obj.kind_of?(Table::ColGroup::Col)
+      unless obj.is_a?(Table::ColGroup::Col)
         msg = "Can only assign Data and Header objects to Row class"
         raise TypeError, msg
       end

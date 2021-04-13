@@ -108,7 +108,7 @@ module HTML
     # object is created, with the string as the content.
     #
     def content=(arg)
-      if arg.kind_of?(Array)
+      if arg.is_a?(Array)
         arg.each{ |e| self << Table::Row.new(e) }
       else
         self << Table::Row.new(arg)
@@ -128,7 +128,7 @@ module HTML
     # object.
     #
     def header=(arg)
-      if arg.kind_of?(Array)
+      if arg.is_a?(Array)
         arg.each{ |h| self << Table::Row.new(h, true) }
       else
         self << Table::Row::Header.new(arg)
@@ -204,25 +204,25 @@ module HTML
       expect(obj, [Caption, ColGroup, Body, Foot, Head, Row])
 
       # Only allow Caption objects at index 0
-      if index != 0 && obj.kind_of?(HTML::Table::Caption)
+      if index != 0 && obj.is_a?(HTML::Table::Caption)
         msg = "CAPTION can only be added at index 0"
         raise ArgumentError, msg
       end
 
       # Only allow Head objects at index 0 or 1
-      if obj.kind_of?(HTML::Table::Head)
-        if self[0].kind_of?(HTML::Table::Caption) && index != 1
+      if obj.is_a?(HTML::Table::Head)
+        if self[0].is_a?(HTML::Table::Caption) && index != 1
           msg = "THEAD must be at index 1 when Caption is included"
           raise ArgumentError, msg
         end
 
-        if !self[0].kind_of?(HTML::Table::Caption) && index != 0
+        if !self[0].is_a?(HTML::Table::Caption) && index != 0
           msg = "THEAD must be at index 0 when no Caption is included"
           raise ArgumentError, msg
         end
       end
 
-      if obj.kind_of?(HTML::Table::Foot) && index != -1
+      if obj.is_a?(HTML::Table::Foot) && index != -1
         msg = "FOOT must be last element"
         raise ArgumentError, msg
       end
@@ -249,13 +249,13 @@ module HTML
           when Table::Row::Data, Table::Row::Header
             push(Table::Row.new(obj))
           when Table::Caption
-            if self[0].kind_of?(Table::Caption)
+            if self[0].is_a?(Table::Caption)
               self[0] = obj
             else
               unshift(obj)
             end
           when Table::Head
-            if self[0].kind_of?(Table::Caption)
+            if self[0].is_a?(Table::Caption)
               unshift(obj)
               self[0], self[1] = self[1], self[0]
             else
@@ -279,13 +279,13 @@ module HTML
         when Table::Row::Data, Table::Row::Header # Each get their own row
           self << Table::Row.new(obj)
         when Table::Caption                       # Always the first row
-          if self[0].kind_of?(Table::Caption)
+          if self[0].is_a?(Table::Caption)
             self[0] = obj
           else
             unshift(obj)
           end
         when Table::Head                          # Always at row 0 or 1
-          if self[0].kind_of?(Table::Caption)
+          if self[0].is_a?(Table::Caption)
             unshift(obj)
             self[0], self[1] = self[1], self[0]
           else

@@ -49,7 +49,7 @@ module HTML
       end
 
       def background=(url)
-        raise TypeError unless url.kind_of?(String)
+        raise TypeError unless url.is_a?(String)
         msg =  "'background' is a non-standard extension"
         warn NonStandardExtensionWarning, msg
         @background = url
@@ -75,9 +75,9 @@ module HTML
 
       # Allow either true/false or an integer
       def border=(num)
-        if num.kind_of?(TrueClass)
+        if num.is_a?(TrueClass)
           modify_html("border", true)
-        elsif num.kind_of?(FalseClass)
+        elsif num.is_a?(FalseClass)
           # Do nothing
         else
           @border = num.to_i
@@ -236,7 +236,7 @@ module HTML
             self.content = Table::Content.new(arg, &block)
           when Array
             arg.each{ |e|
-              if e.kind_of?(Array)
+              if e.is_a?(Array)
                 row = Table::Row.new
                 e.each{ |element| row.push(Table::Content.new(element, &block)) }
                 push(row)
@@ -296,7 +296,7 @@ module HTML
       end
 
       def nowrap=(bool)
-        unless bool.kind_of?(TrueClass) || bool.kind_of?(FalseClass)
+        unless bool.is_a?(TrueClass) || bool.is_a?(FalseClass)
           raise TypeError
         end
         @nowrap = bool

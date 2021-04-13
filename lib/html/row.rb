@@ -73,7 +73,7 @@ module HTML
            end
          when Array
            arg.each{ |e|
-             if e.kind_of?(Table::Row::Data) || e.kind_of?(Table::Row::Header)
+             if e.is_a?(Table::Row::Data) || e.is_a?(Table::Row::Header)
                push(e)
              else
                if @header
@@ -126,7 +126,7 @@ module HTML
      # objects.
      #
     def []=(index, obj)
-      if obj.kind_of?(Array)
+      if obj.is_a?(Array)
         obj.each{ |o| expect(o, [Data, Header]) }
       else
         expect(obj, [Data, Header])
@@ -143,7 +143,7 @@ module HTML
      #
     def push(*args)
       args.each do |obj|
-        if obj.kind_of?(String) || obj.kind_of?(Integer)
+        if obj.is_a?(String) || obj.is_a?(Integer)
           td = Table::Row::Data.new(obj.to_s)
           super(td)
           next
@@ -159,7 +159,7 @@ module HTML
      # Row#push.
      #
     def <<(obj)
-      if obj.kind_of?(String) || obj.kind_of?(Integer)
+      if obj.is_a?(String) || obj.is_a?(Integer)
         td = Table::Row::Data.new(obj.to_s)
         super(td)
       else
@@ -173,7 +173,7 @@ module HTML
      # Row#push.
      #
     def unshift(obj)
-      if obj.kind_of?(String) || obj.kind_of?(Integer)
+      if obj.is_a?(String) || obj.is_a?(Integer)
         td = Table::Row::Data.new(obj.to_s)
         super(td)
       else
