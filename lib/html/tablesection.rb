@@ -33,7 +33,7 @@ module HTML
     end
 
     def push(*args)
-      args.each{ |obj| expect(obj, Table::Row) }
+      args.each { |obj| expect(obj, Table::Row) }
       super
     end
 

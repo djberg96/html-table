@@ -72,7 +72,7 @@ module HTML
              push(Table::Row::Data.new(arg))
            end
       when Array
-           arg.each{ |e|
+           arg.each { |e|
              if e.is_a?(Table::Row::Data) || e.is_a?(Table::Row::Header)
                push(e)
              else
@@ -127,7 +127,7 @@ module HTML
     #
     def []=(index, obj)
       if obj.is_a?(Array)
-        obj.each{ |o| expect(o, [Data, Header]) }
+        obj.each { |o| expect(o, [Data, Header]) }
       else
         expect(obj, [Data, Header])
       end

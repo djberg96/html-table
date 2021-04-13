@@ -45,7 +45,7 @@ module HTML
     def []=(index, obj)
       if obj.is_a?(Array)
         expect(obj.first, Col) # In case of 0 length Array
-        obj.each{ |o|
+        obj.each { |o|
           expect(o, Col)
         }
       else

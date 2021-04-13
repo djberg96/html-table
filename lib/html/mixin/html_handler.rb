@@ -59,9 +59,9 @@ module HTML
 
         if is_a?(Array)
           if formatting
-            html << map{ |e| "\n" + e.html(formatting).to_s }.join
+            html << map { |e| "\n" + e.html(formatting).to_s }.join
           else
-            html << map{ |e| e.html(formatting).to_s }.join
+            html << map { |e| e.html(formatting).to_s }.join
           end
         else
           html << @html_body

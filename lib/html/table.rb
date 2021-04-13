@@ -94,7 +94,7 @@ module HTML
       self.content = arg if arg
 
       # Assume html_options are attributes
-      html_options.each{ |key, val|
+      html_options.each { |key, val|
         send("#{key}=", val)
       }
     end
@@ -109,7 +109,7 @@ module HTML
     #
     def content=(arg)
       if arg.is_a?(Array)
-        arg.each{ |e| self << Table::Row.new(e) }
+        arg.each { |e| self << Table::Row.new(e) }
       else
         self << Table::Row.new(arg)
       end
@@ -129,7 +129,7 @@ module HTML
     #
     def header=(arg)
       if arg.is_a?(Array)
-        arg.each{ |h| self << Table::Row.new(h, true) }
+        arg.each { |h| self << Table::Row.new(h, true) }
       else
         self << Table::Row::Header.new(arg)
       end
@@ -242,7 +242,7 @@ module HTML
     # element, or the second element if a Caption already exists.
     #
     def push(*args)
-      args.each{ |obj|
+      args.each { |obj|
         expect(obj, [Caption, ColGroup, Body, Foot, Head, Row, Row::Data, Row::Header])
 
         case obj
