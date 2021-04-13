@@ -115,7 +115,7 @@ module HTML
           end
         end
 
-        return html
+        html
       end
 
       private :modify_html
