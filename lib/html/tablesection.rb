@@ -1,6 +1,6 @@
 module HTML
-   # Superclass for THEAD, TBODY, TFOOT
-   #
+  # Superclass for THEAD, TBODY, TFOOT
+  #
   class Table::TableSection < Array
     include HTML::Mixin::AttributeHandler
     include HTML::Mixin::HtmlHandler
@@ -9,9 +9,9 @@ module HTML
       instance_eval(&block) if block_given?
     end
 
-     # Adds a Table::Row object as content. The +arg+ is passed as the value
-     # to the Table::Row constructor.
-     #
+    # Adds a Table::Row object as content. The +arg+ is passed as the value
+    # to the Table::Row constructor.
+    #
     def content=(arg)
       tr = Table::Row.new(arg)
       push(tr)
