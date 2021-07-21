@@ -17,7 +17,7 @@ module HTML
       @html_begin = '<caption'
       @html_body  = ''
       @html_end   = '</caption>'
-      instance_eval(&block) if block_given?
+      instance_eval(&block) if block
       self.content = arg if arg
     end
 

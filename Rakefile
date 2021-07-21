@@ -1,8 +1,21 @@
 require 'rake'
 require 'rake/clean'
 require 'rspec/core/rake_task'
+require 'rubocop/rake_task'
 
 CLEAN.include("**/*.gem", "**/*.rbc", "**/*.lock")
+
+namespace :rubocop do
+  RuboCop::RakeTask.new(:all) do |task, args|
+    task.requires << 'rubocop-performance'
+    task.options = ['--only', 'lib']
+  end
+
+  RuboCop::RakeTask.new(:performance) do |task, args|
+    task.requires << 'rubocop-performance'
+    task.options = ['--only', 'Performance', '-a', 'lib']
+  end
+end
 
 namespace :gem do
   desc 'Build the html-table gem'

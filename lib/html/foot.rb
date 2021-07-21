@@ -24,7 +24,7 @@ module HTML
     def initialize(arg, &block)
       @html_begin = '<tfoot'
       @html_end   = '</tfoot>'
-      instance_eval(&block) if block_given?
+      instance_eval(&block) if block
       self.content = arg if arg
     end
      

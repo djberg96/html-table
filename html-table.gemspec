@@ -18,6 +18,7 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency('rspec', '~> 3.9')
   spec.add_development_dependency('rake')
+  spec.add_development_dependency('rubocop-performance')
 
   spec.metadata = {
     'homepage_uri'      => 'https://github.com/djberg96/html-table',

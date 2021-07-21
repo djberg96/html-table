@@ -12,7 +12,7 @@ module HTML
 
     def initialize(string, &block)
       super(string)
-      instance_eval(&block) if block_given?
+      instance_eval(&block) if block
     end
   end
 end

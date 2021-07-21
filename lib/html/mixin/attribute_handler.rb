@@ -394,7 +394,7 @@ module HTML
       end
 
       def width=(num)
-        if num.to_s =~ /%/
+        if /%/.match?(num.to_s)
           @width = num
         else
           raise ArgumentError if num.to_i < 0

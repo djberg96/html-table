@@ -16,7 +16,7 @@ module HTML
       @html_begin = '<col'
       @html_body  = ''
       @html_end   = ''
-      instance_eval(&block) if block_given?
+      instance_eval(&block) if block
     end
 
     # Returns the indentation level for the tags of this class.  The

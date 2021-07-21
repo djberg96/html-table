@@ -19,7 +19,7 @@ module HTML
       @html_begin = '<th'
       @html_body  = ''
       @html_end   = '</th>'
-      instance_eval(&block) if block_given?
+      instance_eval(&block) if block
       self.content = arg if arg
     end
 

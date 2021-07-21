@@ -13,7 +13,7 @@ module HTML
     def initialize(arg = nil, &block)
       @html_begin = '<tbody'
       @html_end   = '</tbody>'
-      instance_eval(&block) if block_given?
+      instance_eval(&block) if block
       self.content = arg if arg
     end
       

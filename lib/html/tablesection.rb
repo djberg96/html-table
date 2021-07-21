@@ -6,7 +6,7 @@ module HTML
     include HTML::Mixin::HtmlHandler
 
     def initialize(&block)
-      instance_eval(&block) if block_given?
+      instance_eval(&block) if block
     end
 
     # Adds a Table::Row object as content. The +arg+ is passed as the value

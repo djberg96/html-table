@@ -21,7 +21,7 @@ module HTML
 
       @header = header
 
-      instance_eval(&block) if block_given?
+      instance_eval(&block) if block
       self.content = arg if arg
     end
 
