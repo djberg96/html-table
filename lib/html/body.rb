@@ -13,10 +13,10 @@ module HTML
     def initialize(arg = nil, &block)
       @html_begin = '<tbody'
       @html_end   = '</tbody>'
-      instance_eval(&block) if block_given?
+      super(&block)
       self.content = arg if arg
     end
-      
+
     # Returns a boolean indicating whether or not end tags, </tbody>, are
     # included for each Body object in the final HTML output.  The
     # default is true.
@@ -24,7 +24,7 @@ module HTML
     def self.end_tags?
       @end_tags
     end
-      
+
     # Sets whether or not end tags are included for each Body object in
     # the final HTML output.  The default is true.  Only true or false are
     # valid arguments.
