@@ -19,7 +19,7 @@ module HTML
       @html_begin = '<colgroup'
       @html_body  = ''
       @html_end   = '</colgroup>'
-      instance_eval(&block) if block_given?
+      super(&block)
       push(arg) if arg
     end
 
