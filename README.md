@@ -1,3 +1,5 @@
+[![Ruby](https://github.com/djberg96/html-table/actions/workflows/ruby.yml/badge.svg)](https://github.com/djberg96/html-table/actions/workflows/ruby.yml)
+
 ## Description
 An interface for generating HTML Tables with Ruby.
 
