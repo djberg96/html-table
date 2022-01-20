@@ -261,7 +261,7 @@ module HTML
           else
             unshift(obj)
           end
-          else
+        else
           super(obj)
         end
       end
@@ -291,7 +291,7 @@ module HTML
         else
           unshift(obj)
         end
-        else
+      else
         super(obj)
       end
     end

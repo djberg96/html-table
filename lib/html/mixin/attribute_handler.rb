@@ -244,7 +244,7 @@ module HTML
               self.content = Table::Content.new(e, &block)
             end
           end
-          else
+        else
           self.content = arg if arg
         end
         @html_body
