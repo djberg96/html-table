@@ -83,7 +83,7 @@ module HTML
             end
           end
         end
-      else
+        else
         push(arg)
       end
     end
