@@ -232,9 +232,9 @@ module HTML
       #
       def content(arg = nil, &block)
         case arg
-        when String
+          when String
           self.content = Table::Content.new(arg, &block)
-        when Array
+          when Array
           arg.each do |e|
             if e.is_a?(Array)
               row = Table::Row.new

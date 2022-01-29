@@ -246,15 +246,15 @@ module HTML
         expect(obj, [Caption, ColGroup, Body, Foot, Head, Row, Row::Data, Row::Header])
 
         case obj
-        when Table::Row::Data, Table::Row::Header
+          when Table::Row::Data, Table::Row::Header
           push(Table::Row.new(obj))
-        when Table::Caption
+          when Table::Caption
           if self[0].is_a?(Table::Caption)
             self[0] = obj
           else
             unshift(obj)
           end
-        when Table::Head
+          when Table::Head
           if self[0].is_a?(Table::Caption)
             unshift(obj)
             self[0], self[1] = self[1], self[0]
@@ -276,15 +276,15 @@ module HTML
       expect(obj, [Caption, ColGroup, Body, Foot, Head, Row, Row::Data, Row::Header])
 
       case obj
-      when Table::Row::Data, Table::Row::Header # Each get their own row
+        when Table::Row::Data, Table::Row::Header # Each get their own row
         self << Table::Row.new(obj)
-      when Table::Caption                       # Always the first row
+        when Table::Caption                       # Always the first row
         if self[0].is_a?(Table::Caption)
           self[0] = obj
         else
           unshift(obj)
         end
-      when Table::Head                          # Always at row 0 or 1
+        when Table::Head                          # Always at row 0 or 1
         if self[0].is_a?(Table::Caption)
           unshift(obj)
           self[0], self[1] = self[1], self[0]
