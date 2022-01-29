@@ -255,11 +255,9 @@ module HTML
               unshift(obj)
             end
           when Table::Head
+            unshift(obj)
             if self[0].is_a?(Table::Caption)
-              unshift(obj)
               self[0], self[1] = self[1], self[0]
-            else
-              unshift(obj)
             end
           else
             super(obj)
@@ -285,11 +283,9 @@ module HTML
             unshift(obj)
           end
         when Table::Head                          # Always at row 0 or 1
+          unshift(obj)
           if self[0].is_a?(Table::Caption)
-            unshift(obj)
             self[0], self[1] = self[1], self[0]
-          else
-            unshift(obj)
           end
         else
           super(obj)
