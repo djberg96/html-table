@@ -247,22 +247,22 @@ module HTML
 
         case obj
           when Table::Row::Data, Table::Row::Header
-          push(Table::Row.new(obj))
+            push(Table::Row.new(obj))
           when Table::Caption
-          if self[0].is_a?(Table::Caption)
-            self[0] = obj
-          else
-            unshift(obj)
-          end
+            if self[0].is_a?(Table::Caption)
+              self[0] = obj
+            else
+              unshift(obj)
+            end
           when Table::Head
-          if self[0].is_a?(Table::Caption)
-            unshift(obj)
-            self[0], self[1] = self[1], self[0]
+            if self[0].is_a?(Table::Caption)
+              unshift(obj)
+              self[0], self[1] = self[1], self[0]
+            else
+              unshift(obj)
+            end
           else
-            unshift(obj)
-          end
-          else
-          super(obj)
+            super(obj)
         end
       end
     end
@@ -277,22 +277,22 @@ module HTML
 
       case obj
         when Table::Row::Data, Table::Row::Header # Each get their own row
-        self << Table::Row.new(obj)
+          self << Table::Row.new(obj)
         when Table::Caption                       # Always the first row
-        if self[0].is_a?(Table::Caption)
-          self[0] = obj
-        else
-          unshift(obj)
-        end
+          if self[0].is_a?(Table::Caption)
+            self[0] = obj
+          else
+            unshift(obj)
+          end
         when Table::Head                          # Always at row 0 or 1
-        if self[0].is_a?(Table::Caption)
-          unshift(obj)
-          self[0], self[1] = self[1], self[0]
+          if self[0].is_a?(Table::Caption)
+            unshift(obj)
+            self[0], self[1] = self[1], self[0]
+          else
+            unshift(obj)
+          end
         else
-          unshift(obj)
-        end
-        else
-        super(obj)
+          super(obj)
       end
     end
 

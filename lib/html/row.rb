@@ -66,25 +66,25 @@ module HTML
     def content=(arg)
       case arg
         when String
-        if @header
-          push(Table::Row::Header.new(arg))
-        else
-          push(Table::Row::Data.new(arg))
-        end
-        when Array
-        arg.each do |e|
-          if e.is_a?(Table::Row::Data) || e.is_a?(Table::Row::Header)
-            push(e)
+          if @header
+            push(Table::Row::Header.new(arg))
           else
-            if @header
-              push(Table::Row::Header.new(e))
+            push(Table::Row::Data.new(arg))
+          end
+        when Array
+          arg.each do |e|
+            if e.is_a?(Table::Row::Data) || e.is_a?(Table::Row::Header)
+              push(e)
             else
-              push(Table::Row::Data.new(e))
+              if @header
+                push(Table::Row::Header.new(e))
+              else
+                push(Table::Row::Data.new(e))
+              end
             end
           end
-        end
         else
-        push(arg)
+          push(arg)
       end
     end
 
