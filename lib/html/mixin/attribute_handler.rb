@@ -25,7 +25,7 @@ module HTML
       end
 
       def align=(position)
-        valid = %w/top bottom left center right/
+        valid = %w[top bottom left center right]
         raise ArgumentError unless valid.include?(position.downcase)
         @align = position
         modify_html('align', position)
@@ -259,7 +259,7 @@ module HTML
       end
 
       def frame=(type)
-        valid = %w/border void above below hsides lhs rhs vsides box/
+        valid = %w[border void above below hsides lhs rhs vsides box]
         raise ArgumentError unless valid.include?(type.downcase)
         @frame = type
         modify_html('frame', @frame)
@@ -322,7 +322,7 @@ module HTML
       end
 
       def rules=(edges)
-        valid = %w/all groups rows cols none/
+        valid = %w[all groups rows cols none]
         raise ArgumentError unless valid.include?(edges.to_s.downcase)
         @rules = edges
         modify_html('rules', @rules)
@@ -369,7 +369,7 @@ module HTML
       end
 
       def valign=(position)
-        valid = %w/top center bottom baseline/
+        valid = %w[top center bottom baseline]
         raise ArgumentError unless valid.include?(position.to_s.downcase)
         @valign = position
         modify_html('valign', @valign)
