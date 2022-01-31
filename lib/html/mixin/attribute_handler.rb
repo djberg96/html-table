@@ -50,7 +50,7 @@ module HTML
 
       def background=(url)
         raise TypeError unless url.is_a?(String)
-        msg =  "'background' is a non-standard extension"
+        msg = "'background' is a non-standard extension"
         warn NonStandardExtensionWarning, msg
         @background = url
         modify_html('background', url)
@@ -93,7 +93,7 @@ module HTML
 
       def bordercolor=(color)
         @bordercolor = color
-        msg =  "'bordercolor' is a non-standard extension"
+        msg = "'bordercolor' is a non-standard extension"
         warn NonStandardExtensionWarning, msg
         modify_html('bordercolor', color)
       end
