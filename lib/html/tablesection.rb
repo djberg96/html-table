@@ -6,6 +6,7 @@ module HTML
     include HTML::Mixin::HtmlHandler
 
     def initialize(&block)
+      super
       instance_eval(&block) if block_given?
     end
 
