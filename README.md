@@ -134,3 +134,5 @@ but the strongtyping lib is simply more convenient all around.
 UPDATE: I originally used Ryan Pavlik's strongtyping library as a dependency.
 As of version 1.6.0 I now simply include a pure Ruby version with this library.
 This makes it easier to work with JRuby and eliminates a dependency.
+
+This is a test.
