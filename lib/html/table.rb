@@ -166,7 +166,7 @@ module HTML
     def self.html_case=(arg)
       expect(arg, String)
       arg.downcase!
-      unless ['upper', 'lower'].include?(arg)
+      unless %w[upper lower].include?(arg)
         msg = "Argument to html_case() must be 'upper' or 'lower'"
         raise ArgumentError, msg
       end
