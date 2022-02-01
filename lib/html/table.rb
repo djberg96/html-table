@@ -29,7 +29,7 @@ module HTML
     @html_case = 'lower'
 
     # Determines whether or not end tags will be included in printed output
-    @@global_end_tags = true
+    @global_end_tags = true
 
     # Returns a new Table object. Optionally takes a block which is
     # eval'd if provided. If an argument is provided it is interpreted as
@@ -139,18 +139,18 @@ module HTML
     # turned on or off, respectively.
     #
     def self.global_end_tags?
-      @@global_end_tags
+      @global_end_tags
     end
 
-    # Sets the end tag class variable.  This is used to set whether or not
-    # to include optional end tags in the final HTML output.  The argument
-    # sent to this method must be true or false.  The default value is true.
+    # Sets the end tag class variable. This is used to set whether or not
+    # to include optional end tags in the final HTML output. The argument
+    # sent to this method must be true or false. The default value is true.
     #
     # Note that mandatory end tags are unaffected by this setting.
     #
     def self.global_end_tags=(bool)
       expect(bool, [TrueClass, FalseClass])
-      @@global_end_tags = bool
+      @global_end_tags = bool
     end
 
     # Returns either "lower" or "upper", indicating the case of all HTML

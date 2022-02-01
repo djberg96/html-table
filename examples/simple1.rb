@@ -9,12 +9,14 @@ require 'html/table'
 include HTML
 
 table = Table.new{ |t|
-   t.content = [
-      %w/foo bar baz/,
-      %w/1 2 3/,
-      %w/hello world/
-   ]
+  t.content = [
+    %w[foo bar baz],
+    %w[1 2 3],
+    %w[hello world]
+  ]
 }
+
+#Table.global_end_tags = false
 
 puts table.html
 
