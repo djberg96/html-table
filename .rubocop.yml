@@ -25,6 +25,8 @@ Style/TrivialAccessors:
   Enabled: false
 Style/IfUnlessModifier:
   Enabled: false
+Style/FrozenStringLiteralComment:
+  Enabled: false
 Layout/EmptyLineAfterGuardClause:
   Enabled: false
 Layout/CaseIndentation:
