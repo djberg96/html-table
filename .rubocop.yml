@@ -53,3 +53,6 @@ Metrics/PerceivedComplexity:
   Enabled: false
 Naming/RescuedExceptionsVariableName:
   PreferredName: 'err'
+Naming/FileName:
+  Exclude:
+    - 'lib/html-table.rb'
