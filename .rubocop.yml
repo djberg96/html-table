@@ -27,6 +27,10 @@ Style/IfUnlessModifier:
   Enabled: false
 Style/FrozenStringLiteralComment:
   Enabled: false
+Style/IfInsideElse:
+  Enabled: false
+Style/OptionalBooleanParameter:
+  Enabled: false
 Layout/EmptyLineAfterGuardClause:
   Enabled: false
 Layout/CaseIndentation:
