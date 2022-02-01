@@ -53,7 +53,7 @@ module HTML
           ilevel = self.class.indent_level
         end
 
-        html          = ' ' * ilevel + @html_begin[0..-1]
+        html          = (' ' * ilevel) + @html_begin[0..-1]
         len           = html.length
         html[len, len] = '>'
 
@@ -80,24 +80,24 @@ module HTML
             if self.class.respond_to?(:end_tags?)
               if formatting
                 if self.class.end_tags?
-                  html << "\n" + (' ' * ilevel) + @html_end
+                  html << ("\n" + (' ' * ilevel) + @html_end)
                 end
               else
-                html << (' ' * ilevel) + @html_end if self.class.end_tags?
+                html << ((' ' * ilevel) + @html_end) if self.class.end_tags?
               end
             else
               if formatting
-                html << "\n" + (' ' * ilevel) + @html_end
+                html << ("\n" + (' ' * ilevel) + @html_end)
               else
-                html << (' ' * ilevel) + @html_end
+                html << ((' ' * ilevel) + @html_end)
               end
             end
           else
             unless self.class.respond_to?(:end_tags?)
               if formatting
-                html << "\n" + (' ' * ilevel) + @html_end
+                html << ("\n" + (' ' * ilevel) + @html_end)
               else
-                html << (' ' * ilevel) + @html_end
+                html << ((' ' * ilevel) + @html_end)
               end
             end
           end
