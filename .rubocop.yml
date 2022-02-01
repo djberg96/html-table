@@ -31,6 +31,8 @@ Layout/CaseIndentation:
   IndentOneStep: true
 Layout/SpaceBeforeBlockBraces:
   Enabled: false
+Layout/EmptyLinesAroundModuleBody:
+  Enabled: false
 Metrics/AbcSize:
   Enabled: false
 Metrics/BlockLength:
