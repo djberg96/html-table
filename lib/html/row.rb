@@ -1,4 +1,7 @@
+# The HTML module is a namespace only.
 module HTML
+  # The Table::Row class is a subclass of array that encapsulates an
+  # html table row, i.e. <tr> element.
   class Table::Row < Array
     include HTML::Mixin::AttributeHandler
     include HTML::Mixin::HtmlHandler
