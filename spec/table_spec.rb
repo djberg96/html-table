@@ -10,6 +10,11 @@ require 'html/table'
 RSpec.describe HTML::Table do
   before do
     @table = described_class.new
+    @original_case = described_class.html_case
+  end
+
+  after do
+    described_class.html_case = @original_case
   end
 
   example "version" do
@@ -30,13 +35,23 @@ RSpec.describe HTML::Table do
     expect{ described_class.new(%w[foo bar baz], :border => 1) }.not_to raise_error
   end
 
-  example "html_case" do
+  example "html_case method basic functionality" do
     expect(described_class).to respond_to(:html_case)
     expect(described_class).to respond_to(:html_case=)
+  end
+
+  example "html_case writer method only accepts 'upper' and 'lower'" do
     expect{ described_class.html_case = 'upper' }.not_to raise_error
     expect{ described_class.html_case = 'lower' }.not_to raise_error
     expect{ described_class.html_case = 'foo' }.to raise_error(ArgumentError)
     expect{ described_class.html_case = 7 }.to raise_error(ArgumentTypeError)
+  end
+
+  example "html_case causes uppercased output as expected" do
+    html = '<TABLE><TR><TD>hello</TD></TR></TABLE>'
+    described_class.html_case = 'upper'
+    @table.content = 'hello'
+    expect(@table.html.gsub(/\s+/, '')).to eq(html)
   end
 
   example "indent_level" do
