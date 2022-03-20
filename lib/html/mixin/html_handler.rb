@@ -2,7 +2,7 @@ module HTML
   module Mixin
     module HtmlHandler
 
-      $upper = false
+      $html_table_uppercase = false
 
       # Used on HTML attributes. It creates proper HTML text based on the argument
       # type.  A string looks like "attr='text'", a number looks like "attr=1",
@@ -39,10 +39,14 @@ module HTML
       #
       def html(formatting = true)
         if self.class.respond_to?(:html_case)
-          $upper = true if self.class.html_case == 'upper'
+          if self.class.html_case == 'upper'
+            $html_table_uppercase = true
+          else
+            $html_table_uppercase = false
+          end
         end
 
-        if $upper
+        if $html_table_uppercase
           @html_begin.upcase!
           @html_end.upcase!
         end
