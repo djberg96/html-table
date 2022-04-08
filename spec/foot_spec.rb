@@ -21,73 +21,73 @@ RSpec.describe HTML::Table::Foot do
     @tfoot = described_class.create
   end
 
-  example "new_not_allowed" do
+  example 'new_not_allowed' do
     expect{ described_class.new }.to raise_error(NoMethodError)
   end
 
-  example "constructor" do
+  example 'constructor' do
     expect{ described_class.create }.not_to raise_error
-    expect{ described_class.create("foo") }.not_to raise_error
+    expect{ described_class.create('foo') }.not_to raise_error
     expect{ described_class.create(1) }.not_to raise_error
     expect{ described_class.create(%w/foo bar baz/) }.not_to raise_error
     expect{ described_class.create([1,2,3]) }.not_to raise_error
-    expect{ described_class.create([[1,2,3], ["foo","bar"]]) }.not_to raise_error
+    expect{ described_class.create([[1,2,3], ['foo','bar']]) }.not_to raise_error
   end
 
-  example "basic" do
-    html = "<tfoot></tfoot>"
+  example 'basic' do
+    html = '<tfoot></tfoot>'
     expect(@tfoot.html.gsub(/\s{2,}|\n/, '')).to eq(html)
   end
 
-  example "end_tags" do
+  example 'end_tags' do
     expect(described_class).to respond_to(:end_tags?)
     expect(described_class).to respond_to(:end_tags=)
     expect{ described_class.end_tags? }.not_to raise_error
     expect{ described_class.end_tags = true }.not_to raise_error
   end
 
-  example "end_tags_expected_errors" do
-    expect{ described_class.end_tags = "foo" }.to raise_error(HTML::Mixin::StrongTyping::ArgumentTypeError)
+  example 'end_tags_expected_errors' do
+    expect{ described_class.end_tags = 'foo' }.to raise_error(HTML::Mixin::StrongTyping::ArgumentTypeError)
   end
 
-  example "with_attributes" do
+  example 'with_attributes' do
     html = "<tfoot align='left' char='x'></tfoot>"
-    @tfoot.align = "left"
+    @tfoot.align = 'left'
     @tfoot.char = 'x'
     expect(@tfoot.html.gsub(/\s{2,}|\n/, '')).to eq(html)
   end
 
-  example "push_single_row" do
-    html = "<tfoot><tr><td>test</td></tr></tfoot>"
-    @tfoot.push Table::Row.new{|r| r.content = "test"}
+  example 'push_single_row' do
+    html = '<tfoot><tr><td>test</td></tr></tfoot>'
+    @tfoot.push Table::Row.new{|r| r.content = 'test'}
     expect(@tfoot.html.gsub(/\s{2,}|\n/, '')).to eq(html)
   end
 
-  example "push_multiple_rows" do
-    html = "<tfoot><tr><td>test</td></tr><tr><td>foo</td></tr></tfoot>"
-    r1 = Table::Row.new{|r| r.content = "test"}
-    r2 = Table::Row.new{|r| r.content = "foo"}
+  example 'push_multiple_rows' do
+    html = '<tfoot><tr><td>test</td></tr><tr><td>foo</td></tr></tfoot>'
+    r1 = Table::Row.new{|r| r.content = 'test'}
+    r2 = Table::Row.new{|r| r.content = 'foo'}
     @tfoot.push r1, r2
     expect(@tfoot.html.gsub(/\s{2,}|\n/, '')).to eq(html)
   end
 
-  example "add_content_directly" do
-    html = "<tfoot><tr><td>hello</td><td>world</td></tr></tfoot>"
-    @tfoot.content = "hello","world"
+  example 'add_content_directly' do
+    html = '<tfoot><tr><td>hello</td><td>world</td></tr></tfoot>'
+    @tfoot.content = 'hello','world'
     expect(@tfoot.html.gsub(/\s{2,}|\n+/, '')).to eq(html)
   end
 
-  example "add_content_in_constructor" do
-    html = "<tfoot><tr><td>hello</td><td>world</td></tr></tfoot>"
+  example 'add_content_in_constructor' do
+    html = '<tfoot><tr><td>hello</td><td>world</td></tr></tfoot>'
     @tfoot.send(:refresh)
-    @tfoot = described_class.create(["hello","world"])
+    @tfoot = described_class.create(['hello','world'])
     expect(@tfoot.html.gsub(/\s{2,}|\n+/, '')).to eq(html)
   end
 
-  example "configure_column" do
+  example 'configure_column' do
     html = "<tfoot><tr><td>hello</td><td abbr='test' width=3 nowrap>world"
-    html += "</td></tr></tfoot>"
-    @tfoot.content = "hello","world"
+    html += '</td></tr></tfoot>'
+    @tfoot.content = 'hello','world'
     @tfoot.configure(0,1){ |data|
       data.abbr   = 'test'
       data.width  = 3

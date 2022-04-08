@@ -16,63 +16,63 @@ RSpec.describe HTML::Mixin::TagHandler do
     @tcontent = HTML::Table::Content.new('test')
   end
 
-  example "bold" do
+  example 'bold' do
     expect(@tcontent).to respond_to(:bold)
     expect(@tcontent).to respond_to(:bold=)
     expect{ @tcontent.bold }.not_to raise_error
     expect{ @tcontent.bold = true }.not_to raise_error
   end
 
-  example "big" do
+  example 'big' do
     expect(@tcontent).to respond_to(:big)
     expect(@tcontent).to respond_to(:big=)
     expect{ @tcontent.big }.not_to raise_error
     expect{ @tcontent.big = true }.not_to raise_error
   end
 
-  example "blink" do
+  example 'blink' do
     expect(@tcontent).to respond_to(:blink)
     expect(@tcontent).to respond_to(:blink=)
     expect{ @tcontent.blink }.not_to raise_error
     expect{ @tcontent.blink = true }.not_to raise_error
   end
 
-  example "italic" do
+  example 'italic' do
     expect(@tcontent).to respond_to(:italic)
     expect(@tcontent).to respond_to(:italic=)
     expect{ @tcontent.italic }.not_to raise_error
     expect{ @tcontent.italic = true }.not_to raise_error
   end
 
-  example "strike" do
+  example 'strike' do
     expect(@tcontent).to respond_to(:strike)
     expect(@tcontent).to respond_to(:strike=)
     expect{ @tcontent.strike }.not_to raise_error
     expect{ @tcontent.strike = true }.not_to raise_error
   end
 
-  example "sub" do
+  example 'sub' do
     expect(@tcontent).to respond_to(:sub)
     expect(@tcontent).to respond_to(:sub)
     expect{ @tcontent.sub }.not_to raise_error
     expect{ @tcontent.sub = true }.not_to raise_error
   end
 
-  example "sup" do
+  example 'sup' do
     expect(@tcontent).to respond_to(:sup)
     expect(@tcontent).to respond_to(:sup)
     expect{ @tcontent.sup }.not_to raise_error
     expect{ @tcontent.sup = true }.not_to raise_error
   end
 
-  example "tt" do
+  example 'tt' do
     expect(@tcontent).to respond_to(:tt)
     expect(@tcontent).to respond_to(:tt)
     expect{ @tcontent.tt }.not_to raise_error
     expect{ @tcontent.tt = true }.not_to raise_error
   end
 
-  example "underline" do
+  example 'underline' do
     expect(@tcontent).to respond_to(:underline)
     expect(@tcontent).to respond_to(:underline)
     expect{ @tcontent.underline }.not_to raise_error
