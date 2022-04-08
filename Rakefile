@@ -1,6 +1,7 @@
 require 'rake'
 require 'rake/clean'
 require 'rspec/core/rake_task'
+require 'rubocop/rake_task'
 
 CLEAN.include("**/*.gem", "**/*.rbc", "**/*.lock")
 
@@ -51,6 +52,8 @@ namespace 'example' do
     sh 'ruby -Ilib examples/advanced.rb'
   end
 end
+
+RuboCop::RakeTask.new
 
 namespace :spec do
   RSpec::Core::RakeTask.new(:attribute_handler) do |t|
