@@ -27,8 +27,8 @@ RSpec.describe HTML::Table do
     expect{ described_class.new('foo') }.not_to raise_error
     expect{ described_class.new(1) }.not_to raise_error
     expect{ described_class.new(%w/foo bar baz/) }.not_to raise_error
-    expect{ described_class.new([1,2,3]) }.not_to raise_error
-    expect{ described_class.new([[1,2,3],['foo','bar']]) }.not_to raise_error
+    expect{ described_class.new([1, 2, 3]) }.not_to raise_error
+    expect{ described_class.new([[1, 2, 3], ['foo', 'bar']]) }.not_to raise_error
   end
 
   example 'constructor_with_attributes' do
@@ -144,7 +144,7 @@ RSpec.describe HTML::Table do
 
   example 'add_multiple_data_elements' do
     html = '<table><tr><td>hello</td></tr><tr><td>world</td></tr></table>'
-    @table.content = 'hello','world'
+    @table.content = 'hello', 'world'
     expect(@table.html.gsub(/\s+/, '')).to eq(html)
   end
 
@@ -153,7 +153,7 @@ RSpec.describe HTML::Table do
     html << '</table>'
     @table.push HTML::Table::Row::Data.new{ |d| d.content = 'hello' }
     @table.configure(0){ |t| t.align = 'center' }
-    @table.configure(0,0){ |d| d.bgcolor = 'red' }
+    @table.configure(0, 0){ |d| d.bgcolor = 'red' }
     expect(@table.html.gsub(/\s{2,}|\n+/, '')).to eq(html)
   end
 

@@ -21,8 +21,8 @@ RSpec.describe HTML::Table::Row::Header do
     expect{ described_class.new('foo') }.not_to raise_error
     expect{ described_class.new(1) }.not_to raise_error
     expect{ described_class.new(%w/foo bar baz/) }.not_to raise_error
-    expect{ described_class.new([1,2,3]) }.not_to raise_error
-    expect{ described_class.new([[1,2,3],['foo','bar']]) }.not_to raise_error
+    expect{ described_class.new([1, 2, 3]) }.not_to raise_error
+    expect{ described_class.new([[1, 2, 3], ['foo', 'bar']]) }.not_to raise_error
   end
 
   example 'with_attributes' do
@@ -45,7 +45,7 @@ RSpec.describe HTML::Table::Row::Header do
 
   example 'add_multiple_content_items' do
     html = '<th>hello world</th>'
-    @theader.content = 'hello',' world'
+    @theader.content = 'hello', ' world'
     expect(@theader.html.gsub(/\s{2,}/, '')).to eq(html)
   end
 

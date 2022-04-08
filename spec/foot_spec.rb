@@ -30,8 +30,8 @@ RSpec.describe HTML::Table::Foot do
     expect{ described_class.create('foo') }.not_to raise_error
     expect{ described_class.create(1) }.not_to raise_error
     expect{ described_class.create(%w/foo bar baz/) }.not_to raise_error
-    expect{ described_class.create([1,2,3]) }.not_to raise_error
-    expect{ described_class.create([[1,2,3], ['foo','bar']]) }.not_to raise_error
+    expect{ described_class.create([1, 2, 3]) }.not_to raise_error
+    expect{ described_class.create([[1, 2, 3], ['foo', 'bar']]) }.not_to raise_error
   end
 
   example 'basic' do
@@ -73,22 +73,22 @@ RSpec.describe HTML::Table::Foot do
 
   example 'add_content_directly' do
     html = '<tfoot><tr><td>hello</td><td>world</td></tr></tfoot>'
-    @tfoot.content = 'hello','world'
+    @tfoot.content = 'hello', 'world'
     expect(@tfoot.html.gsub(/\s{2,}|\n+/, '')).to eq(html)
   end
 
   example 'add_content_in_constructor' do
     html = '<tfoot><tr><td>hello</td><td>world</td></tr></tfoot>'
     @tfoot.send(:refresh)
-    @tfoot = described_class.create(['hello','world'])
+    @tfoot = described_class.create(['hello', 'world'])
     expect(@tfoot.html.gsub(/\s{2,}|\n+/, '')).to eq(html)
   end
 
   example 'configure_column' do
     html = "<tfoot><tr><td>hello</td><td abbr='test' width=3 nowrap>world"
     html += '</td></tr></tfoot>'
-    @tfoot.content = 'hello','world'
-    @tfoot.configure(0,1){ |data|
+    @tfoot.content = 'hello', 'world'
+    @tfoot.configure(0, 1){ |data|
       data.abbr   = 'test'
       data.width  = 3
       data.nowrap = true

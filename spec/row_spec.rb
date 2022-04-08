@@ -16,8 +16,8 @@ RSpec.describe HTML::Table::Row do
     expect{ Table::Row.new }.not_to raise_error
     expect{ Table::Row.new('foo') }.not_to raise_error
     expect{ Table::Row.new(1) }.not_to raise_error
-    expect{ Table::Row.new([1,2,3]) }.not_to raise_error
-    expect{ Table::Row.new([[1,2,3],['foo','bar']]) }.not_to raise_error
+    expect{ Table::Row.new([1, 2, 3]) }.not_to raise_error
+    expect{ Table::Row.new([[1, 2, 3], ['foo', 'bar']]) }.not_to raise_error
   end
 
   example 'basic' do
@@ -85,7 +85,7 @@ RSpec.describe HTML::Table::Row do
 
   example 'add_content_directly' do
     html = '<tr><td>hello</td><td>world</td></tr>'
-    @trow.content = 'hello','world'
+    @trow.content = 'hello', 'world'
     expect(@trow.html.gsub(/\s{2,}|\n+/, '')).to eq(html)
   end
 
@@ -97,7 +97,7 @@ RSpec.describe HTML::Table::Row do
 
   example 'configure_column' do
     html = "<tr><td>hello</td><td abbr='test' width=3 nowrap>world</td></tr>"
-    @trow.content = 'hello','world'
+    @trow.content = 'hello', 'world'
     @trow.configure(1){ |d|
       d.abbr = 'test'
       d.width = 3
@@ -116,7 +116,7 @@ RSpec.describe HTML::Table::Row do
   end
 
   example 'configure_error' do
-    expect{ @trow.configure(0,0){ }.to raise_error(ArgumentError) }
+    expect{ @trow.configure(0, 0){ }.to raise_error(ArgumentError) }
   end
 
   example 'indent_level' do

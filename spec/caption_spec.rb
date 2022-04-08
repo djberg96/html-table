@@ -17,8 +17,8 @@ RSpec.describe HTML::Table::Caption do
     expect{ described_class.new('foo') }.not_to raise_error
     expect{ described_class.new(1) }.not_to raise_error
     expect{ described_class.new(%w/foo bar baz/) }.not_to raise_error
-    expect{ described_class.new([1,2,3]) }.not_to raise_error
-    expect{ described_class.new([[1,2,3],['foo','bar']]) }.not_to raise_error
+    expect{ described_class.new([1, 2, 3]) }.not_to raise_error
+    expect{ described_class.new([[1, 2, 3], ['foo', 'bar']]) }.not_to raise_error
   end
 
   example 'basic' do
@@ -45,7 +45,7 @@ RSpec.describe HTML::Table::Caption do
 
   example 'add_multiple_content_items' do
     html = '<caption>hello world</caption>'
-    @tcaption.content = 'hello',' world'
+    @tcaption.content = 'hello', ' world'
     expect(@tcaption.html.gsub(/\s{2,}/, '')).to eq(html)
   end
 
@@ -67,7 +67,7 @@ RSpec.describe HTML::Table::Caption do
   end
 
   example 'automatically_set_to_row_zero' do
-    @table.content = 'hello','world'
+    @table.content = 'hello', 'world'
     @table.push(@tcaption)
     expect(@table[0]).to be_kind_of(described_class)
   end

@@ -16,8 +16,8 @@ RSpec.describe HTML::Table::Row::Data do
     expect{ described_class.new('foo') }.not_to raise_error
     expect{ described_class.new(1) }.not_to raise_error
     expect{ described_class.new(%w/foo bar baz/) }.not_to raise_error
-    expect{ described_class.new([1,2,3]) }.not_to raise_error
-    expect{ described_class.new([[1,2,3],['foo','bar']]) }.not_to raise_error
+    expect{ described_class.new([1, 2, 3]) }.not_to raise_error
+    expect{ described_class.new([[1, 2, 3], ['foo', 'bar']]) }.not_to raise_error
   end
 
   example 'basic' do
@@ -51,7 +51,7 @@ RSpec.describe HTML::Table::Row::Data do
 
   example 'add_multiple_content_items' do
     html = '<td>hello world</td>'
-    @tdata.content = 'hello',' world'
+    @tdata.content = 'hello', ' world'
     expect(@tdata.html.gsub(/\s{2,}/, '')).to eq(html)
   end
 

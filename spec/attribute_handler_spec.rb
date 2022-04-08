@@ -13,7 +13,7 @@ RSpec.describe HTML::Mixin::AttributeHandler do
   end
 
   before do
-    @table = HTML::Table.new(['foo',1,'bar'])
+    @table = HTML::Table.new(['foo', 1, 'bar'])
   end
 
   example 'abbr_basic' do
@@ -198,11 +198,11 @@ RSpec.describe HTML::Mixin::AttributeHandler do
   example 'configure' do
     expect(@table).to respond_to(:configure)
     expect{ @table.configure(0){}.not_to raise_error }
-    expect{ @table.configure(0,0){}.not_to raise_error }
+    expect{ @table.configure(0, 0){}.not_to raise_error }
   end
 
   example 'configure_expected_errors' do
-    expect{ @table.configure(0,0,0){}.to raise_error(ArgumentError) }
+    expect{ @table.configure(0, 0, 0){}.to raise_error(ArgumentError) }
   end
 
   ########################################################################
@@ -214,8 +214,8 @@ RSpec.describe HTML::Mixin::AttributeHandler do
     expect(@table).to respond_to(:content=)
     expect{ @table.content = 'foo' }.not_to raise_error
     expect{ @table.content = 123 }.not_to raise_error
-    expect{ @table.content = ['one',2,'three'] }.not_to raise_error
-    expect{ @table.content = [['foo','bar'],[1,2,3]] }.not_to raise_error
+    expect{ @table.content = ['one', 2, 'three'] }.not_to raise_error
+    expect{ @table.content = [['foo', 'bar'], [1, 2, 3]] }.not_to raise_error
     expect{ @table.content = HTML::Table::Row.new }.not_to raise_error
     expect{ @table.content = HTML::Table::Row::Data.new }.not_to raise_error
     expect{ @table.content = HTML::Table::Row::Header.new }.not_to raise_error

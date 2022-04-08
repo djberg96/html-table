@@ -30,8 +30,8 @@ RSpec.describe HTML::Table::Head do
     expect{ described_class.create('foo') }.not_to raise_error
     expect{ described_class.create(1) }.not_to raise_error
     expect{ described_class.create(%w/foo bar baz/) }.not_to raise_error
-    expect{ described_class.create([1,2,3]) }.not_to raise_error
-    expect{ described_class.create([[1,2,3],['foo','bar']]) }.not_to raise_error
+    expect{ described_class.create([1, 2, 3]) }.not_to raise_error
+    expect{ described_class.create([[1, 2, 3], ['foo', 'bar']]) }.not_to raise_error
   end
 
   example 'basic' do
@@ -70,22 +70,22 @@ RSpec.describe HTML::Table::Head do
 
   example 'add_content_directly' do
     html = '<thead><tr><td>hello</td><td>world</td></tr></thead>'
-    @thead.content = 'hello','world'
+    @thead.content = 'hello', 'world'
     expect(@thead.html.gsub(/\s{2,}|\n+/, '')).to eq(html)
   end
 
   example 'add_content_in_constructor' do
     html = '<thead><tr><td>hello</td><td>world</td></tr></thead>'
     @thead.send(:refresh)
-    @thead = described_class.create(['hello','world'])
+    @thead = described_class.create(['hello', 'world'])
     expect(@thead.html.gsub(/\s{2,}|\n+/, '')).to eq(html)
   end
 
   example 'configure_column' do
     html = "<thead><tr><td>hello</td><td abbr='test' width=3 nowrap>world"
     html += '</td></tr></thead>'
-    @thead.content = 'hello','world'
-    @thead.configure(0,1){ |d|
+    @thead.content = 'hello', 'world'
+    @thead.configure(0, 1){ |d|
       d.abbr = 'test'
       d.width = 3
       d.nowrap = true
