@@ -16,8 +16,8 @@ RSpec.describe HTML::Mixin::HtmlHandler do
     expect(@table).to respond_to(:html)
     expect{ @table.html }.not_to raise_error
     expect{ @table.html = 'foo' }.to raise_error(NoMethodError)
-    expect( @table.html).to be_kind_of(String)
-    expect( @table.html.length > 0).to eq(true)
+    expect(@table.html).to be_kind_of(String)
+    expect(@table.html.length > 0).to eq(true)
   end
 
   example 'modify_html' do

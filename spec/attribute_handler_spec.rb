@@ -25,7 +25,7 @@ RSpec.describe HTML::Mixin::AttributeHandler do
     expect{ @table.abbr }.not_to raise_error
     expect(@table.abbr).to be_nil
     expect{ @table.abbr = 'foo' }.not_to raise_error
-    expect( @table.abbr).to eq('foo')
+    expect(@table.abbr).to eq('foo')
   end
 
   example 'align_basic' do
@@ -37,7 +37,7 @@ RSpec.describe HTML::Mixin::AttributeHandler do
     expect{ @table.align }.not_to raise_error
     expect(@table.align).to be_nil
     expect{ @table.align = 'center' }.not_to raise_error
-    expect( @table.align).to eq('center')
+    expect(@table.align).to eq('center')
   end
 
   example 'align_expected_errors' do
@@ -60,7 +60,7 @@ RSpec.describe HTML::Mixin::AttributeHandler do
     expect{ @table.background }.not_to raise_error
     expect(@table.background).to be_nil
     expect{ @table.background = 'foo' }.not_to raise_error
-    expect( @table.background).to eq('foo')
+    expect(@table.background).to eq('foo')
   end
 
   example 'background_expected_errors' do
@@ -76,7 +76,7 @@ RSpec.describe HTML::Mixin::AttributeHandler do
     expect{ @table.bgcolor }.not_to raise_error
     expect(@table.bgcolor).to be_nil
     expect{ @table.bgcolor = 'foo' }.not_to raise_error
-    expect( @table.bgcolor).to eq('foo')
+    expect(@table.bgcolor).to eq('foo')
   end
 
   example 'border_basic' do
@@ -100,7 +100,7 @@ RSpec.describe HTML::Mixin::AttributeHandler do
     expect{ @table.bordercolor }.not_to raise_error
     expect(@table.bordercolor).to be_nil
     expect{ @table.bordercolor = 'foo' }.not_to raise_error
-    expect( @table.bordercolor).to eq('foo')
+    expect(@table.bordercolor).to eq('foo')
   end
 
   example 'bordercolordark_basic' do
@@ -112,7 +112,7 @@ RSpec.describe HTML::Mixin::AttributeHandler do
     expect{ @table.bordercolordark }.not_to raise_error
     expect(@table.bordercolordark).to be_nil
     expect{ @table.bordercolordark = 'foo' }.not_to raise_error
-    expect( @table.bordercolordark).to eq('foo')
+    expect(@table.bordercolordark).to eq('foo')
   end
 
   example 'bordercolorlight' do
@@ -347,7 +347,7 @@ RSpec.describe HTML::Mixin::AttributeHandler do
 
   example 'width_with_percent' do
     expect{ @table.width = '5%' }.not_to raise_error
-    expect( @table.width).to eq('5%')
+    expect(@table.width).to eq('5%')
   end
 
   example 'width_expected_errors' do
