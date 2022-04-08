@@ -11,21 +11,21 @@ RSpec.describe HTML::Table::Row::Header do
     @theader = described_class.new
   end
 
-  example "basic" do
-    html = "<th></th>"
+  example 'basic' do
+    html = '<th></th>'
     expect(@theader.html.gsub(/\s+/, '')).to eq(html)
   end
 
-  example "constructor" do
+  example 'constructor' do
     expect{ described_class.new }.not_to raise_error
-    expect{ described_class.new("foo") }.not_to raise_error
+    expect{ described_class.new('foo') }.not_to raise_error
     expect{ described_class.new(1) }.not_to raise_error
     expect{ described_class.new(%w/foo bar baz/) }.not_to raise_error
-    expect{ described_class.new([1,2,3]) }.not_to raise_error
-    expect{ described_class.new([[1,2,3],["foo","bar"]]) }.not_to raise_error
+    expect{ described_class.new([1, 2, 3]) }.not_to raise_error
+    expect{ described_class.new([[1, 2, 3], ['foo', 'bar']]) }.not_to raise_error
   end
 
-  example "with_attributes" do
+  example 'with_attributes' do
     html = "<th align='left' colspan=3 nowrap></th>"
     @theader.align = 'left'
     @theader.colspan = 3
@@ -33,39 +33,39 @@ RSpec.describe HTML::Table::Row::Header do
     expect(@theader.html.gsub(/\s{2,}|\n+/, '')).to eq(html)
   end
 
-  example "configure_not_allowed" do
+  example 'configure_not_allowed' do
     expect{ @theader.configure }.to raise_error(NoMethodError)
   end
 
-  example "add_content" do
-    html = "<th>hello world</th>"
-    @theader.content = "hello world"
+  example 'add_content' do
+    html = '<th>hello world</th>'
+    @theader.content = 'hello world'
     expect(@theader.html.gsub(/\s{2,}/, '')).to eq(html)
   end
 
-  example "add_multiple_content_items" do
-    html = "<th>hello world</th>"
-    @theader.content = "hello"," world"
+  example 'add_multiple_content_items' do
+    html = '<th>hello world</th>'
+    @theader.content = 'hello', ' world'
     expect(@theader.html.gsub(/\s{2,}/, '')).to eq(html)
   end
 
-  example "add_content_in_constructor" do
-    html = "<th>hello world</th>"
-    @theader = described_class.new("hello world")
+  example 'add_content_in_constructor' do
+    html = '<th>hello world</th>'
+    @theader = described_class.new('hello world')
     expect(@theader.html.gsub(/\s{2,}/, '')).to eq(html)
   end
 
-  example "indent_level" do
+  example 'indent_level' do
     expect(described_class).to respond_to(:indent_level)
     expect(described_class).to respond_to(:indent_level=)
-    expect{ described_class.indent_level = "foo" }.to raise_error(ArgumentTypeError)
+    expect{ described_class.indent_level = 'foo' }.to raise_error(ArgumentTypeError)
     expect{ described_class.indent_level = 6 }.not_to raise_error
   end
 
-  example "end_tags" do
+  example 'end_tags' do
     expect(described_class).to respond_to(:end_tags?)
     expect(described_class).to respond_to(:end_tags=)
-    expect{ described_class.end_tags = "foo" }.to raise_error(ArgumentTypeError)
+    expect{ described_class.end_tags = 'foo' }.to raise_error(ArgumentTypeError)
     expect{ described_class.end_tags = 1 }.to raise_error(ArgumentTypeError)
     expect{ described_class.end_tags = true }.not_to raise_error
   end

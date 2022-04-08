@@ -25,67 +25,67 @@ RSpec.describe HTML::Table::Head do
     @thead = described_class.create
   end
 
-  example "constructor" do
+  example 'constructor' do
     expect{ described_class.create }.not_to raise_error
-    expect{ described_class.create("foo") }.not_to raise_error
+    expect{ described_class.create('foo') }.not_to raise_error
     expect{ described_class.create(1) }.not_to raise_error
     expect{ described_class.create(%w/foo bar baz/) }.not_to raise_error
-    expect{ described_class.create([1,2,3]) }.not_to raise_error
-    expect{ described_class.create([[1,2,3],["foo","bar"]]) }.not_to raise_error
+    expect{ described_class.create([1, 2, 3]) }.not_to raise_error
+    expect{ described_class.create([[1, 2, 3], ['foo', 'bar']]) }.not_to raise_error
   end
 
-  example "basic" do
-    html = "<thead></thead>"
+  example 'basic' do
+    html = '<thead></thead>'
     expect(@thead.html.gsub(/\s{2,}|\n/, '')).to eq(html)
   end
 
-  example "end_tags" do
+  example 'end_tags' do
     expect(described_class).to respond_to(:end_tags?)
     expect(described_class).to respond_to(:end_tags=)
     expect{ described_class.end_tags? }.not_to raise_error
     expect{ described_class.end_tags = true }.not_to raise_error
-    expect{ described_class.end_tags = "foo" }.to raise_error(HTML::Mixin::StrongTyping::ArgumentTypeError)
+    expect{ described_class.end_tags = 'foo' }.to raise_error(HTML::Mixin::StrongTyping::ArgumentTypeError)
   end
 
-  example "with_attributes" do
+  example 'with_attributes' do
     html = "<thead align='left' char='x'></thead>"
-    @thead.align = "left"
+    @thead.align = 'left'
     @thead.char = 'x'
     expect(@thead.html.gsub(/\s{2,}|\n/, '')).to eq(html)
   end
 
-  example "push_single_row" do
-    html = "<thead><tr><td>test</td></tr></thead>"
-    @thead.push HTML::Table::Row.new{|r| r.content = "test"}
+  example 'push_single_row' do
+    html = '<thead><tr><td>test</td></tr></thead>'
+    @thead.push HTML::Table::Row.new{ |r| r.content = 'test' }
     expect(@thead.html.gsub(/\s{2,}|\n/, '')).to eq(html)
   end
 
-  example "push_multiple_rows" do
-    html = "<thead><tr><td>test</td></tr><tr><td>foo</td></tr></thead>"
-    r1 = HTML::Table::Row.new("test")
-    r2 = HTML::Table::Row.new("foo")
+  example 'push_multiple_rows' do
+    html = '<thead><tr><td>test</td></tr><tr><td>foo</td></tr></thead>'
+    r1 = HTML::Table::Row.new('test')
+    r2 = HTML::Table::Row.new('foo')
     @thead.push(r1, r2)
     expect(@thead.html.gsub(/\s{2,}|\n/, '')).to eq(html)
   end
 
-  example "add_content_directly" do
-    html = "<thead><tr><td>hello</td><td>world</td></tr></thead>"
-    @thead.content = "hello","world"
+  example 'add_content_directly' do
+    html = '<thead><tr><td>hello</td><td>world</td></tr></thead>'
+    @thead.content = 'hello', 'world'
     expect(@thead.html.gsub(/\s{2,}|\n+/, '')).to eq(html)
   end
 
-  example "add_content_in_constructor" do
-    html = "<thead><tr><td>hello</td><td>world</td></tr></thead>"
+  example 'add_content_in_constructor' do
+    html = '<thead><tr><td>hello</td><td>world</td></tr></thead>'
     @thead.send(:refresh)
-    @thead = described_class.create(["hello","world"])
+    @thead = described_class.create(['hello', 'world'])
     expect(@thead.html.gsub(/\s{2,}|\n+/, '')).to eq(html)
   end
 
-  example "configure_column" do
+  example 'configure_column' do
     html = "<thead><tr><td>hello</td><td abbr='test' width=3 nowrap>world"
-    html += "</td></tr></thead>"
-    @thead.content = "hello","world"
-    @thead.configure(0,1){ |d|
+    html += '</td></tr></thead>'
+    @thead.content = 'hello', 'world'
+    @thead.configure(0, 1){ |d|
       d.abbr = 'test'
       d.width = 3
       d.nowrap = true
