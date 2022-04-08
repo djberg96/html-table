@@ -341,7 +341,7 @@ RSpec.describe HTML::Mixin::AttributeHandler do
   example 'width' do
     expect(@table).to respond_to(:width)
     expect(@table).to respond_to(:width=)
-    expect{ @table.width}.not_to raise_error
+    expect{ @table.width }.not_to raise_error
     expect{ @table.width = 10 }.not_to raise_error
   end
 

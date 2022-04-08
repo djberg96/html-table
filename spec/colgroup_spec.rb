@@ -58,7 +58,7 @@ RSpec.describe HTML::Table::ColGroup do
   end
 
   example 'configure_error' do
-    expect{ @cgroup.configure(0, 0){ }.to raise_error(ArgumentError) }
+    expect{ @cgroup.configure(0, 0){}.to raise_error(ArgumentError) }
   end
 
   example 'content_error' do

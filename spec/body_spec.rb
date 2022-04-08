@@ -35,14 +35,14 @@ RSpec.describe HTML::Table::Body do
 
   example 'push_single_row' do
     html = '<tbody><tr><td>test</td></tr></tbody>'
-    @tbody.push HTML::Table::Row.new{|r| r.content = 'test' }
+    @tbody.push HTML::Table::Row.new{ |r| r.content = 'test' }
     expect(@tbody.html.gsub(/\s{2,}|\n/, '')).to eq(html)
   end
 
   example 'push_multiple_rows' do
     html = '<tbody><tr><td>test</td></tr><tr><td>foo</td></tr></tbody>'
-    r1 = HTML::Table::Row.new{|r| r.content = 'test' }
-    r2 = HTML::Table::Row.new{|r| r.content = 'foo' }
+    r1 = HTML::Table::Row.new{ |r| r.content = 'test' }
+    r2 = HTML::Table::Row.new{ |r| r.content = 'foo' }
     @tbody.push r1, r2
     expect(@tbody.html.gsub(/\s{2,}|\n/, '')).to eq(html)
   end

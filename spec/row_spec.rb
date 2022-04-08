@@ -116,7 +116,7 @@ RSpec.describe HTML::Table::Row do
   end
 
   example 'configure_error' do
-    expect{ @trow.configure(0, 0){ }.to raise_error(ArgumentError) }
+    expect{ @trow.configure(0, 0){}.to raise_error(ArgumentError) }
   end
 
   example 'indent_level' do
