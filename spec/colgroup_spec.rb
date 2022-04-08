@@ -8,14 +8,14 @@ require 'html/table'
 
 RSpec.describe HTML::Table::ColGroup do
   before do
-    @cgroup = HTML::Table::ColGroup.new
+    @cgroup = described_class.new
     @col = HTML::Table::ColGroup::Col.new
   end
 
   example 'constructor' do
-    expect{ HTML::Table::ColGroup.new }.not_to raise_error
-    expect{ HTML::Table::ColGroup.new(@col) }.not_to raise_error
-    expect{ HTML::Table::ColGroup.new('foo') }.to raise_error(TypeError)
+    expect{ described_class.new }.not_to raise_error
+    expect{ described_class.new(@col) }.not_to raise_error
+    expect{ described_class.new('foo') }.to raise_error(TypeError)
   end
 
   example 'basic' do
@@ -67,17 +67,17 @@ RSpec.describe HTML::Table::ColGroup do
   end
 
   example 'indent_level' do
-    expect(HTML::Table::ColGroup).to respond_to(:indent_level)
-    expect(HTML::Table::ColGroup).to respond_to(:indent_level=)
-    expect{ HTML::Table::ColGroup.indent_level = 'foo' }.to raise_error(ArgumentTypeError)
-    expect{ HTML::Table::ColGroup.indent_level = 6 }.not_to raise_error
+    expect(described_class).to respond_to(:indent_level)
+    expect(described_class).to respond_to(:indent_level=)
+    expect{ described_class.indent_level = 'foo' }.to raise_error(ArgumentTypeError)
+    expect{ described_class.indent_level = 6 }.not_to raise_error
   end
 
   example 'end_tags' do
-    expect(HTML::Table::ColGroup).to respond_to(:end_tags?)
-    expect(HTML::Table::ColGroup).to respond_to(:end_tags=)
-    expect{ HTML::Table::ColGroup.end_tags = 'foo' }.to raise_error(ArgumentTypeError)
-    expect{ HTML::Table::ColGroup.end_tags = 1 }.to raise_error(ArgumentTypeError)
-    expect{ HTML::Table::ColGroup.end_tags = true }.not_to raise_error
+    expect(described_class).to respond_to(:end_tags?)
+    expect(described_class).to respond_to(:end_tags=)
+    expect{ described_class.end_tags = 'foo' }.to raise_error(ArgumentTypeError)
+    expect{ described_class.end_tags = 1 }.to raise_error(ArgumentTypeError)
+    expect{ described_class.end_tags = true }.not_to raise_error
   end
 end

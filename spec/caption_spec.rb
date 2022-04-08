@@ -9,16 +9,16 @@ require 'html/table'
 RSpec.describe HTML::Table::Caption do
   before do
     @table = HTML::Table.new
-    @tcaption = HTML::Table::Caption.new
+    @tcaption = described_class.new
   end
 
   example 'constructor' do
-    expect{ HTML::Table::Caption.new }.not_to raise_error
-    expect{ HTML::Table::Caption.new('foo') }.not_to raise_error
-    expect{ HTML::Table::Caption.new(1) }.not_to raise_error
-    expect{ HTML::Table::Caption.new(%w/foo bar baz/) }.not_to raise_error
-    expect{ HTML::Table::Caption.new([1,2,3]) }.not_to raise_error
-    expect{ HTML::Table::Caption.new([[1,2,3],['foo','bar']]) }.not_to raise_error
+    expect{ described_class.new }.not_to raise_error
+    expect{ described_class.new('foo') }.not_to raise_error
+    expect{ described_class.new(1) }.not_to raise_error
+    expect{ described_class.new(%w/foo bar baz/) }.not_to raise_error
+    expect{ described_class.new([1,2,3]) }.not_to raise_error
+    expect{ described_class.new([[1,2,3],['foo','bar']]) }.not_to raise_error
   end
 
   example 'basic' do
@@ -51,15 +51,15 @@ RSpec.describe HTML::Table::Caption do
 
   example 'add_content_in_constructor' do
     html = '<caption>hello world</caption>'
-    @tcaption = HTML::Table::Caption.new('hello world')
+    @tcaption = described_class.new('hello world')
     expect(@tcaption.html.gsub(/\s{2,}/, '')).to eq(html)
   end
 
   example 'indent_level' do
-    expect(HTML::Table::Caption).to respond_to(:indent_level)
-    expect(HTML::Table::Caption).to respond_to(:indent_level=)
-    expect{ HTML::Table::Caption.indent_level = 'foo' }.to raise_error(ArgumentTypeError)
-    expect{ HTML::Table::Caption.indent_level = 3 }.not_to raise_error
+    expect(described_class).to respond_to(:indent_level)
+    expect(described_class).to respond_to(:indent_level=)
+    expect{ described_class.indent_level = 'foo' }.to raise_error(ArgumentTypeError)
+    expect{ described_class.indent_level = 3 }.not_to raise_error
   end
 
   example 'only_row_zero_allowed' do
@@ -69,6 +69,6 @@ RSpec.describe HTML::Table::Caption do
   example 'automatically_set_to_row_zero' do
     @table.content = 'hello','world'
     @table.push(@tcaption)
-    expect(@table[0]).to be_kind_of(HTML::Table::Caption)
+    expect(@table[0]).to be_kind_of(described_class)
   end
 end

@@ -9,14 +9,14 @@ require 'html/table'
 RSpec.describe HTML::Table::TableSection do
   before do
     @table = Table.new
-    @tsection = HTML::Table::TableSection.new
+    @tsection = described_class.new
   end
 
   example 'indent_level' do
-    expect(HTML::Table::TableSection).to respond_to(:indent_level)
-    expect(HTML::Table::TableSection).to respond_to(:indent_level=)
-    expect{ HTML::Table::TableSection.indent_level = 'foo' }.to raise_error(ArgumentTypeError)
-    expect{ HTML::Table::TableSection.indent_level = 3 }.not_to raise_error
+    expect(described_class).to respond_to(:indent_level)
+    expect(described_class).to respond_to(:indent_level=)
+    expect{ described_class.indent_level = 'foo' }.to raise_error(ArgumentTypeError)
+    expect{ described_class.indent_level = 3 }.not_to raise_error
   end
 
   example 'indices' do
