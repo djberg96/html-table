@@ -63,3 +63,7 @@ Naming/RescuedExceptionsVariableName:
 Naming/FileName:
   Exclude:
     - 'lib/html-table.rb'
+
+Lint/EmptyBlock:
+  Exclude:
+    - 'spec/*.rb'
