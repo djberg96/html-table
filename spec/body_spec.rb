@@ -16,7 +16,7 @@ RSpec.describe HTML::Table::Body do
     expect{ described_class.new }.not_to raise_error
     expect{ described_class.new('foo') }.not_to raise_error
     expect{ described_class.new(1) }.not_to raise_error
-    expect{ described_class.new(%w/foo bar baz/) }.not_to raise_error
+    expect{ described_class.new(%w[foo bar baz]) }.not_to raise_error
     expect{ described_class.new([1, 2, 3]) }.not_to raise_error
     expect{ described_class.new([[1, 2, 3], ['foo', 'bar']]) }.not_to raise_error
   end
@@ -55,7 +55,7 @@ RSpec.describe HTML::Table::Body do
 
   example 'add_content_in_constructor' do
     html = '<tbody><tr><td>hello</td><td>world</td></tr></tbody>'
-    tb = described_class.new(%w/hello world/)
+    tb = described_class.new(%w[hello world])
     expect(tb.html.gsub(/\s{2,}|\n+/, '')).to eq(html)
   end
 

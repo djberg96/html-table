@@ -29,7 +29,7 @@ RSpec.describe HTML::Table::Head do
     expect{ described_class.create }.not_to raise_error
     expect{ described_class.create('foo') }.not_to raise_error
     expect{ described_class.create(1) }.not_to raise_error
-    expect{ described_class.create(%w/foo bar baz/) }.not_to raise_error
+    expect{ described_class.create(%w[foo bar baz]) }.not_to raise_error
     expect{ described_class.create([1, 2, 3]) }.not_to raise_error
     expect{ described_class.create([[1, 2, 3], ['foo', 'bar']]) }.not_to raise_error
   end

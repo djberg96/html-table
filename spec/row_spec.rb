@@ -91,7 +91,7 @@ RSpec.describe HTML::Table::Row do
 
   example 'add_content_in_constructor' do
     html = '<tr><td>hello</td><td>world</td></tr>'
-    @trow = Table::Row.new(%w/hello world/)
+    @trow = Table::Row.new(%w[hello world])
     expect(@trow.html.gsub(/\s{2,}|\n+/, '')).to eq(html)
   end
 
