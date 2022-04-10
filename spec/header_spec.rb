@@ -22,7 +22,7 @@ RSpec.describe HTML::Table::Row::Header do
     expect{ described_class.new(1) }.not_to raise_error
     expect{ described_class.new(%w[foo bar baz]) }.not_to raise_error
     expect{ described_class.new([1, 2, 3]) }.not_to raise_error
-    expect{ described_class.new([[1, 2, 3], ['foo', 'bar']]) }.not_to raise_error
+    expect{ described_class.new([[1, 2, 3], %w[foo bar]]) }.not_to raise_error
   end
 
   example 'with_attributes' do

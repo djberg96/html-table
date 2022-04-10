@@ -30,7 +30,7 @@ RSpec.describe HTML::Table::Body do
   end
 
   example 'constructor with multiple array arguments' do
-    expect{ described_class.new([[1, 2, 3], ['foo', 'bar']]) }.not_to raise_error
+    expect{ described_class.new([[1, 2, 3], %w[foo bar]]) }.not_to raise_error
   end
 
   example 'basic' do

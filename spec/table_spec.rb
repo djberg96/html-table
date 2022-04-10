@@ -28,11 +28,11 @@ RSpec.describe HTML::Table do
     expect{ described_class.new(1) }.not_to raise_error
     expect{ described_class.new(%w[foo bar baz]) }.not_to raise_error
     expect{ described_class.new([1, 2, 3]) }.not_to raise_error
-    expect{ described_class.new([[1, 2, 3], ['foo', 'bar']]) }.not_to raise_error
+    expect{ described_class.new([[1, 2, 3], %w[foo bar]]) }.not_to raise_error
   end
 
   example 'constructor_with_attributes' do
-    expect{ described_class.new(%w[foo bar baz], :border => 1) }.not_to raise_error
+    expect{ described_class.new(%w[foo bar baz], border: 1) }.not_to raise_error
   end
 
   example 'html_case method basic functionality' do
@@ -77,10 +77,10 @@ RSpec.describe HTML::Table do
   end
 
   example 'foot_index_constraints' do
-    expect {
+    expect do
       @table[0] = described_class::Caption.new
       @table[-1] = described_class::Foot.create
-    }.not_to raise_error
+    end.not_to raise_error
     expect{ @table[0] = described_class::Foot.create }.to raise_error(ArgumentError)
   end
 

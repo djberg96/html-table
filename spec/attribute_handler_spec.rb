@@ -16,6 +16,10 @@ RSpec.describe HTML::Mixin::AttributeHandler do
     @table = HTML::Table.new(['foo', 1, 'bar'])
   end
 
+  after(:all) do
+    NonStandardExtensionWarning.enable
+  end
+
   example 'abbr_basic' do
     expect(@table).to respond_to(:abbr)
     expect(@table).to respond_to(:abbr=)
@@ -215,7 +219,7 @@ RSpec.describe HTML::Mixin::AttributeHandler do
     expect{ @table.content = 'foo' }.not_to raise_error
     expect{ @table.content = 123 }.not_to raise_error
     expect{ @table.content = ['one', 2, 'three'] }.not_to raise_error
-    expect{ @table.content = [['foo', 'bar'], [1, 2, 3]] }.not_to raise_error
+    expect{ @table.content = [%w[foo bar], [1, 2, 3]] }.not_to raise_error
     expect{ @table.content = HTML::Table::Row.new }.not_to raise_error
     expect{ @table.content = HTML::Table::Row::Data.new }.not_to raise_error
     expect{ @table.content = HTML::Table::Row::Header.new }.not_to raise_error
@@ -352,9 +356,5 @@ RSpec.describe HTML::Mixin::AttributeHandler do
 
   example 'width_expected_errors' do
     expect{ @table.width = -1 }.to raise_error(ArgumentError)
-  end
-
-  after(:all) do
-    NonStandardExtensionWarning.enable
   end
 end

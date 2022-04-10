@@ -17,16 +17,16 @@ RSpec.describe HTML::Mixin::HtmlHandler do
     expect{ @table.html }.not_to raise_error
     expect{ @table.html = 'foo' }.to raise_error(NoMethodError)
     expect(@table.html).to be_kind_of(String)
-    expect(@table.html.length > 0).to eq(true)
+    expect(!@table.html.empty?).to eq(true)
   end
 
   example 'modify_html' do
     expect{ @table.send(:modify_html) }.to raise_error(ArgumentError)
     expect{ @table.send(:modify_html, 'nowrap') }.not_to raise_error
     expect{ @table.send(:modify_html, 'align', 'top') }.not_to raise_error
-    expect{
+    expect do
       @table.send(:modify_html, 'align', 'top')
       @table.send(:modify_html, 'align', 'top')
-    }.not_to raise_error
+    end.not_to raise_error
   end
 end
