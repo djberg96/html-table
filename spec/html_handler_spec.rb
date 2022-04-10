@@ -12,12 +12,15 @@ RSpec.describe HTML::Mixin::HtmlHandler do
     @table = HTML::Table.new(['foo', 1, 'bar'])
   end
 
-  example 'html' do
+  example 'html basic functionality' do
     expect(@table).to respond_to(:html)
     expect{ @table.html }.not_to raise_error
-    expect{ @table.html = 'foo' }.to raise_error(NoMethodError)
     expect(@table.html).to be_kind_of(String)
-    expect(!@table.html.empty?).to eq(true)
+    expect(!@table.html.empty?).to be(true)
+  end
+
+  example 'there is no html= method' do
+    expect{ @table.html = 'foo' }.to raise_error(NoMethodError)
   end
 
   example 'modify_html' do
