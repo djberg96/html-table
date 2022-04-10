@@ -18,8 +18,17 @@ RSpec.describe HTML::Table::Row::Header do
 
   example 'constructor' do
     expect{ described_class.new }.not_to raise_error
+  end
+
+  example 'constructor with string' do
     expect{ described_class.new('foo') }.not_to raise_error
+  end
+
+  example 'constructor with numeric' do
     expect{ described_class.new(1) }.not_to raise_error
+  end
+
+  example 'constructor with arrays' do
     expect{ described_class.new(%w[foo bar baz]) }.not_to raise_error
     expect{ described_class.new([1, 2, 3]) }.not_to raise_error
     expect{ described_class.new([[1, 2, 3], %w[foo bar]]) }.not_to raise_error
@@ -62,8 +71,12 @@ RSpec.describe HTML::Table::Row::Header do
     expect{ described_class.indent_level = 6 }.not_to raise_error
   end
 
-  example 'end_tags' do
+  example 'end_tags? basic functionality' do
     expect(described_class).to respond_to(:end_tags?)
+    expect(described_class.end_tags?).to be(true)
+  end
+
+  example 'end_tags= only accepts valid types' do
     expect(described_class).to respond_to(:end_tags=)
     expect{ described_class.end_tags = 'foo' }.to raise_error(ArgumentTypeError)
     expect{ described_class.end_tags = 1 }.to raise_error(ArgumentTypeError)
