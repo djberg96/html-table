@@ -197,12 +197,12 @@ RSpec.describe HTML::Mixin::AttributeHandler do
 
   example 'configure' do
     expect(@table).to respond_to(:configure)
-    expect{ @table.configure(0){}.not_to raise_error }
-    expect{ @table.configure(0, 0){}.not_to raise_error }
+    expect{ @table.configure(0){} }.not_to raise_error
+    expect{ @table.configure(0, 0){} }.not_to raise_error
   end
 
   example 'configure_expected_errors' do
-    expect{ @table.configure(0, 0, 0){}.to raise_error(ArgumentError) }
+    expect{ @table.configure(0, 0, 0){} }.to raise_error(ArgumentError)
   end
 
   ########################################################################
