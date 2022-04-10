@@ -10,6 +10,7 @@ require 'html/table'
 
 class HTML::Table::Foot
   private
+
   def refresh
     @@foot = nil
   end
@@ -19,6 +20,12 @@ RSpec.describe HTML::Table::Foot do
   before do
     @table = HTML::Table.new
     @tfoot = described_class.create
+  end
+
+  after do
+    @table = nil
+    @tfoot.send(:refresh)
+    @tfoot = nil
   end
 
   example 'new_not_allowed' do
@@ -31,7 +38,7 @@ RSpec.describe HTML::Table::Foot do
     expect{ described_class.create(1) }.not_to raise_error
     expect{ described_class.create(%w[foo bar baz]) }.not_to raise_error
     expect{ described_class.create([1, 2, 3]) }.not_to raise_error
-    expect{ described_class.create([[1, 2, 3], ['foo', 'bar']]) }.not_to raise_error
+    expect{ described_class.create([[1, 2, 3], %w[foo bar]]) }.not_to raise_error
   end
 
   example 'basic' do
@@ -59,14 +66,14 @@ RSpec.describe HTML::Table::Foot do
 
   example 'push_single_row' do
     html = '<tfoot><tr><td>test</td></tr></tfoot>'
-    @tfoot.push Table::Row.new{ |r| r.content = 'test' }
+    @tfoot.push(HTML::Table::Row.new{ |r| r.content = 'test' })
     expect(@tfoot.html.gsub(/\s{2,}|\n/, '')).to eq(html)
   end
 
   example 'push_multiple_rows' do
     html = '<tfoot><tr><td>test</td></tr><tr><td>foo</td></tr></tfoot>'
-    r1 = Table::Row.new{ |r| r.content = 'test' }
-    r2 = Table::Row.new{ |r| r.content = 'foo' }
+    r1 = HTML::Table::Row.new{ |r| r.content = 'test' }
+    r2 = HTML::Table::Row.new{ |r| r.content = 'foo' }
     @tfoot.push r1, r2
     expect(@tfoot.html.gsub(/\s{2,}|\n/, '')).to eq(html)
   end
@@ -80,7 +87,7 @@ RSpec.describe HTML::Table::Foot do
   example 'add_content_in_constructor' do
     html = '<tfoot><tr><td>hello</td><td>world</td></tr></tfoot>'
     @tfoot.send(:refresh)
-    @tfoot = described_class.create(['hello', 'world'])
+    @tfoot = described_class.create(%w[hello world])
     expect(@tfoot.html.gsub(/\s{2,}|\n+/, '')).to eq(html)
   end
 
@@ -88,17 +95,11 @@ RSpec.describe HTML::Table::Foot do
     html = "<tfoot><tr><td>hello</td><td abbr='test' width=3 nowrap>world"
     html += '</td></tr></tfoot>'
     @tfoot.content = 'hello', 'world'
-    @tfoot.configure(0, 1){ |data|
+    @tfoot.configure(0, 1) do |data|
       data.abbr   = 'test'
       data.width  = 3
       data.nowrap = true
-    }
+    end
     expect(@tfoot.html.gsub(/\s{2,}|\n+/, '')).to eq(html)
-  end
-
-  after do
-    @table = nil
-    @tfoot.send(:refresh)
-    @tfoot = nil
   end
 end

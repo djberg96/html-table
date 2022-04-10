@@ -16,6 +16,10 @@ RSpec.describe HTML::Mixin::TagHandler do
     @tcontent = HTML::Table::Content.new('test')
   end
 
+  after(:all) do
+    BlinkWarning.enable
+  end
+
   example 'bold' do
     expect(@tcontent).to respond_to(:bold)
     expect(@tcontent).to respond_to(:bold=)
@@ -77,9 +81,5 @@ RSpec.describe HTML::Mixin::TagHandler do
     expect(@tcontent).to respond_to(:underline)
     expect{ @tcontent.underline }.not_to raise_error
     expect{ @tcontent.underline = true }.not_to raise_error
-  end
-
-  after(:all) do
-    BlinkWarning.enable
   end
 end

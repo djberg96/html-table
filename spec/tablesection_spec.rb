@@ -8,7 +8,7 @@ require 'html/table'
 
 RSpec.describe HTML::Table::TableSection do
   before do
-    @table = Table.new
+    @table = HTML::Table.new
     @tsection = described_class.new
   end
 
