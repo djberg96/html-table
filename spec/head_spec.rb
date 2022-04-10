@@ -8,18 +8,6 @@
 require 'rspec'
 require 'html/table'
 
-#####################################################################
-# Ensure that a fresh instance of described_class is used between tests
-# by calling 'refresh' in the 'teardown' method.
-#####################################################################
-class HTML::Table::Head
-  private
-
-  def refresh
-    @@head = nil
-  end
-end
-
 RSpec.describe HTML::Table::Head do
   before do
     @table = HTML::Table.new
@@ -28,7 +16,6 @@ RSpec.describe HTML::Table::Head do
 
   after do
     @table = nil
-    @thead.send(:refresh)
     @thead = nil
   end
 
@@ -96,7 +83,6 @@ RSpec.describe HTML::Table::Head do
 
   example 'add_content_in_constructor' do
     html = '<thead><tr><td>hello</td><td>world</td></tr></thead>'
-    @thead.send(:refresh)
     @thead = described_class.create(%w[hello world])
     expect(@thead.html.gsub(/\s{2,}|\n+/, '')).to eq(html)
   end
