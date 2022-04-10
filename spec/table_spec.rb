@@ -151,7 +151,7 @@ RSpec.describe HTML::Table do
   example 'configure_row' do
     html = "<table><tr align='center'><td bgcolor='red'>hello</td></tr>"
     html << '</table>'
-    @table.push HTML::Table::Row::Data.new{ |d| d.content = 'hello' }
+    @table.push(HTML::Table::Row::Data.new{ |d| d.content = 'hello' })
     @table.configure(0){ |t| t.align = 'center' }
     @table.configure(0, 0){ |d| d.bgcolor = 'red' }
     expect(@table.html.gsub(/\s{2,}|\n+/, '')).to eq(html)

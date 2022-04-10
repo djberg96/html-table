@@ -63,7 +63,7 @@ RSpec.describe HTML::Table::Head do
 
   example 'push_single_row' do
     html = '<thead><tr><td>test</td></tr></thead>'
-    @thead.push HTML::Table::Row.new{ |r| r.content = 'test' }
+    @thead.push(HTML::Table::Row.new{ |r| r.content = 'test' })
     expect(@thead.html.gsub(/\s{2,}|\n/, '')).to eq(html)
   end
 
