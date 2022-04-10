@@ -12,20 +12,20 @@ RSpec.describe HTML::Table::Row do
   end
 
   example 'constructor' do
-    expect{ HTML::Table::Row.new }.not_to raise_error
+    expect{ described_class.new }.not_to raise_error
   end
 
   example 'constructor with string argument' do
-    expect{ HTML::Table::Row.new('foo') }.not_to raise_error
+    expect{ described_class.new('foo') }.not_to raise_error
   end
 
   example 'constructor with numeric argument' do
-    expect{ HTML::Table::Row.new(1) }.not_to raise_error
+    expect{ described_class.new(1) }.not_to raise_error
   end
 
   example 'constructor with array arguments' do
-    expect{ HTML::Table::Row.new([1, 2, 3]) }.not_to raise_error
-    expect{ HTML::Table::Row.new([[1, 2, 3], %w[foo bar]]) }.not_to raise_error
+    expect{ described_class.new([1, 2, 3]) }.not_to raise_error
+    expect{ described_class.new([[1, 2, 3], %w[foo bar]]) }.not_to raise_error
   end
 
   example 'basic' do
@@ -72,7 +72,7 @@ RSpec.describe HTML::Table::Row do
   end
 
   example 'header in constructor' do
-    expect{ @trow = HTML::Table::Row.new('test', true) }.not_to raise_error
+    expect{ @trow = described_class.new('test', true) }.not_to raise_error
     html = '<tr><th>test</th></tr>'
     expect(@trow.html.gsub(/\s+/, '')).to eq(html)
   end
@@ -99,7 +99,7 @@ RSpec.describe HTML::Table::Row do
 
   example 'add content in constructor' do
     html = '<tr><td>hello</td><td>world</td></tr>'
-    @trow = HTML::Table::Row.new(%w[hello world])
+    @trow = described_class.new(%w[hello world])
     expect(@trow.html.gsub(/\s{2,}|\n+/, '')).to eq(html)
   end
 
@@ -131,24 +131,24 @@ RSpec.describe HTML::Table::Row do
   end
 
   example 'indent_level' do
-    expect(HTML::Table::Row).to respond_to(:indent_level)
-    expect(HTML::Table::Row).to respond_to(:indent_level=)
-    expect{ HTML::Table::Row.indent_level = 'foo' }.to raise_error(ArgumentTypeError)
-    expect{ HTML::Table::Row.indent_level = 3 }.not_to raise_error
+    expect(described_class).to respond_to(:indent_level)
+    expect(described_class).to respond_to(:indent_level=)
+    expect{ described_class.indent_level = 'foo' }.to raise_error(ArgumentTypeError)
+    expect{ described_class.indent_level = 3 }.not_to raise_error
   end
 
   example 'end_tags?' do
-    expect(HTML::Table::Row).to respond_to(:end_tags?)
-    expect(HTML::Table::Row.end_tags?).to be(true)
+    expect(described_class).to respond_to(:end_tags?)
+    expect(described_class.end_tags?).to be(true)
   end
 
   example 'end_tags= basic functionality' do
-    expect(HTML::Table::Row).to respond_to(:end_tags=)
-    expect{ HTML::Table::Row.end_tags = true }.not_to raise_error
+    expect(described_class).to respond_to(:end_tags=)
+    expect{ described_class.end_tags = true }.not_to raise_error
   end
 
   example 'end_tags= rejects invalid values' do
-    expect{ HTML::Table::Row.end_tags = 'foo' }.to raise_error(ArgumentTypeError)
-    expect{ HTML::Table::Row.end_tags = 1 }.to raise_error(ArgumentTypeError)
+    expect{ described_class.end_tags = 'foo' }.to raise_error(ArgumentTypeError)
+    expect{ described_class.end_tags = 1 }.to raise_error(ArgumentTypeError)
   end
 end
