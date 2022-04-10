@@ -3,8 +3,8 @@ require 'singleton'
 # The HTML module serves only as a namespace.
 module HTML
 
-  # This class represents an HTML table head (<thead>).  It is a
-  # subclass of Table::TableSection.  It is a singleton class.
+  # This class represents an HTML table head (<thead>). It is a
+  # subclass of Table::TableSection. It is a singleton class.
   #
   class Table::Head < Table::TableSection
     include Singleton
@@ -17,11 +17,11 @@ module HTML
     # provided it is treated as content.
     #
     def self.create(arg = nil, &block)
-      @head ||= new(arg, &block)
+      @instance ||= new(arg, &block)
     end
 
     def self.instance(arg = nil, &block)
-      @head ||= create(arg, &block)
+      create(arg, &block)
     end
 
     # Called by create() instead of new().  This initializes the Head class.
