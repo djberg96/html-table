@@ -1,11 +1,10 @@
 ############################################
 # row_spec.rb
 #
-# Specs for the Table::Row class.
+# Specs for the HTML::Table::Row class.
 ############################################
 require 'rspec'
 require 'html/table'
-include HTML
 
 RSpec.describe HTML::Table::Row do
   before do
@@ -13,11 +12,20 @@ RSpec.describe HTML::Table::Row do
   end
 
   example 'constructor' do
-    expect{ Table::Row.new }.not_to raise_error
-    expect{ Table::Row.new('foo') }.not_to raise_error
-    expect{ Table::Row.new(1) }.not_to raise_error
-    expect{ Table::Row.new([1, 2, 3]) }.not_to raise_error
-    expect{ Table::Row.new([[1, 2, 3], %w[foo bar]]) }.not_to raise_error
+    expect{ HTML::Table::Row.new }.not_to raise_error
+  end
+
+  example 'constructor with string argument' do
+    expect{ HTML::Table::Row.new('foo') }.not_to raise_error
+  end
+
+  example 'constructor with numeric argument' do
+    expect{ HTML::Table::Row.new(1) }.not_to raise_error
+  end
+
+  example 'constructor with array arguments' do
+    expect{ HTML::Table::Row.new([1, 2, 3]) }.not_to raise_error
+    expect{ HTML::Table::Row.new([[1, 2, 3], %w[foo bar]]) }.not_to raise_error
   end
 
   example 'basic' do
@@ -41,44 +49,44 @@ RSpec.describe HTML::Table::Row do
   example 'index assignment constraints' do
     expect{ @trow[0] = 'foo' }.to raise_error(ArgumentTypeError)
     expect{ @trow[0] = 1 }.to raise_error(ArgumentTypeError)
-    expect{ @trow[0] = Table::Caption.new }.to raise_error(ArgumentTypeError)
-    expect{ @trow[0] = Table::Row::Data.new }.not_to raise_error
-    expect{ @trow[0] = Table::Row::Header.new }.not_to raise_error
+    expect{ @trow[0] = HTML::Table::Caption.new }.to raise_error(ArgumentTypeError)
+    expect{ @trow[0] = HTML::Table::Row::Data.new }.not_to raise_error
+    expect{ @trow[0] = HTML::Table::Row::Header.new }.not_to raise_error
   end
 
   example 'push constraints' do
-    expect{ @trow.push(Table::Caption.new) }.to raise_error(ArgumentTypeError)
+    expect{ @trow.push(HTML::Table::Caption.new) }.to raise_error(ArgumentTypeError)
     expect{ @trow.push(nil) }.to raise_error(ArgumentTypeError)
     expect{ @trow.push('test') }.not_to raise_error
     expect{ @trow.push(7) }.not_to raise_error
-    expect{ @trow.push(Table::Row::Data.new) }.not_to raise_error
-    expect{ @trow.push(Table::Row::Header.new) }.not_to raise_error
+    expect{ @trow.push(HTML::Table::Row::Data.new) }.not_to raise_error
+    expect{ @trow.push(HTML::Table::Row::Header.new) }.not_to raise_error
   end
 
   example 'double arrow constraints' do
-    expect{ @trow << Table::Caption.new }.to raise_error(ArgumentTypeError)
+    expect{ @trow << HTML::Table::Caption.new }.to raise_error(ArgumentTypeError)
     expect{ @trow << 'test' }.not_to raise_error
     expect{ @trow << 'test' << 'foo' }.not_to raise_error
-    expect{ @trow << Table::Row::Data.new }.not_to raise_error
-    expect{ @trow << Table::Row::Header.new }.not_to raise_error
+    expect{ @trow << HTML::Table::Row::Data.new }.not_to raise_error
+    expect{ @trow << HTML::Table::Row::Header.new }.not_to raise_error
   end
 
   example 'header in constructor' do
-    expect{ @trow = Table::Row.new('test', true) }.not_to raise_error
+    expect{ @trow = HTML::Table::Row.new('test', true) }.not_to raise_error
     html = '<tr><th>test</th></tr>'
     expect(@trow.html.gsub(/\s+/, '')).to eq(html)
   end
 
   example 'push single data element' do
     html = '<tr><td>hello</td></tr>'
-    @trow.push(Table::Row::Data.new{ |d| d.content = 'hello' })
+    @trow.push(HTML::Table::Row::Data.new{ |d| d.content = 'hello' })
     expect(@trow.html.gsub(/\s{2,}|\n+/, '')).to eq(html)
   end
 
   example 'push multiple data element' do
     html = '<tr><td>hello</td><td>world</td></tr>'
-    d1 = Table::Row::Data.new{ |d| d.content = 'hello' }
-    d2 = Table::Row::Data.new{ |d| d.content = 'world' }
+    d1 = HTML::Table::Row::Data.new{ |d| d.content = 'hello' }
+    d2 = HTML::Table::Row::Data.new{ |d| d.content = 'world' }
     @trow.push d1, d2
     expect(@trow.html.gsub(/\s{2,}|\n+/, '')).to eq(html)
   end
@@ -91,7 +99,7 @@ RSpec.describe HTML::Table::Row do
 
   example 'add content in constructor' do
     html = '<tr><td>hello</td><td>world</td></tr>'
-    @trow = Table::Row.new(%w[hello world])
+    @trow = HTML::Table::Row.new(%w[hello world])
     expect(@trow.html.gsub(/\s{2,}|\n+/, '')).to eq(html)
   end
 
@@ -107,15 +115,15 @@ RSpec.describe HTML::Table::Row do
   end
 
   example 'unshift does not allow invalid types' do
-    expect{ @trow.unshift(Table::Caption.new) }.to raise_error(ArgumentTypeError)
+    expect{ @trow.unshift(HTML::Table::Caption.new) }.to raise_error(ArgumentTypeError)
     expect{ @trow.unshift(nil) }.to raise_error(ArgumentTypeError)
   end
 
   example 'unshift allows proper types' do
     expect{ @trow.unshift('test') }.not_to raise_error
     expect{ @trow.unshift(7) }.not_to raise_error
-    expect{ @trow.unshift(Table::Row::Data.new) }.not_to raise_error
-    expect{ @trow.unshift(Table::Row::Header.new) }.not_to raise_error
+    expect{ @trow.unshift(HTML::Table::Row::Data.new) }.not_to raise_error
+    expect{ @trow.unshift(HTML::Table::Row::Header.new) }.not_to raise_error
   end
 
   example 'configure error' do
@@ -123,24 +131,24 @@ RSpec.describe HTML::Table::Row do
   end
 
   example 'indent_level' do
-    expect(Table::Row).to respond_to(:indent_level)
-    expect(Table::Row).to respond_to(:indent_level=)
-    expect{ Table::Row.indent_level = 'foo' }.to raise_error(ArgumentTypeError)
-    expect{ Table::Row.indent_level = 3 }.not_to raise_error
+    expect(HTML::Table::Row).to respond_to(:indent_level)
+    expect(HTML::Table::Row).to respond_to(:indent_level=)
+    expect{ HTML::Table::Row.indent_level = 'foo' }.to raise_error(ArgumentTypeError)
+    expect{ HTML::Table::Row.indent_level = 3 }.not_to raise_error
   end
 
   example 'end_tags?' do
-    expect(Table::Row).to respond_to(:end_tags?)
-    expect(Table::Row.end_tags?).to be(true)
+    expect(HTML::Table::Row).to respond_to(:end_tags?)
+    expect(HTML::Table::Row.end_tags?).to be(true)
   end
 
   example 'end_tags= basic functionality' do
-    expect(Table::Row).to respond_to(:end_tags=)
-    expect{ Table::Row.end_tags = true }.not_to raise_error
+    expect(HTML::Table::Row).to respond_to(:end_tags=)
+    expect{ HTML::Table::Row.end_tags = true }.not_to raise_error
   end
 
   example 'end_tags= rejects invalid values' do
-    expect{ Table::Row.end_tags = 'foo' }.to raise_error(ArgumentTypeError)
-    expect{ Table::Row.end_tags = 1 }.to raise_error(ArgumentTypeError)
+    expect{ HTML::Table::Row.end_tags = 'foo' }.to raise_error(ArgumentTypeError)
+    expect{ HTML::Table::Row.end_tags = 1 }.to raise_error(ArgumentTypeError)
   end
 end

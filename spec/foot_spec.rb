@@ -66,14 +66,14 @@ RSpec.describe HTML::Table::Foot do
 
   example 'push_single_row' do
     html = '<tfoot><tr><td>test</td></tr></tfoot>'
-    @tfoot.push(Table::Row.new{ |r| r.content = 'test' })
+    @tfoot.push(HTML::Table::Row.new{ |r| r.content = 'test' })
     expect(@tfoot.html.gsub(/\s{2,}|\n/, '')).to eq(html)
   end
 
   example 'push_multiple_rows' do
     html = '<tfoot><tr><td>test</td></tr><tr><td>foo</td></tr></tfoot>'
-    r1 = Table::Row.new{ |r| r.content = 'test' }
-    r2 = Table::Row.new{ |r| r.content = 'foo' }
+    r1 = HTML::Table::Row.new{ |r| r.content = 'test' }
+    r2 = HTML::Table::Row.new{ |r| r.content = 'foo' }
     @tfoot.push r1, r2
     expect(@tfoot.html.gsub(/\s{2,}|\n/, '')).to eq(html)
   end
