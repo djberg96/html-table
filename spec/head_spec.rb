@@ -43,12 +43,15 @@ RSpec.describe HTML::Table::Head do
   example 'end_tags? basic functionality' do
     expect(described_class).to respond_to(:end_tags?)
     expect(described_class.end_tags?).to be(true)
+    expect{ described_class.end_tags? }.not_to raise_error
+  end
+
+  example 'end_tags= basic functionality' do
+    expect(described_class).to respond_to(:end_tags=)
+    expect{ described_class.end_tags = true }.not_to raise_error
   end
 
   example 'end_tags= does not allow invalid types' do
-    expect(described_class).to respond_to(:end_tags=)
-    expect{ described_class.end_tags? }.not_to raise_error
-    expect{ described_class.end_tags = true }.not_to raise_error
     expect{ described_class.end_tags = 'foo' }.to raise_error(HTML::Mixin::StrongTyping::ArgumentTypeError)
   end
 

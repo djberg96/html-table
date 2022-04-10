@@ -20,6 +20,8 @@ module HTML
       instance(arg, &block)
     end
 
+    # Part of the singleton interface.
+    #
     def self.instance(arg = nil, &block)
       @instance ||= new(arg, &block)
     end

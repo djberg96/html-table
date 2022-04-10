@@ -1,12 +1,14 @@
+require 'singleton'
+
+# The HTML module serves as a namespace only.
 module HTML
 
-  # This class represents an HTML table foot (<tfoot>).  It is a
-  # subclass of Table::TableSection.  It is a singleton class.
+  # This class represents an HTML table foot (<tfoot>). It is a
+  # subclass of Table::TableSection. It is a singleton class.
   #
   class Table::Foot < Table::TableSection
-    private_class_method :new
+    include Singleton
 
-    @@foot        = nil
     @indent_level = 3
     @end_tags     = true
 
@@ -15,8 +17,13 @@ module HTML
     # provided it is treated as content.
     #
     def self.create(arg = nil, &block)
-      @@foot = new(arg, &block) unless @@foot
-      @@foot
+      instance(arg, &block)
+    end
+
+    # Part of the singleton interface.
+    #
+    def self.instance(arg = nil, &block)
+      @instance ||= new(arg, &block)
     end
 
     # Called by create() instead of new(). This initializes the Foot class.

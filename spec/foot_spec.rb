@@ -8,24 +8,13 @@
 require 'rspec'
 require 'html/table'
 
-class HTML::Table::Foot
-  private
-
-  def refresh
-    @@foot = nil
-  end
-end
-
 RSpec.describe HTML::Table::Foot do
   before do
-    @table = HTML::Table.new
     @tfoot = described_class.create
   end
 
   after do
-    @table = nil
-    @tfoot.send(:refresh)
-    @tfoot = nil
+    described_class.instance_variable_set(:@instance, nil)
   end
 
   example 'new_not_allowed' do
@@ -34,8 +23,17 @@ RSpec.describe HTML::Table::Foot do
 
   example 'constructor' do
     expect{ described_class.create }.not_to raise_error
+  end
+
+  example 'constructor with string' do
     expect{ described_class.create('foo') }.not_to raise_error
+  end
+
+  example 'constructor with numeric' do
     expect{ described_class.create(1) }.not_to raise_error
+  end
+
+  example 'constructor with arrays' do
     expect{ described_class.create(%w[foo bar baz]) }.not_to raise_error
     expect{ described_class.create([1, 2, 3]) }.not_to raise_error
     expect{ described_class.create([[1, 2, 3], %w[foo bar]]) }.not_to raise_error
@@ -46,31 +44,35 @@ RSpec.describe HTML::Table::Foot do
     expect(@tfoot.html.gsub(/\s{2,}|\n/, '')).to eq(html)
   end
 
-  example 'end_tags' do
+  example 'end_tags? basic functionality' do
     expect(described_class).to respond_to(:end_tags?)
-    expect(described_class).to respond_to(:end_tags=)
+    expect(described_class.end_tags?).to be(true)
     expect{ described_class.end_tags? }.not_to raise_error
+  end
+
+  example 'end_tags= basic functionality' do
+    expect(described_class).to respond_to(:end_tags=)
     expect{ described_class.end_tags = true }.not_to raise_error
   end
 
-  example 'end_tags_expected_errors' do
+  example 'end_tags raises an error on an invalid type' do
     expect{ described_class.end_tags = 'foo' }.to raise_error(HTML::Mixin::StrongTyping::ArgumentTypeError)
   end
 
-  example 'with_attributes' do
+  example 'with attributes' do
     html = "<tfoot align='left' char='x'></tfoot>"
     @tfoot.align = 'left'
     @tfoot.char = 'x'
     expect(@tfoot.html.gsub(/\s{2,}|\n/, '')).to eq(html)
   end
 
-  example 'push_single_row' do
+  example 'push single row' do
     html = '<tfoot><tr><td>test</td></tr></tfoot>'
     @tfoot.push(HTML::Table::Row.new{ |r| r.content = 'test' })
     expect(@tfoot.html.gsub(/\s{2,}|\n/, '')).to eq(html)
   end
 
-  example 'push_multiple_rows' do
+  example 'push multiple rows' do
     html = '<tfoot><tr><td>test</td></tr><tr><td>foo</td></tr></tfoot>'
     r1 = HTML::Table::Row.new{ |r| r.content = 'test' }
     r2 = HTML::Table::Row.new{ |r| r.content = 'foo' }
@@ -78,20 +80,20 @@ RSpec.describe HTML::Table::Foot do
     expect(@tfoot.html.gsub(/\s{2,}|\n/, '')).to eq(html)
   end
 
-  example 'add_content_directly' do
+  example 'add content directly' do
     html = '<tfoot><tr><td>hello</td><td>world</td></tr></tfoot>'
     @tfoot.content = 'hello', 'world'
     expect(@tfoot.html.gsub(/\s{2,}|\n+/, '')).to eq(html)
   end
 
-  example 'add_content_in_constructor' do
+  example 'add content in constructor' do
     html = '<tfoot><tr><td>hello</td><td>world</td></tr></tfoot>'
-    @tfoot.send(:refresh)
+    described_class.instance_variable_set(:@instance, nil)
     @tfoot = described_class.create(%w[hello world])
     expect(@tfoot.html.gsub(/\s{2,}|\n+/, '')).to eq(html)
   end
 
-  example 'configure_column' do
+  example 'configure column' do
     html = "<tfoot><tr><td>hello</td><td abbr='test' width=3 nowrap>world"
     html += '</td></tr></tfoot>'
     @tfoot.content = 'hello', 'world'
@@ -101,5 +103,13 @@ RSpec.describe HTML::Table::Foot do
       data.nowrap = true
     end
     expect(@tfoot.html.gsub(/\s{2,}|\n+/, '')).to eq(html)
+  end
+
+  example 'singleton class' do
+    expect{ described_class.new }.to raise_error(NoMethodError)
+    expect(described_class.create).to eq(described_class.create)
+    expect(described_class.instance).to eq(described_class.instance)
+    expect(described_class.instance.object_id).to eq(described_class.instance.object_id)
+    expect(described_class.create.object_id).to eq(described_class.create.object_id)
   end
 end
