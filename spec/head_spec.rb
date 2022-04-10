@@ -81,6 +81,7 @@ RSpec.describe HTML::Table::Head do
 
   example 'add content in constructor' do
     html = '<thead><tr><td>hello</td><td>world</td></tr></thead>'
+    described_class.instance_variable_set(:@instance, nil)
     @thead = described_class.create(%w[hello world])
     expect(@thead.html.gsub(/\s{2,}|\n+/, '')).to eq(html)
   end
