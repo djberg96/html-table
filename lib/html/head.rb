@@ -17,7 +17,6 @@ module HTML
     # provided it is treated as content.
     #
     def self.create(arg = nil, &block)
-      @instance = nil
       instance(arg, &block)
     end
 
@@ -25,7 +24,7 @@ module HTML
       @instance ||= new(arg, &block)
     end
 
-    # Called by create() instead of new().  This initializes the Head class.
+    # Called by create() instead of new(). This initializes the Head class.
     #
     def initialize(arg, &block)
       @html_begin = '<thead'

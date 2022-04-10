@@ -10,13 +10,11 @@ require 'html/table'
 
 RSpec.describe HTML::Table::Head do
   before do
-    @table = HTML::Table.new
     @thead = described_class.create
   end
 
   after do
-    @table = nil
-    @thead = nil
+    described_class.instance_variable_set(:@instance, nil)
   end
 
   example 'constructor' do
@@ -97,5 +95,13 @@ RSpec.describe HTML::Table::Head do
       d.nowrap = true
     end
     expect(@thead.html.gsub(/\s{2,}|\n+/, '')).to eq(html)
+  end
+
+  example 'singleton class' do
+    expect{ described_class.new }.to raise_error(NoMethodError)
+    expect(described_class.create).to eq(described_class.create)
+    expect(described_class.instance).to eq(described_class.instance)
+    expect(described_class.instance.object_id).to eq(described_class.instance.object_id)
+    expect(described_class.create.object_id).to eq(described_class.create.object_id)
   end
 end
