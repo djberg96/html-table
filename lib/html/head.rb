@@ -1,26 +1,32 @@
+require 'singleton'
+
+# The HTML module serves only as a namespace.
 module HTML
 
-  # This class represents an HTML table head (<thead>).  It is a
-  # subclass of Table::TableSection.  It is a singleton class.
+  # This class represents an HTML table head (<thead>). It is a
+  # subclass of Table::TableSection. It is a singleton class.
   #
   class Table::Head < Table::TableSection
-    private_class_method :new
-
-    @@head = nil
+    include Singleton
 
     @indent_level = 3
     @end_tags     = true
 
     # This is our constructor for Head objects because it is a singleton
-    # class.  Optionally, a block may be provided.  If an argument is
+    # class. Optionally, a block may be provided. If an argument is
     # provided it is treated as content.
     #
     def self.create(arg = nil, &block)
-      @@head = new(arg, &block) unless @@head
-      @@head
+      instance(arg, &block)
     end
 
-    # Called by create() instead of new().  This initializes the Head class.
+    # Part of the singleton interface.
+    #
+    def self.instance(arg = nil, &block)
+      @instance ||= new(arg, &block)
+    end
+
+    # Called by create() instead of new(). This initializes the Head class.
     #
     def initialize(arg, &block)
       @html_begin = '<thead'

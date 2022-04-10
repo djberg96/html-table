@@ -8,28 +8,13 @@
 require 'rspec'
 require 'html/table'
 
-#####################################################################
-# Ensure that a fresh instance of described_class is used between tests
-# by calling 'refresh' in the 'teardown' method.
-#####################################################################
-class HTML::Table::Head
-  private
-
-  def refresh
-    @@head = nil
-  end
-end
-
 RSpec.describe HTML::Table::Head do
   before do
-    @table = HTML::Table.new
     @thead = described_class.create
   end
 
   after do
-    @table = nil
-    @thead.send(:refresh)
-    @thead = nil
+    described_class.instance_variable_set(:@instance, nil)
   end
 
   example 'constructor' do
@@ -58,29 +43,32 @@ RSpec.describe HTML::Table::Head do
   example 'end_tags? basic functionality' do
     expect(described_class).to respond_to(:end_tags?)
     expect(described_class.end_tags?).to be(true)
+    expect{ described_class.end_tags? }.not_to raise_error
+  end
+
+  example 'end_tags= basic functionality' do
+    expect(described_class).to respond_to(:end_tags=)
+    expect{ described_class.end_tags = true }.not_to raise_error
   end
 
   example 'end_tags= does not allow invalid types' do
-    expect(described_class).to respond_to(:end_tags=)
-    expect{ described_class.end_tags? }.not_to raise_error
-    expect{ described_class.end_tags = true }.not_to raise_error
     expect{ described_class.end_tags = 'foo' }.to raise_error(HTML::Mixin::StrongTyping::ArgumentTypeError)
   end
 
-  example 'with_attributes' do
+  example 'with attributes' do
     html = "<thead align='left' char='x'></thead>"
     @thead.align = 'left'
     @thead.char = 'x'
     expect(@thead.html.gsub(/\s{2,}|\n/, '')).to eq(html)
   end
 
-  example 'push_single_row' do
+  example 'push single row' do
     html = '<thead><tr><td>test</td></tr></thead>'
     @thead.push(HTML::Table::Row.new{ |r| r.content = 'test' })
     expect(@thead.html.gsub(/\s{2,}|\n/, '')).to eq(html)
   end
 
-  example 'push_multiple_rows' do
+  example 'push multiple rows' do
     html = '<thead><tr><td>test</td></tr><tr><td>foo</td></tr></thead>'
     r1 = HTML::Table::Row.new('test')
     r2 = HTML::Table::Row.new('foo')
@@ -88,20 +76,20 @@ RSpec.describe HTML::Table::Head do
     expect(@thead.html.gsub(/\s{2,}|\n/, '')).to eq(html)
   end
 
-  example 'add_content_directly' do
+  example 'add content directly' do
     html = '<thead><tr><td>hello</td><td>world</td></tr></thead>'
     @thead.content = 'hello', 'world'
     expect(@thead.html.gsub(/\s{2,}|\n+/, '')).to eq(html)
   end
 
-  example 'add_content_in_constructor' do
+  example 'add content in constructor' do
     html = '<thead><tr><td>hello</td><td>world</td></tr></thead>'
-    @thead.send(:refresh)
+    described_class.instance_variable_set(:@instance, nil)
     @thead = described_class.create(%w[hello world])
     expect(@thead.html.gsub(/\s{2,}|\n+/, '')).to eq(html)
   end
 
-  example 'configure_column' do
+  example 'configure column' do
     html = "<thead><tr><td>hello</td><td abbr='test' width=3 nowrap>world"
     html += '</td></tr></thead>'
     @thead.content = 'hello', 'world'
@@ -111,5 +99,13 @@ RSpec.describe HTML::Table::Head do
       d.nowrap = true
     end
     expect(@thead.html.gsub(/\s{2,}|\n+/, '')).to eq(html)
+  end
+
+  example 'singleton class' do
+    expect{ described_class.new }.to raise_error(NoMethodError)
+    expect(described_class.create).to eq(described_class.create)
+    expect(described_class.instance).to eq(described_class.instance)
+    expect(described_class.instance.object_id).to eq(described_class.instance.object_id)
+    expect(described_class.create.object_id).to eq(described_class.create.object_id)
   end
 end
