@@ -46,29 +46,38 @@ RSpec.describe HTML::Table::Row do
     expect(@trow.html.gsub(/\s{2,}|\n+/, '')).to eq(html)
   end
 
-  example 'index assignment constraints' do
-    expect{ @trow[0] = 'foo' }.to raise_error(ArgumentTypeError)
-    expect{ @trow[0] = 1 }.to raise_error(ArgumentTypeError)
-    expect{ @trow[0] = HTML::Table::Caption.new }.to raise_error(ArgumentTypeError)
+  example 'index assignment allows valid types' do
     expect{ @trow[0] = HTML::Table::Row::Data.new }.not_to raise_error
     expect{ @trow[0] = HTML::Table::Row::Header.new }.not_to raise_error
   end
 
-  example 'push constraints' do
-    expect{ @trow.push(HTML::Table::Caption.new) }.to raise_error(ArgumentTypeError)
-    expect{ @trow.push(nil) }.to raise_error(ArgumentTypeError)
+  example 'index assignment raises an error for invalid types' do
+    expect{ @trow[0] = 'foo' }.to raise_error(ArgumentTypeError)
+    expect{ @trow[0] = 1 }.to raise_error(ArgumentTypeError)
+    expect{ @trow[0] = HTML::Table::Caption.new }.to raise_error(ArgumentTypeError)
+  end
+
+  example 'push allows valid types' do
     expect{ @trow.push('test') }.not_to raise_error
     expect{ @trow.push(7) }.not_to raise_error
     expect{ @trow.push(HTML::Table::Row::Data.new) }.not_to raise_error
     expect{ @trow.push(HTML::Table::Row::Header.new) }.not_to raise_error
   end
 
-  example 'double arrow constraints' do
-    expect{ @trow << HTML::Table::Caption.new }.to raise_error(ArgumentTypeError)
+  example 'push raises an error for invalid types' do
+    expect{ @trow.push(HTML::Table::Caption.new) }.to raise_error(ArgumentTypeError)
+    expect{ @trow.push(nil) }.to raise_error(ArgumentTypeError)
+  end
+
+  example 'double arrow allows valid types' do
     expect{ @trow << 'test' }.not_to raise_error
     expect{ @trow << 'test' << 'foo' }.not_to raise_error
     expect{ @trow << HTML::Table::Row::Data.new }.not_to raise_error
     expect{ @trow << HTML::Table::Row::Header.new }.not_to raise_error
+  end
+
+  example 'double arrow raises an error for invalid types' do
+    expect{ @trow << HTML::Table::Caption.new }.to raise_error(ArgumentTypeError)
   end
 
   example 'header in constructor' do
