@@ -13,15 +13,16 @@ module HTML
     @end_tags     = true
 
     # This is our constructor for Head objects because it is a singleton
-    # class.  Optionally, a block may be provided.  If an argument is
+    # class. Optionally, a block may be provided. If an argument is
     # provided it is treated as content.
     #
     def self.create(arg = nil, &block)
-      @instance ||= new(arg, &block)
+      @instance = nil
+      instance(arg, &block)
     end
 
     def self.instance(arg = nil, &block)
-      create(arg, &block)
+      @instance ||= new(arg, &block)
     end
 
     # Called by create() instead of new().  This initializes the Head class.
