@@ -27,7 +27,7 @@ module HTML
             when FalseClass
               @html_begin.gsub!(/#{attribute}/, '')
             else
-              @html_begin.gsub!(/#{attribute}=['\w\.]+/, "#{attribute}='#{arg}'")
+              @html_begin.gsub!(/#{attribute}=['\w.]+/, "#{attribute}='#{arg}'")
           end
         end
       end
