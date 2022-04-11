@@ -73,11 +73,18 @@ RSpec.describe HTML::Table::ColGroup do
     expect{ described_class.indent_level = 6 }.not_to raise_error
   end
 
-  example 'end_tags' do
+  example 'end_tags? basic functionality' do
     expect(described_class).to respond_to(:end_tags?)
+    expect(described_class.end_tags?).to be(true)
+  end
+
+  example 'end_tags= basic functionality' do
     expect(described_class).to respond_to(:end_tags=)
+    expect{ described_class.end_tags = true }.not_to raise_error
+  end
+
+  example 'end_tags= raises an error if an invalid type is assigned' do
     expect{ described_class.end_tags = 'foo' }.to raise_error(ArgumentTypeError)
     expect{ described_class.end_tags = 1 }.to raise_error(ArgumentTypeError)
-    expect{ described_class.end_tags = true }.not_to raise_error
   end
 end
