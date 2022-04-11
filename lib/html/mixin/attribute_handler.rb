@@ -1,11 +1,14 @@
-# This module creates methods for each of the various attributes associated
-# with HTML tables.  In some cases validation is done on the setters.
-#--
+##########################################################################
 # The seemingly redundant writer methods were left here for backwards
 # compatibility and for those who may not prefer the DSL.
-#
+##########################################################################
+
+# The HTML module serves as a namespace only.
 module HTML
+  # The Mixin module serves as a namespace to prevent collisions.
   module Mixin
+    # The AttributeHandler module creates methods for each of the various attributes
+    # associated with HTML tables. In some cases validation is done on the setters.
     module AttributeHandler
       def abbr(string = nil)
         @abbr ||= nil
@@ -75,13 +78,14 @@ module HTML
 
       # Allow either true/false or an integer
       def border=(num)
-        if num.is_a?(TrueClass)
-          modify_html('border', true)
-        elsif num.is_a?(FalseClass)
-          # Do nothing
-        else
-          @border = num.to_i
-          modify_html('border', num.to_i)
+        case num
+          when TrueClass
+            modify_html('border', true)
+          when FalseClass
+            # Do nothing
+          else
+            @border = num.to_i
+            modify_html('border', num.to_i)
         end
       end
 
