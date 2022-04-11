@@ -52,6 +52,8 @@ Metrics/AbcSize:
   Enabled: false
 Metrics/BlockLength:
   IgnoredMethods: ['describe', 'context']
+Metrics/BlockNesting:
+  Max: 5
 Metrics/ClassLength:
   Enabled: false
 Metrics/MethodLength:
