@@ -17,10 +17,6 @@ RSpec.describe HTML::Table::Foot do
     described_class.instance_variable_set(:@instance, nil)
   end
 
-  example 'new_not_allowed' do
-    expect{ described_class.new }.to raise_error(NoMethodError)
-  end
-
   example 'constructor' do
     expect{ described_class.create }.not_to raise_error
   end
@@ -106,8 +102,11 @@ RSpec.describe HTML::Table::Foot do
   end
 
   # rubocop:disable RSpec/IdenticalEqualityAssertion
-  example 'singleton class' do
+  example 'new not allowed' do
     expect{ described_class.new }.to raise_error(NoMethodError)
+  end
+
+  example 'additional calls to constructor do nothing since class is a singleton' do
     expect(described_class.create).to eq(described_class.create)
     expect(described_class.instance).to eq(described_class.instance)
     expect(described_class.instance.object_id).to eq(described_class.instance.object_id)
