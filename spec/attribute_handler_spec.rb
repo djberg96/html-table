@@ -209,20 +209,31 @@ RSpec.describe HTML::Mixin::AttributeHandler do
     expect{ @table.configure(0, 0, 0){} }.to raise_error(ArgumentError)
   end
 
-  ########################################################################
-  # This test could probably be broken out into separate tests for each
-  # type that we want to add as content.
-  ########################################################################
   example 'content' do
     expect(@table).to respond_to(:content)
     expect(@table).to respond_to(:content=)
+  end
+
+  example 'content= with string' do
     expect{ @table.content = 'foo' }.not_to raise_error
+  end
+
+  example 'content= with numeric' do
     expect{ @table.content = 123 }.not_to raise_error
+  end
+
+  example 'content= with array' do
     expect{ @table.content = ['one', 2, 'three'] }.not_to raise_error
     expect{ @table.content = [%w[foo bar], [1, 2, 3]] }.not_to raise_error
+  end
+
+  example 'content= with explicit row types' do
     expect{ @table.content = HTML::Table::Row.new }.not_to raise_error
     expect{ @table.content = HTML::Table::Row::Data.new }.not_to raise_error
     expect{ @table.content = HTML::Table::Row::Header.new }.not_to raise_error
+  end
+
+  example 'content= with other table types' do
     expect{ @table.content = HTML::Table::Head.create }.not_to raise_error
     expect{ @table.content = HTML::Table::Foot.create }.not_to raise_error
     expect{ @table.content = HTML::Table::Body.new }.not_to raise_error
@@ -314,8 +325,11 @@ RSpec.describe HTML::Mixin::AttributeHandler do
 
   example 'summary' do
     expect(@table).to respond_to(:summary)
-    expect(@table).to respond_to(:summary=)
     expect{ @table.summary }.not_to raise_error
+  end
+
+  example 'summary=' do
+    expect(@table).to respond_to(:summary=)
     expect{ @table.summary = 'foo' }.not_to raise_error
     expect{ @table.summary = 1 }.not_to raise_error
   end
