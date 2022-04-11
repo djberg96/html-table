@@ -5,8 +5,12 @@
 # Only used for Table::Content objects, which are in turn used by
 # Table::Row::Data, Table::Row::Header and Table::Caption.
 ###################################################################
+
+# The HTML module serves as a namespace only.
 module HTML
+  # The Mixin module serves as a namespace only.
   module Mixin
+    # The TagHandler module implements handling for standard html physical tags.
     module TagHandler
       def bold(bool = nil)
         @bold ||= nil
