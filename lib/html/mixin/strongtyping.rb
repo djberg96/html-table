@@ -1,7 +1,8 @@
-# A pure-ruby replacement for strongtyping gem
-
+# The HTML module serves as a namespace only.
 module HTML
+  # The Mixin module serves as a namespace only to prevent collisions.
   module Mixin
+    # The StrongTyping module is a pure Ruby replacement for the strongtyping gem.
     module StrongTyping
       class ArgumentTypeError < ArgumentError; end
 
@@ -10,7 +11,7 @@ module HTML
           arg.is_a?(klass)
         end
 
-        raise ArgumentTypeError.new("#{arg} must be of type #{allowed_types}")
+        raise ArgumentTypeError, "#{arg} must be of type #{allowed_types}"
       end
     end
   end
