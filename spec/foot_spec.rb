@@ -105,6 +105,7 @@ RSpec.describe HTML::Table::Foot do
     expect(@tfoot.html.gsub(/\s{2,}|\n+/, '')).to eq(html)
   end
 
+  # rubocop:disable RSpec/IdenticalEqualityAssertion
   example 'singleton class' do
     expect{ described_class.new }.to raise_error(NoMethodError)
     expect(described_class.create).to eq(described_class.create)
@@ -112,4 +113,5 @@ RSpec.describe HTML::Table::Foot do
     expect(described_class.instance.object_id).to eq(described_class.instance.object_id)
     expect(described_class.create.object_id).to eq(described_class.create.object_id)
   end
+  # rubocop:enable RSpec/IdenticalEqualityAssertion
 end
