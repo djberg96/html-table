@@ -5,27 +5,29 @@ module HTML
       $html_table_uppercase = false
 
       # Used on HTML attributes. It creates proper HTML text based on the argument
-      # type.  A string looks like "attr='text'", a number looks like "attr=1",
+      # type. A string looks like "attr='text'", a number looks like "attr=1",
       # while a true value simply looks like "attr" (no equal sign).
       #--
       # This is private method.
       #
       def modify_html(attribute, arg = nil)
         if @html_begin.scan(/\b#{attribute}\b/).empty?
-          if arg.is_a?(Integer)
-            @html_begin << " #{attribute}=#{arg}"
-          elsif arg.is_a?(TrueClass)
-            @html_begin << " #{attribute}"
-          else
-            @html_begin << " #{attribute}='#{arg}'"
+          case arg
+            when Integer
+              @html_begin << " #{attribute}=#{arg}"
+            when TrueClass
+              @html_begin << " #{attribute}"
+            else
+              @html_begin << " #{attribute}='#{arg}'"
           end
         else
-          if arg.is_a?(Integer)
-            @html_begin.gsub!(/#{attribute}=\d+/, "#{attribute}=#{arg}")
-          elsif arg.is_a?(FalseClass)
-            @html_begin.gsub!(/#{attribute}/, '')
-          else
-            @html_begin.gsub!(/#{attribute}=['\w\.]+/, "#{attribute}='#{arg}'")
+          case arg
+            when Integer
+              @html_begin.gsub!(/#{attribute}=\d+/, "#{attribute}=#{arg}")
+            when FalseClass
+              @html_begin.gsub!(/#{attribute}/, '')
+            else
+              @html_begin.gsub!(/#{attribute}=['\w\.]+/, "#{attribute}='#{arg}'")
           end
         end
       end
