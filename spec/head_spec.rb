@@ -52,7 +52,7 @@ RSpec.describe HTML::Table::Head do
   end
 
   example 'end_tags= does not allow invalid types' do
-    expect{ described_class.end_tags = 'foo' }.to raise_error(HTML::Mixin::StrongTyping::ArgumentTypeError)
+    expect{ described_class.end_tags = 'foo' }.to raise_error(ArgumentTypeError)
   end
 
   example 'with attributes' do

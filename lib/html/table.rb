@@ -9,6 +9,9 @@ class NonStandardExtensionWarning < StructuredWarnings::StandardWarning; end
 # Please, think of the children before using the blink tag.
 class BlinkWarning < StructuredWarnings::StandardWarning; end
 
+# Used by the strongtyping mixin.
+class ArgumentTypeError < ArgumentError; end
+
 # The HTML module serves as a namespace only.
 module HTML
 
