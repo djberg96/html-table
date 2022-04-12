@@ -1,10 +1,13 @@
+# The HTML module serves as a namespace only.
 module HTML
+
   # This class represents an HTML ColGroup column (<col>).  Despite the
   # name, it is not a subclass of ColGroup or Table.
   #
   class Table::ColGroup::Col
     include HTML::Mixin::AttributeHandler
     include HTML::Mixin::HtmlHandler
+    extend HTML::Mixin::StrongTyping
 
     undef_method :configure, :content
     @indent_level = 6

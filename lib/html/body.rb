@@ -1,9 +1,11 @@
+# The HTML module serves as a namespace only.
 module HTML
-
   # This class represents an HTML table body (<tbody>).  It is a
   # subclass of Table::TableSection.
   #
   class Table::Body < Table::TableSection
+    extend HTML::Mixin::StrongTyping
+
     @indent_level = 3
     @end_tags     = true
 

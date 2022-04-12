@@ -52,7 +52,7 @@ RSpec.describe HTML::Table::Foot do
   end
 
   example 'end_tags raises an error on an invalid type' do
-    expect{ described_class.end_tags = 'foo' }.to raise_error(HTML::Mixin::StrongTyping::ArgumentTypeError)
+    expect{ described_class.end_tags = 'foo' }.to raise_error(ArgumentTypeError)
   end
 
   example 'with attributes' do

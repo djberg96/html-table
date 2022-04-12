@@ -2,13 +2,15 @@ require_relative 'mixin/attribute_handler'
 require_relative 'mixin/html_handler'
 require_relative 'mixin/strongtyping'
 require 'structured_warnings'
-include HTML::Mixin::StrongTyping
 
 # Warning raised if a non-standard extension is used.
 class NonStandardExtensionWarning < StructuredWarnings::StandardWarning; end
 
 # Please, think of the children before using the blink tag.
 class BlinkWarning < StructuredWarnings::StandardWarning; end
+
+# Used by the strongtyping mixin.
+class ArgumentTypeError < ArgumentError; end
 
 # The HTML module serves as a namespace only.
 module HTML
@@ -18,6 +20,8 @@ module HTML
   class Table < Array
     include HTML::Mixin::AttributeHandler
     include HTML::Mixin::HtmlHandler
+    include HTML::Mixin::StrongTyping
+    extend HTML::Mixin::StrongTyping
 
     # The version of the html-table library
     VERSION = '1.7.0'.freeze

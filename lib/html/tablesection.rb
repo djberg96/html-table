@@ -1,9 +1,13 @@
+# The HTML module serves as a namespace only.
 module HTML
+
   # Superclass for THEAD, TBODY, TFOOT
   #
   class Table::TableSection < Array
     include HTML::Mixin::AttributeHandler
     include HTML::Mixin::HtmlHandler
+    include HTML::Mixin::StrongTyping
+    extend HTML::Mixin::StrongTyping
 
     def initialize(&block)
       super
