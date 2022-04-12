@@ -1,3 +1,4 @@
+# The HTML module serves as a namespace only.
 module HTML
 
   # This class represents an HTML table header (<th>).  Despite the name
@@ -6,6 +7,7 @@ module HTML
   class Table::Row::Header
     include HTML::Mixin::AttributeHandler
     include HTML::Mixin::HtmlHandler
+    extend HTML::Mixin::StrongTyping
 
     undef_method :configure
 

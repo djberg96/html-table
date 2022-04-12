@@ -1,3 +1,4 @@
+# The HTML module serves as a namespace only.
 module HTML
 
   # This class represents an HTML Caption.  Despite the name, it is not
@@ -6,6 +7,7 @@ module HTML
   class Table::Caption
     include HTML::Mixin::AttributeHandler
     include HTML::Mixin::HtmlHandler
+    extend HTML::Mixin::StrongTyping
 
     undef_method :configure
     @indent_level = 3

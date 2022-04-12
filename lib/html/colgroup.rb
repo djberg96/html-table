@@ -1,4 +1,6 @@
+# The HTML module serves as a namespace only.
 module HTML
+
   # This class represents an HTML column group (<colgroup>).  It is a
   # subclass of Array.  The only elements it may contain are instances
   # of the ColGroup::Col class.
@@ -6,6 +8,8 @@ module HTML
   class Table::ColGroup < Array
     include HTML::Mixin::AttributeHandler
     include HTML::Mixin::HtmlHandler
+    include HTML::Mixin::StrongTyping
+    extend HTML::Mixin::StrongTyping
 
     @indent_level = 3
     @end_tags     = true

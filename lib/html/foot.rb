@@ -8,6 +8,7 @@ module HTML
   #
   class Table::Foot < Table::TableSection
     include Singleton
+    extend HTML::Mixin::StrongTyping
 
     @indent_level = 3
     @end_tags     = true
