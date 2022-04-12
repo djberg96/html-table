@@ -4,9 +4,6 @@ module HTML
   module Mixin
     # The HtmlHandler module is the library for generating html output.
     module HtmlHandler
-
-      $html_table_uppercase = false
-
       # Used on HTML attributes. It creates proper HTML text based on the argument
       # type. A string looks like "attr='text'", a number looks like "attr=1",
       # while a true value simply looks like "attr" (no equal sign).
@@ -43,15 +40,7 @@ module HTML
       # honored.
       #
       def html(formatting = true)
-        if self.class.respond_to?(:html_case)
-          if self.class.html_case == 'upper'
-            $html_table_uppercase = true
-          else
-            $html_table_uppercase = false
-          end
-        end
-
-        if $html_table_uppercase
+        if HTML::Table.html_case == 'upper'
           @html_begin.upcase!
           @html_end.upcase!
         end

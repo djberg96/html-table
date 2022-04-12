@@ -164,7 +164,7 @@ module HTML
       @html_case
     end
 
-    # Sets the case of all HTML tags to either lower or upper.  The only
+    # Sets the case of all HTML tags to either lower or upper. The only
     # valid arguments to this method are 'upper' or 'lower'.
     #
     def self.html_case=(arg)
