@@ -94,6 +94,8 @@ module HTML
       @html_begin = '<table'
       @html_body  = ''
       @html_end   = '</table>'
+
+      super(&block)
       instance_eval(&block) if block
       self.content = arg if arg
 
