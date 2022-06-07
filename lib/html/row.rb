@@ -12,9 +12,9 @@ module HTML
     @indent_level = 3
     @end_tags     = true
 
-    # Returns a new Table::Row object.  Optionally takes a block.  If +arg+
-    # is provided it is treated as content.  If +header+ is false, that
-    # content is transformed into a Row::Data object.  Otherwise, it is
+    # Returns a new Table::Row object. Optionally takes a block. If +arg+
+    # is provided it is treated as content. If +header+ is false, that
+    # content is transformed into a Row::Data object. Otherwise, it is
     # converted into a Row::Header object.
     #
     # See the # Table::Row#content= method for more information.
@@ -24,9 +24,9 @@ module HTML
     def initialize(arg = nil, header = false, &block)
       @html_begin = '<tr'
       @html_end   = '</tr>'
+      @header     = header
 
-      @header = header
-
+      super(&block)
       instance_eval(&block) if block_given?
       self.content = arg if arg
     end
