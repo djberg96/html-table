@@ -5,7 +5,11 @@ An interface for generating HTML Tables with Ruby.
 
 ## Installation
 `gem install html-table`
-   
+
+## Installing the Trusted Cert
+
+`gem cert --add <(curl -Ls https://raw.githubusercontent.com/djberg96/html-table/main/certs/djberg96_pub.pem)`
+
 ## Synopsis
 ```ruby
 require 'html/table'
