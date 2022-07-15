@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module HTML::Mixin::TagHandler - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+  var index_rel_prefix = "../../";
+</script>
+
+<script src="../../js/navigation.js" defer></script>
+<script src="../../js/search.js" defer></script>
+<script src="../../js/search_index.js" defer></script>
+<script src="../../js/searcher.js" defer></script>
+<script src="../../js/darkfish.js" defer></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    
+<!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    <li ><a href="#method-i-big">#big</a>
+    <li ><a href="#method-i-big-3D">#big=</a>
+    <li ><a href="#method-i-blink">#blink</a>
+    <li ><a href="#method-i-blink-3D">#blink=</a>
+    <li ><a href="#method-i-bold">#bold</a>
+    <li ><a href="#method-i-bold-3D">#bold=</a>
+    <li ><a href="#method-i-italic">#italic</a>
+    <li ><a href="#method-i-italic-3D">#italic=</a>
+    <li ><a href="#method-i-strike">#strike</a>
+    <li ><a href="#method-i-strike-3D">#strike=</a>
+    <li ><a href="#method-i-sub">#sub</a>
+    <li ><a href="#method-i-sub-3D">#sub=</a>
+    <li ><a href="#method-i-sup">#sup</a>
+    <li ><a href="#method-i-sup-3D">#sup=</a>
+    <li ><a href="#method-i-tt">#tt</a>
+    <li ><a href="#method-i-tt-3D">#tt=</a>
+    <li ><a href="#method-i-underline">#underline</a>
+    <li ><a href="#method-i-underline-3D">#underline=</a>
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-HTML::Mixin::TagHandler">
+  <h1 id="module-HTML::Mixin::TagHandler" class="module">
+    module HTML::Mixin::TagHandler
+  </h1>
+
+  <section class="description">
+    
+<p>The <a href="TagHandler.html"><code>TagHandler</code></a> module implements handling for standard html physical tags.</p>
+
+  </section>
+
+  <section id="5Buntitled-5D" class="documentation-section">
+
+
+
+
+
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+      <div id="method-i-big" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">big</span><span
+            class="method-args">(bool = nil)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="big-source">
+            <pre><span class="ruby-comment"># File lib/html/mixin/tag_handler.rb, line 26</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">big</span>(<span class="ruby-identifier">bool</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-ivar">@big</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">big</span> = <span class="ruby-identifier">bool</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">bool</span>
+  <span class="ruby-ivar">@big</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-big-3D" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">big=</span><span
+            class="method-args">(bool)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="big-3D-source">
+            <pre><span class="ruby-comment"># File lib/html/mixin/tag_handler.rb, line 32</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">big=</span>(<span class="ruby-identifier">bool</span>)
+  <span class="ruby-identifier">handle_physical_tag</span>(<span class="ruby-string">&#39;big&#39;</span>, <span class="ruby-identifier">bool</span>)
+  <span class="ruby-ivar">@big</span> = <span class="ruby-identifier">bool</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-blink" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">blink</span><span
+            class="method-args">(bool = nil)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="blink-source">
+            <pre><span class="ruby-comment"># File lib/html/mixin/tag_handler.rb, line 37</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">blink</span>(<span class="ruby-identifier">bool</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-ivar">@blink</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">blink</span> = <span class="ruby-identifier">bool</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">bool</span>
+  <span class="ruby-ivar">@blink</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-blink-3D" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">blink=</span><span
+            class="method-args">(bool)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="blink-3D-source">
+            <pre><span class="ruby-comment"># File lib/html/mixin/tag_handler.rb, line 43</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">blink=</span>(<span class="ruby-identifier">bool</span>)
+  <span class="ruby-identifier">warn</span> <span class="ruby-constant">BlinkWarning</span>, <span class="ruby-string">&quot;The &#39;blink&#39; tag is very annoying. Please reconsider.&quot;</span>
+  <span class="ruby-identifier">handle_physical_tag</span>(<span class="ruby-string">&#39;blink&#39;</span>, <span class="ruby-identifier">bool</span>)
+  <span class="ruby-ivar">@blink</span> = <span class="ruby-identifier">bool</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-bold" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">bold</span><span
+            class="method-args">(bool = nil)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="bold-source">
+            <pre><span class="ruby-comment"># File lib/html/mixin/tag_handler.rb, line 15</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">bold</span>(<span class="ruby-identifier">bool</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-ivar">@bold</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">bold</span> = <span class="ruby-identifier">bool</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">bool</span>
+  <span class="ruby-ivar">@bold</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-bold-3D" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">bold=</span><span
+            class="method-args">(bool)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="bold-3D-source">
+            <pre><span class="ruby-comment"># File lib/html/mixin/tag_handler.rb, line 21</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">bold=</span>(<span class="ruby-identifier">bool</span>)
+  <span class="ruby-identifier">handle_physical_tag</span>(<span class="ruby-string">&#39;b&#39;</span>, <span class="ruby-identifier">bool</span>)
+  <span class="ruby-ivar">@bold</span> = <span class="ruby-identifier">bool</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-italic" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">italic</span><span
+            class="method-args">(bool = nil)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="italic-source">
+            <pre><span class="ruby-comment"># File lib/html/mixin/tag_handler.rb, line 49</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">italic</span>(<span class="ruby-identifier">bool</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-ivar">@italic</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">italic</span> = <span class="ruby-identifier">bool</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">bool</span>
+  <span class="ruby-ivar">@italic</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-italic-3D" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">italic=</span><span
+            class="method-args">(bool)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="italic-3D-source">
+            <pre><span class="ruby-comment"># File lib/html/mixin/tag_handler.rb, line 55</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">italic=</span>(<span class="ruby-identifier">bool</span>)
+  <span class="ruby-identifier">handle_physical_tag</span>(<span class="ruby-string">&#39;i&#39;</span>, <span class="ruby-identifier">bool</span>)
+  <span class="ruby-ivar">@italic</span> = <span class="ruby-identifier">bool</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-strike" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">strike</span><span
+            class="method-args">(bool = nil)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="strike-source">
+            <pre><span class="ruby-comment"># File lib/html/mixin/tag_handler.rb, line 60</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">strike</span>(<span class="ruby-identifier">bool</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-ivar">@strike</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">strike</span> = <span class="ruby-identifier">bool</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">bool</span>
+  <span class="ruby-ivar">@strike</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-strike-3D" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">strike=</span><span
+            class="method-args">(bool)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="strike-3D-source">
+            <pre><span class="ruby-comment"># File lib/html/mixin/tag_handler.rb, line 66</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">strike=</span>(<span class="ruby-identifier">bool</span>)
+  <span class="ruby-identifier">handle_physical_tag</span>(<span class="ruby-string">&#39;strike&#39;</span>, <span class="ruby-identifier">bool</span>)
+  <span class="ruby-ivar">@strike</span> = <span class="ruby-identifier">bool</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-sub" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">sub</span><span
+            class="method-args">(bool = nil)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="sub-source">
+            <pre><span class="ruby-comment"># File lib/html/mixin/tag_handler.rb, line 71</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">sub</span>(<span class="ruby-identifier">bool</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-ivar">@sub</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">sub</span> = <span class="ruby-identifier">bool</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">bool</span>
+  <span class="ruby-ivar">@sub</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-sub-3D" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">sub=</span><span
+            class="method-args">(bool)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="sub-3D-source">
+            <pre><span class="ruby-comment"># File lib/html/mixin/tag_handler.rb, line 77</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">sub=</span>(<span class="ruby-identifier">bool</span>)
+  <span class="ruby-identifier">handle_physical_tag</span>(<span class="ruby-string">&#39;sub&#39;</span>, <span class="ruby-identifier">bool</span>)
+  <span class="ruby-ivar">@sub</span> = <span class="ruby-identifier">bool</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-sup" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">sup</span><span
+            class="method-args">(bool = nil)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="sup-source">
+            <pre><span class="ruby-comment"># File lib/html/mixin/tag_handler.rb, line 82</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">sup</span>(<span class="ruby-identifier">bool</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-ivar">@sup</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">sup</span> = <span class="ruby-identifier">bool</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">bool</span>
+  <span class="ruby-ivar">@sup</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-sup-3D" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">sup=</span><span
+            class="method-args">(bool)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="sup-3D-source">
+            <pre><span class="ruby-comment"># File lib/html/mixin/tag_handler.rb, line 88</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">sup=</span>(<span class="ruby-identifier">bool</span>)
+  <span class="ruby-identifier">handle_physical_tag</span>(<span class="ruby-string">&#39;sup&#39;</span>, <span class="ruby-identifier">bool</span>)
+  <span class="ruby-ivar">@sup</span> = <span class="ruby-identifier">bool</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-tt" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">tt</span><span
+            class="method-args">(bool = nil)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="tt-source">
+            <pre><span class="ruby-comment"># File lib/html/mixin/tag_handler.rb, line 93</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">tt</span>(<span class="ruby-identifier">bool</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-ivar">@tt</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">tt</span> = <span class="ruby-identifier">bool</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">bool</span>
+  <span class="ruby-ivar">@tt</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-tt-3D" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">tt=</span><span
+            class="method-args">(bool)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="tt-3D-source">
+            <pre><span class="ruby-comment"># File lib/html/mixin/tag_handler.rb, line 99</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">tt=</span>(<span class="ruby-identifier">bool</span>)
+  <span class="ruby-identifier">handle_physical_tag</span>(<span class="ruby-string">&#39;tt&#39;</span>, <span class="ruby-identifier">bool</span>)
+  <span class="ruby-ivar">@tt</span> = <span class="ruby-identifier">bool</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-underline" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">underline</span><span
+            class="method-args">(bool = nil)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="underline-source">
+            <pre><span class="ruby-comment"># File lib/html/mixin/tag_handler.rb, line 104</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">underline</span>(<span class="ruby-identifier">bool</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-ivar">@underline</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">underline</span> = <span class="ruby-identifier">bool</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">bool</span>
+  <span class="ruby-ivar">@underline</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-underline-3D" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">underline=</span><span
+            class="method-args">(bool)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="underline-3D-source">
+            <pre><span class="ruby-comment"># File lib/html/mixin/tag_handler.rb, line 110</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">underline=</span>(<span class="ruby-identifier">bool</span>)
+  <span class="ruby-identifier">handle_physical_tag</span>(<span class="ruby-string">&#39;u&#39;</span>, <span class="ruby-identifier">bool</span>)
+  <span class="ruby-ivar">@bool</span> = <span class="ruby-identifier">bool</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+    </section>
+
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.4.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

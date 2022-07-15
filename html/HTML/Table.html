@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class HTML::Table - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/navigation.js" defer></script>
+<script src="../js/search.js" defer></script>
+<script src="../js/search_index.js" defer></script>
+<script src="../js/searcher.js" defer></script>
+<script src="../js/darkfish.js" defer></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+<div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  <p class="link">Array
+</div>
+
+    
+<div id="includes-section" class="nav-section">
+  <h3>Included Modules</h3>
+
+  <ul class="link-list">
+    <li><a class="include" href="Mixin/AttributeHandler.html">HTML::Mixin::AttributeHandler</a>
+    <li><a class="include" href="Mixin/HtmlHandler.html">HTML::Mixin::HtmlHandler</a>
+    <li><a class="include" href="Mixin/StrongTyping.html">HTML::Mixin::StrongTyping</a>
+  </ul>
+</div>
+
+    
+<div id="extends-section" class="nav-section">
+  <h3>Extended With Modules</h3>
+
+  <ul class="link-list">
+    <li><a class="extend" href="Mixin/StrongTyping.html">HTML::Mixin::StrongTyping</a>
+  </ul>
+</div>
+
+    
+<!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    <li ><a href="#method-c-global_end_tags-3D">::global_end_tags=</a>
+    <li ><a href="#method-c-global_end_tags-3F">::global_end_tags?</a>
+    <li ><a href="#method-c-html_case">::html_case</a>
+    <li ><a href="#method-c-html_case-3D">::html_case=</a>
+    <li ><a href="#method-c-indent_level">::indent_level</a>
+    <li ><a href="#method-c-indent_level-3D">::indent_level=</a>
+    <li ><a href="#method-c-new">::new</a>
+    <li class="calls-super" ><a href="#method-i-3C-3C">#&lt;&lt;</a>
+    <li class="calls-super" ><a href="#method-i-5B-5D-3D">#[]=</a>
+    <li ><a href="#method-i-content-3D">#content=</a>
+    <li ><a href="#method-i-data-3D">#data=</a>
+    <li ><a href="#method-i-header">#header</a>
+    <li ><a href="#method-i-header-3D">#header=</a>
+    <li class="calls-super" ><a href="#method-i-push">#push</a>
+    <li class="calls-super" ><a href="#method-i-unshift">#unshift</a>
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-HTML::Table">
+  <h1 id="class-HTML::Table" class="class">
+    class HTML::Table
+  </h1>
+
+  <section class="description">
+    
+<p>The <a href="Table.html"><code>Table</code></a> class encapsulates methods associated with an html table element. It is the “outermost” class of the html-table classes.</p>
+
+  </section>
+
+  <section id="5Buntitled-5D" class="documentation-section">
+
+
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+        <dt id="VERSION">VERSION
+        <dd><p>The version of the html-table library</p>
+      </dl>
+    </section>
+
+
+
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+      <div id="method-c-global_end_tags-3D" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">global_end_tags=</span><span
+            class="method-args">(bool)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          <p>Sets the end tag class variable. This is used to set whether or not to include optional end tags in the final <a href="../HTML.html"><code>HTML</code></a> output. The argument sent to this method must be true or false. The default value is true.</p>
+
+<p>Note that mandatory end tags are unaffected by this setting.</p>
+
+          <div class="method-source-code" id="global_end_tags-3D-source">
+            <pre><span class="ruby-comment"># File lib/html/table.rb, line 155</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">global_end_tags=</span>(<span class="ruby-identifier">bool</span>)
+  <span class="ruby-identifier">expect</span>(<span class="ruby-identifier">bool</span>, [<span class="ruby-constant">TrueClass</span>, <span class="ruby-constant">FalseClass</span>])
+  <span class="ruby-ivar">@global_end_tags</span> = <span class="ruby-identifier">bool</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-c-global_end_tags-3F" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">global_end_tags?</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          <p>Returns true or false, depending on whether or not end tags have been turned on or off, respectively.</p>
+
+          <div class="method-source-code" id="global_end_tags-3F-source">
+            <pre><span class="ruby-comment"># File lib/html/table.rb, line 145</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">global_end_tags?</span>
+  <span class="ruby-ivar">@global_end_tags</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-c-html_case" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">html_case</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          <p>Returns either “lower” or “upper”, indicating the case of all <a href="../HTML.html"><code>HTML</code></a> tags in the final output.</p>
+
+          <div class="method-source-code" id="html_case-source">
+            <pre><span class="ruby-comment"># File lib/html/table.rb, line 163</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">html_case</span>
+  <span class="ruby-ivar">@html_case</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-c-html_case-3D" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">html_case=</span><span
+            class="method-args">(arg)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          <p>Sets the case of all <a href="../HTML.html"><code>HTML</code></a> tags to either lower or upper. The only valid arguments to this method are ‘upper’ or ‘lower’.</p>
+
+          <div class="method-source-code" id="html_case-3D-source">
+            <pre><span class="ruby-comment"># File lib/html/table.rb, line 170</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">html_case=</span>(<span class="ruby-identifier">arg</span>)
+  <span class="ruby-identifier">expect</span>(<span class="ruby-identifier">arg</span>, <span class="ruby-constant">String</span>)
+  <span class="ruby-identifier">arg</span>.<span class="ruby-identifier">downcase!</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-node">%w[upper lower]</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">arg</span>)
+    <span class="ruby-identifier">msg</span> = <span class="ruby-string">&quot;Argument to html_case() must be &#39;upper&#39; or &#39;lower&#39;&quot;</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-identifier">msg</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@html_case</span> = <span class="ruby-identifier">arg</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-c-indent_level" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">indent_level</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          <p>Returns the number of spaces that tags for this class are indented. For the <a href="Table.html"><code>Table</code></a> class, the indention level defaults to 0.</p>
+
+<p>Note that each class has its own default indentation level (a multiple of 3).</p>
+
+          <div class="method-source-code" id="indent_level-source">
+            <pre><span class="ruby-comment"># File lib/html/table.rb, line 186</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">indent_level</span>
+  <span class="ruby-ivar">@indent_level</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-c-indent_level-3D" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">indent_level=</span><span
+            class="method-args">(num)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          <p>Sets the number of spaces that tags for this class are indented.</p>
+
+          <div class="method-source-code" id="indent_level-3D-source">
+            <pre><span class="ruby-comment"># File lib/html/table.rb, line 192</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">indent_level=</span>(<span class="ruby-identifier">num</span>)
+  <span class="ruby-identifier">expect</span>(<span class="ruby-identifier">num</span>, <span class="ruby-constant">Integer</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&#39;indent level must be &gt;= 0&#39;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">num</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">0</span>
+  <span class="ruby-ivar">@indent_level</span> = <span class="ruby-identifier">num</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-c-new" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(arg = nil, html_options = {}, &amp;block)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          <p>Returns a new <a href="Table.html"><code>Table</code></a> object. Optionally takes a block which is eval’d if provided. If an argument is provided it is interpreted as content. See the <a href="Table.html#method-i-content-3D"><code>Table#content=</code></a> method for how that data will be interpreted.</p>
+
+<p>Examples:</p>
+
+<pre># A single data item
+HTML::Table.new(1).html
+
+# Output
+&lt;table&gt;
+   &lt;tr&gt;
+      &lt;td&gt;1&lt;/td&gt;
+   &lt;/tr&gt;
+&lt;/table&gt;
+
+# One row per data item
+HTML::Table.new([&#39;Matz&#39;, &#39;Larry&#39;, &#39;Guido&#39;]).html
+
+# Output
+&lt;table&gt;
+   &lt;tr&gt;
+      &lt;td&gt;Matz&lt;/td&gt;
+   &lt;/tr&gt;
+   &lt;tr&gt;
+      &lt;td&gt;Larry&lt;/td&gt;
+   &lt;/tr&gt;
+   &lt;tr&gt;
+      &lt;td&gt;Guido&lt;/td&gt;
+   &lt;/tr&gt;
+   &lt;/tr&gt;
+&lt;/table&gt;
+
+# Multiple data items per row
+Table.new{ |t|
+   t.content = [[&#39;a&#39;,&#39;b&#39;], [1,2], [&#39;x&#39;,&#39;y&#39;]]
+}.html
+
+# Output
+&lt;table&gt;
+   &lt;tr&gt;
+      &lt;td&gt;a&lt;/td&gt;
+      &lt;td&gt;b&lt;/td&gt;
+   &lt;/tr&gt;
+   &lt;tr&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;2&lt;/td&gt;
+   &lt;/tr&gt;
+   &lt;tr&gt;
+      &lt;td&gt;x&lt;/td&gt;
+      &lt;td&gt;y&lt;/td&gt;
+   &lt;/tr&gt;
+&lt;/table&gt;</pre>
+
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/html/table.rb, line 93</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">arg</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">html_options</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-ivar">@html_begin</span> = <span class="ruby-string">&#39;&lt;table&#39;</span>
+  <span class="ruby-ivar">@html_body</span>  = <span class="ruby-string">&#39;&#39;</span>
+  <span class="ruby-ivar">@html_end</span>   = <span class="ruby-string">&#39;&lt;/table&gt;&#39;</span>
+  <span class="ruby-identifier">instance_eval</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">block</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">content</span> = <span class="ruby-identifier">arg</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">arg</span>
+
+  <span class="ruby-comment"># Assume html_options are attributes</span>
+  <span class="ruby-identifier">html_options</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">val</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">send</span>(<span class="ruby-node">&quot;#{key}=&quot;</span>, <span class="ruby-identifier">val</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+    </section>
+
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+      <div id="method-i-3C-3C" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">&lt;&lt;</span><span
+            class="method-args">(obj)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          <p>This method has been redefined to only allow certain subclasses to be accepted as arguments.</p>
+
+<p>The restrictions and behavior are identical to the push() method.</p>
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+
+          <div class="method-source-code" id="3C-3C-source">
+            <pre><span class="ruby-comment"># File lib/html/table.rb, line 277</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">&lt;&lt;</span>(<span class="ruby-identifier">obj</span>)
+  <span class="ruby-identifier">expect</span>(<span class="ruby-identifier">obj</span>, [<span class="ruby-constant">Caption</span>, <span class="ruby-constant">ColGroup</span>, <span class="ruby-constant">Body</span>, <span class="ruby-constant">Foot</span>, <span class="ruby-constant">Head</span>, <span class="ruby-constant">Row</span>, <span class="ruby-constant">Row</span><span class="ruby-operator">::</span><span class="ruby-constant">Data</span>, <span class="ruby-constant">Row</span><span class="ruby-operator">::</span><span class="ruby-constant">Header</span>])
+
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">obj</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">Table</span><span class="ruby-operator">::</span><span class="ruby-constant">Row</span><span class="ruby-operator">::</span><span class="ruby-constant">Data</span>, <span class="ruby-constant">Table</span><span class="ruby-operator">::</span><span class="ruby-constant">Row</span><span class="ruby-operator">::</span><span class="ruby-constant">Header</span> <span class="ruby-comment"># Each get their own row</span>
+      <span class="ruby-keyword">self</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">Table</span><span class="ruby-operator">::</span><span class="ruby-constant">Row</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">obj</span>)
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">Table</span><span class="ruby-operator">::</span><span class="ruby-constant">Caption</span>                       <span class="ruby-comment"># Always the first row</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Table</span><span class="ruby-operator">::</span><span class="ruby-constant">Caption</span>)
+        <span class="ruby-keyword">self</span>[<span class="ruby-value">0</span>] = <span class="ruby-identifier">obj</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">unshift</span>(<span class="ruby-identifier">obj</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">Table</span><span class="ruby-operator">::</span><span class="ruby-constant">Head</span>                          <span class="ruby-comment"># Always at row 0 or 1</span>
+      <span class="ruby-identifier">unshift</span>(<span class="ruby-identifier">obj</span>)
+      <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Table</span><span class="ruby-operator">::</span><span class="ruby-constant">Caption</span>)
+        <span class="ruby-keyword">self</span>[<span class="ruby-value">0</span>], <span class="ruby-keyword">self</span>[<span class="ruby-value">1</span>] = <span class="ruby-keyword">self</span>[<span class="ruby-value">1</span>], <span class="ruby-keyword">self</span>[<span class="ruby-value">0</span>]
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-keyword">super</span>(<span class="ruby-identifier">obj</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-5B-5D-3D" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">[]=</span><span
+            class="method-args">(index, obj)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          <p>This method has been redefined to only allow certain subclasses to be assigned using a direct index notation.  Specifically, only <a href="Table/Caption.html"><code>Caption</code></a>, <a href="Table/ColGroup.html"><code>ColGroup</code></a>, <a href="Table/Body.html"><code>Body</code></a>, <a href="Table/Foot.html"><code>Foot</code></a>, <a href="Table/Head.html"><code>Head</code></a> and <a href="Table/Row.html"><code>Row</code></a> objects may be use assigned using direct index notation.</p>
+
+<p>In addition, a <a href="Table/Caption.html"><code>Caption</code></a> can only be assigned to index 0.  A <a href="Table/Head.html"><code>Head</code></a> can only be assigned to index 0, or index 1 if a <a href="Table/Caption.html"><code>Caption</code></a> already exists. A <a href="Table/Foot.html"><code>Foot</code></a> may only be assigned as the last element.</p>
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+
+          <div class="method-source-code" id="5B-5D-3D-source">
+            <pre><span class="ruby-comment"># File lib/html/table.rb, line 207</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">[]=</span>(<span class="ruby-identifier">index</span>, <span class="ruby-identifier">obj</span>)
+  <span class="ruby-identifier">expect</span>(<span class="ruby-identifier">obj</span>, [<span class="ruby-constant">Caption</span>, <span class="ruby-constant">ColGroup</span>, <span class="ruby-constant">Body</span>, <span class="ruby-constant">Foot</span>, <span class="ruby-constant">Head</span>, <span class="ruby-constant">Row</span>])
+
+  <span class="ruby-comment"># Only allow Caption objects at index 0</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">index</span> <span class="ruby-operator">!=</span> <span class="ruby-value">0</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">HTML</span><span class="ruby-operator">::</span><span class="ruby-constant">Table</span><span class="ruby-operator">::</span><span class="ruby-constant">Caption</span>)
+    <span class="ruby-identifier">msg</span> = <span class="ruby-string">&#39;CAPTION can only be added at index 0&#39;</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-identifier">msg</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># Only allow Head objects at index 0 or 1</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">HTML</span><span class="ruby-operator">::</span><span class="ruby-constant">Table</span><span class="ruby-operator">::</span><span class="ruby-constant">Head</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">HTML</span><span class="ruby-operator">::</span><span class="ruby-constant">Table</span><span class="ruby-operator">::</span><span class="ruby-constant">Caption</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">index</span> <span class="ruby-operator">!=</span> <span class="ruby-value">1</span>
+      <span class="ruby-identifier">msg</span> = <span class="ruby-string">&#39;THEAD must be at index 1 when Caption is included&#39;</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-identifier">msg</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-keyword">self</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">HTML</span><span class="ruby-operator">::</span><span class="ruby-constant">Table</span><span class="ruby-operator">::</span><span class="ruby-constant">Caption</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">index</span> <span class="ruby-operator">!=</span> <span class="ruby-value">0</span>
+      <span class="ruby-identifier">msg</span> = <span class="ruby-string">&#39;THEAD must be at index 0 when no Caption is included&#39;</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-identifier">msg</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">HTML</span><span class="ruby-operator">::</span><span class="ruby-constant">Table</span><span class="ruby-operator">::</span><span class="ruby-constant">Foot</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">index</span> <span class="ruby-operator">!=</span> <span class="ruby-value">-1</span>
+    <span class="ruby-identifier">msg</span> = <span class="ruby-string">&#39;FOOT must be last element&#39;</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-identifier">msg</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">super</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-content-3D" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">content=</span><span
+            class="method-args">(arg)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          <p>Adds content to the table. How this method behaves depends on the type of argument being passed.</p>
+
+<p>The <code>arg</code> may be a <a href="Table/Row.html"><code>Table::Row</code></a> object, an Array of <a href="Table/Row.html"><code>Table::Row</code></a> objects, an Array of Array’s, an Array of Strings, or a single String.  In the last two cases, a single <a href="Table/Row.html"><code>Table::Row</code></a> with a single <a href="Table/Row/Data.html"><code>Table::Row::Data</code></a> object is created, with the string as the content.</p>
+
+          <div class="method-source-code" id="content-3D-source">
+            <pre><span class="ruby-comment"># File lib/html/table.rb, line 114</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">content=</span>(<span class="ruby-identifier">arg</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">arg</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Array</span>)
+    <span class="ruby-identifier">arg</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">e</span><span class="ruby-operator">|</span> <span class="ruby-keyword">self</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">Table</span><span class="ruby-operator">::</span><span class="ruby-constant">Row</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">e</span>) }
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">self</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">Table</span><span class="ruby-operator">::</span><span class="ruby-constant">Row</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">arg</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+        <div class="aliases">
+          Also aliased as: <a href="Table.html#method-i-data-3D">data=</a>
+        </div>
+
+      </div>
+
+      <div id="method-i-data-3D" class="method-detail method-alias">
+        <div class="method-heading">
+          <span class="method-name">data=</span><span
+            class="method-args">(arg)</span>
+        </div>
+
+        <div class="method-description">
+          
+
+        </div>
+
+
+        <div class="aliases">
+          Alias for: <a href="Table.html#method-i-content-3D">content=</a>
+        </div>
+      </div>
+
+      <div id="method-i-header" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">header</span><span
+            class="method-args">(arg = nil)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          <p>A shortcut for creating <a href="Table/Row/Header.html"><code>Table::Row::Header</code></a> objects in the constructor using the DSL style syntax.</p>
+
+          <div class="method-source-code" id="header-source">
+            <pre><span class="ruby-comment"># File lib/html/table.rb, line 127</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">header</span>(<span class="ruby-identifier">arg</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">header</span> = <span class="ruby-identifier">arg</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">arg</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-header-3D" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">header=</span><span
+            class="method-args">(arg)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          <p>Adds a <a href="Table/Row/Header.html"><code>Table::Row::Header</code></a> object (or an Array of them) to the <a href="Table.html"><code>Table</code></a> object.</p>
+
+          <div class="method-source-code" id="header-3D-source">
+            <pre><span class="ruby-comment"># File lib/html/table.rb, line 134</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">header=</span>(<span class="ruby-identifier">arg</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">arg</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Array</span>)
+    <span class="ruby-identifier">arg</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">h</span><span class="ruby-operator">|</span> <span class="ruby-keyword">self</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">Table</span><span class="ruby-operator">::</span><span class="ruby-constant">Row</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">h</span>, <span class="ruby-keyword">true</span>) }
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">self</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">Table</span><span class="ruby-operator">::</span><span class="ruby-constant">Row</span><span class="ruby-operator">::</span><span class="ruby-constant">Header</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">arg</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-push" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">push</span><span
+            class="method-args">(*args)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          <p>This method has been redefined to only allow certain subclasses to be accepted as arguments.  Specifically, only <a href="Table/Caption.html"><code>Caption</code></a>, <a href="Table/ColGroup.html"><code>ColGroup</code></a>, <a href="Table/Body.html"><code>Body</code></a>, <a href="Table/Foot.html"><code>Foot</code></a>, <a href="Table/Head.html"><code>Head</code></a>, <a href="Table/Row.html"><code>Row</code></a>, <a href="Table/Row/Data.html"><code>Row::Data</code></a> and <a href="Table/Row/Header.html"><code>Row::Header</code></a> objects may be pushed onto a <a href="Table.html"><code>Table</code></a>.</p>
+
+<p>Pushing a Data or Header object onto a <a href="Table.html"><code>Table</code></a> object creates its own row for each.  If a <a href="Table/Caption.html"><code>Caption</code></a> object is pushed onto the <a href="Table.html"><code>Table</code></a>, it will automatically be bumped to the first element.  If a <a href="Table/Head.html"><code>Head</code></a> object is pushed onto the <a href="Table.html"><code>Table</code></a>, it is automatically bumped to the first element, or the second element if a <a href="Table/Caption.html"><code>Caption</code></a> already exists.</p>
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+
+          <div class="method-source-code" id="push-source">
+            <pre><span class="ruby-comment"># File lib/html/table.rb, line 248</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">push</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">args</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">obj</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">expect</span>(<span class="ruby-identifier">obj</span>, [<span class="ruby-constant">Caption</span>, <span class="ruby-constant">ColGroup</span>, <span class="ruby-constant">Body</span>, <span class="ruby-constant">Foot</span>, <span class="ruby-constant">Head</span>, <span class="ruby-constant">Row</span>, <span class="ruby-constant">Row</span><span class="ruby-operator">::</span><span class="ruby-constant">Data</span>, <span class="ruby-constant">Row</span><span class="ruby-operator">::</span><span class="ruby-constant">Header</span>])
+
+    <span class="ruby-keyword">case</span> <span class="ruby-identifier">obj</span>
+      <span class="ruby-keyword">when</span> <span class="ruby-constant">Table</span><span class="ruby-operator">::</span><span class="ruby-constant">Row</span><span class="ruby-operator">::</span><span class="ruby-constant">Data</span>, <span class="ruby-constant">Table</span><span class="ruby-operator">::</span><span class="ruby-constant">Row</span><span class="ruby-operator">::</span><span class="ruby-constant">Header</span>
+        <span class="ruby-identifier">push</span>(<span class="ruby-constant">Table</span><span class="ruby-operator">::</span><span class="ruby-constant">Row</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">obj</span>))
+      <span class="ruby-keyword">when</span> <span class="ruby-constant">Table</span><span class="ruby-operator">::</span><span class="ruby-constant">Caption</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Table</span><span class="ruby-operator">::</span><span class="ruby-constant">Caption</span>)
+          <span class="ruby-keyword">self</span>[<span class="ruby-value">0</span>] = <span class="ruby-identifier">obj</span>
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-identifier">unshift</span>(<span class="ruby-identifier">obj</span>)
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">when</span> <span class="ruby-constant">Table</span><span class="ruby-operator">::</span><span class="ruby-constant">Head</span>
+        <span class="ruby-identifier">unshift</span>(<span class="ruby-identifier">obj</span>)
+        <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Table</span><span class="ruby-operator">::</span><span class="ruby-constant">Caption</span>)
+          <span class="ruby-keyword">self</span>[<span class="ruby-value">0</span>], <span class="ruby-keyword">self</span>[<span class="ruby-value">1</span>] = <span class="ruby-keyword">self</span>[<span class="ruby-value">1</span>], <span class="ruby-keyword">self</span>[<span class="ruby-value">0</span>]
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-keyword">super</span>(<span class="ruby-identifier">obj</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-unshift" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">unshift</span><span
+            class="method-args">(obj)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          <p>This method has been redefined to only allow certain subclasses to be unshifted onto a <a href="Table.html"><code>Table</code></a> object.  Specifically, they are <a href="Table/Caption.html"><code>Caption</code></a>, <a href="Table/ColGroup.html"><code>ColGroup</code></a>, <a href="Table/Body.html"><code>Body</code></a>, <a href="Table/Foot.html"><code>Foot</code></a>, <a href="Table/Head.html"><code>Head</code></a> and <a href="Table/Row.html"><code>Row</code></a>.</p>
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+
+          <div class="method-source-code" id="unshift-source">
+            <pre><span class="ruby-comment"># File lib/html/table.rb, line 303</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">unshift</span>(<span class="ruby-identifier">obj</span>)
+  <span class="ruby-identifier">expect</span>(<span class="ruby-identifier">obj</span>, [<span class="ruby-constant">Caption</span>, <span class="ruby-constant">ColGroup</span>, <span class="ruby-constant">Body</span>, <span class="ruby-constant">Foot</span>, <span class="ruby-constant">Head</span>, <span class="ruby-constant">Row</span>])
+  <span class="ruby-keyword">super</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+    </section>
+
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.4.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

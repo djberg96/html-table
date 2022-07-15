@@ -1,0 +1,19 @@
+Thu, 14 Jul 2022 21:20:50 -0400
+README.md	Sun, 03 Jul 2022 23:27:12 -0400
+lib/html-table.rb	Sun, 17 Oct 2021 14:12:45 -0400
+lib/html/body.rb	Tue, 12 Apr 2022 04:59:47 -0400
+lib/html/caption.rb	Tue, 12 Apr 2022 04:59:47 -0400
+lib/html/col.rb	Tue, 12 Apr 2022 04:59:47 -0400
+lib/html/colgroup.rb	Tue, 12 Apr 2022 04:59:47 -0400
+lib/html/content.rb	Tue, 12 Apr 2022 04:03:09 -0400
+lib/html/data.rb	Tue, 12 Apr 2022 04:59:47 -0400
+lib/html/foot.rb	Tue, 12 Apr 2022 04:59:47 -0400
+lib/html/head.rb	Tue, 12 Apr 2022 04:59:47 -0400
+lib/html/header.rb	Tue, 12 Apr 2022 04:59:47 -0400
+lib/html/mixin/attribute_handler.rb	Mon, 11 Apr 2022 02:00:27 -0400
+lib/html/mixin/html_handler.rb	Tue, 12 Apr 2022 08:48:43 -0400
+lib/html/mixin/strongtyping.rb	Tue, 12 Apr 2022 04:59:47 -0400
+lib/html/mixin/tag_handler.rb	Mon, 11 Apr 2022 01:52:55 -0400
+lib/html/row.rb	Sun, 22 May 2022 16:12:40 -0400
+lib/html/table.rb	Tue, 12 Apr 2022 08:48:43 -0400
+lib/html/tablesection.rb	Tue, 12 Apr 2022 04:59:47 -0400

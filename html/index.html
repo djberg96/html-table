@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/navigation.js" defer></script>
+<script src="./js/search.js" defer></script>
+<script src="./js/search_index.js" defer></script>
+<script src="./js/searcher.js" defer></script>
+<script src="./js/darkfish.js" defer></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+<body id="top" role="document" class="file">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  <div id="project-metadata">
+    
+<div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+    <li><a href="./README_md.html">README</a>
+  </ul>
+</div>
+
+    <div id="classindex-section" class="nav-section">
+  <h3>Class and Module Index</h3>
+
+  <ul class="link-list">
+    <li><a href="./ArgumentTypeError.html">ArgumentTypeError</a>
+    <li><a href="./BlinkWarning.html">BlinkWarning</a>
+    <li><a href="./HTML.html">HTML</a>
+    <li><a href="./HTML/Mixin.html">HTML::Mixin</a>
+    <li><a href="./HTML/Mixin/AttributeHandler.html">HTML::Mixin::AttributeHandler</a>
+    <li><a href="./HTML/Mixin/HtmlHandler.html">HTML::Mixin::HtmlHandler</a>
+    <li><a href="./HTML/Mixin/StrongTyping.html">HTML::Mixin::StrongTyping</a>
+    <li><a href="./HTML/Mixin/TagHandler.html">HTML::Mixin::TagHandler</a>
+    <li><a href="./HTML/Table.html">HTML::Table</a>
+    <li><a href="./HTML/Table/Body.html">HTML::Table::Body</a>
+    <li><a href="./HTML/Table/Caption.html">HTML::Table::Caption</a>
+    <li><a href="./HTML/Table/ColGroup.html">HTML::Table::ColGroup</a>
+    <li><a href="./HTML/Table/ColGroup/Col.html">HTML::Table::ColGroup::Col</a>
+    <li><a href="./HTML/Table/Content.html">HTML::Table::Content</a>
+    <li><a href="./HTML/Table/Foot.html">HTML::Table::Foot</a>
+    <li><a href="./HTML/Table/Head.html">HTML::Table::Head</a>
+    <li><a href="./HTML/Table/Row.html">HTML::Table::Row</a>
+    <li><a href="./HTML/Table/Row/Data.html">HTML::Table::Row::Data</a>
+    <li><a href="./HTML/Table/Row/Header.html">HTML::Table::Row::Header</a>
+    <li><a href="./HTML/Table/TableSection.html">HTML::Table::TableSection</a>
+    <li><a href="./NonStandardExtensionWarning.html">NonStandardExtensionWarning</a>
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main">
+
+
+<p><a href="https://github.com/djberg96/html-table/actions/workflows/ruby.yml"><img src="https://github.com/djberg96/html-table/actions/workflows/ruby.yml/badge.svg"></a></p>
+
+<h2 id="label-Description">Description<span><a href="#label-Description">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>An interface for generating <a href="HTML.html"><code>HTML</code></a> Tables with Ruby.</p>
+
+<h2 id="label-Installation">Installation<span><a href="#label-Installation">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p><code>gem install html-table</code></p>
+
+<h2 id="label-Installing+the+Trusted+Cert">Installing the Trusted Cert<span><a href="#label-Installing+the+Trusted+Cert">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p><code>gem cert --add &lt;(curl -Ls https://raw.githubusercontent.com/djberg96/html-table/main/certs/djberg96_pub.pem)</code></p>
+
+<h2 id="label-Synopsis">Synopsis<span><a href="#label-Synopsis">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;html/table&#39;</span>
+<span class="ruby-identifier">include</span> <span class="ruby-constant">HTML</span>
+
+<span class="ruby-comment"># Explicit syntax</span>
+<span class="ruby-identifier">table</span> = <span class="ruby-constant">HTML</span><span class="ruby-operator">::</span><span class="ruby-constant">Table</span>.<span class="ruby-identifier">new</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">t</span>.<span class="ruby-identifier">border</span>  = <span class="ruby-value">1</span>
+  <span class="ruby-identifier">t</span>.<span class="ruby-identifier">bgcolor</span> = <span class="ruby-string">&quot;red&quot;</span>
+}
+
+<span class="ruby-comment"># Implicit syntax</span>
+<span class="ruby-identifier">table</span> = <span class="ruby-constant">HTML</span><span class="ruby-operator">::</span><span class="ruby-constant">Table</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span>
+  <span class="ruby-identifier">border</span>   <span class="ruby-value">1</span>
+  <span class="ruby-identifier">bgcolor</span> <span class="ruby-string">&#39;red&#39;</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-identifier">table</span>.<span class="ruby-identifier">push</span> <span class="ruby-constant">Table</span><span class="ruby-operator">::</span><span class="ruby-constant">Row</span>.<span class="ruby-identifier">new</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">r</span>.<span class="ruby-identifier">align</span>   = <span class="ruby-string">&quot;left&quot;</span>
+  <span class="ruby-identifier">r</span>.<span class="ruby-identifier">bgcolor</span> = <span class="ruby-string">&quot;green&quot;</span>
+  <span class="ruby-identifier">r</span>.<span class="ruby-identifier">content</span> = [<span class="ruby-string">&quot;foo&quot;</span>,<span class="ruby-string">&quot;bar&quot;</span>,<span class="ruby-string">&quot;baz&quot;</span>]
+}
+
+<span class="ruby-identifier">row</span> = <span class="ruby-constant">Table</span><span class="ruby-operator">::</span><span class="ruby-constant">Row</span>.<span class="ruby-identifier">new</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">r</span>.<span class="ruby-identifier">align</span>   = <span class="ruby-string">&quot;right&quot;</span>
+  <span class="ruby-identifier">r</span>.<span class="ruby-identifier">bgcolor</span> = <span class="ruby-string">&quot;blue&quot;</span>
+  <span class="ruby-identifier">r</span>.<span class="ruby-identifier">content</span> = <span class="ruby-string">&quot;hello world&quot;</span>
+}
+
+<span class="ruby-identifier">table</span>[<span class="ruby-value">1</span>] = <span class="ruby-identifier">row</span>
+
+<span class="ruby-identifier">puts</span> <span class="ruby-identifier">table</span>.<span class="ruby-identifier">html</span>
+</pre>
+
+<p>Output:</p>
+
+<pre>&lt;table border=1 bgcolor=&#39;red&#39;&gt;
+   &lt;tr align=&#39;left&#39; bgcolor=&#39;green&#39;&gt;  # row 0
+      &lt;td&gt;foo&lt;/td&gt;                    # column 0
+      &lt;td&gt;bar&lt;/td&gt;                    # column 1
+      &lt;td&gt;baz&lt;/td&gt;                    # column 2
+   &lt;/tr&gt;
+   &lt;tr align=&#39;right&#39; bgcolor=&#39;blue&#39;&gt;  # row 1
+      &lt;td&gt;hello world&lt;/td&gt;            # column 0
+   &lt;/tr&gt;
+&lt;/table&gt;</pre>
+
+<p>See the ‘examples’ directory under ‘doc’ for more examples.</p>
+
+<h2 id="label-Mixins">Mixins<span><a href="#label-Mixins">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Table is a subclass of Array, and therefore mixes in Enumerable. The <code>push</code>, <code>unshift</code> and []= methods have been modified. See below for details.</p>
+
+<p>Table also mixes in AttributeHandler which provides methods for adding attributes to each of the tag types. See attributes.rdoc for more details.</p>
+
+<h2 id="label-Notes">Notes<span><a href="#label-Notes">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>A Table consists of Table::Row, Table::Caption, Table::ColGroup, Table::Body, Table::Foot, Table::Head and Table::Row objects.</p>
+
+<p>Table::Row objects in turn consist of Table::Row::Data and Table::Row::Header objects.</p>
+
+<p>Table::ColGroup objects consist of Table::ColGroup::Col objects.</p>
+
+<p>Table::Head, Table::Body and Table::Foot objects consist of Table::Row objects.</p>
+
+<p>String attributes are quoted. Numeric attributes are not.</p>
+
+<p>Some attributes have type checking. Some check for valid arguments. In the latter case, it is case-insensitive. See the documentation on specific methods for more details.</p>
+
+<p>Using a non-standard extension (e.g. “background”) will emit a <a href="NonStandardExtensionWarning.html"><code>NonStandardExtensionWarning</code></a>. See the documentation for structured_warnings for more information on how to control these.</p>
+
+<h2 id="label-Known+Bugs">Known Bugs<span><a href="#label-Known+Bugs">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>None that I’m aware of. Please report bugs on the project page at:</p>
+
+<p><a href="http://github.com/djberg96/html-table">github.com/djberg96/html-table</a></p>
+
+<h2 id="label-Future+Plans">Future Plans<span><a href="#label-Future+Plans">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>None at this time.</p>
+
+<h2 id="label-Acknowledgements">Acknowledgements<span><a href="#label-Acknowledgements">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Anthony Peacock, for giving me ideas with his <a href="HTML/Table.html"><code>HTML::Table</code></a> Perl module. Holden Glova and Culley Harrelson for API suggestions and comments.</p>
+
+<h2 id="label-License">License<span><a href="#label-License">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Apache-2.0</p>
+
+<h2 id="label-Copyright">Copyright<span><a href="#label-Copyright">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>© 2003-2021 Daniel J. Berger All Rights Reserved</p>
+
+<h2 id="label-Warranty">Warranty<span><a href="#label-Warranty">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>This package is provided “as is” and without any express or implied warranties, including, without limitation, the implied warranties of merchantability and fitness for a particular purpose.</p>
+
+<h2 id="label-Author">Author<span><a href="#label-Author">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Daniel J. Berger</p>
+
+<h2 id="label-Developer-27s+Notes">Developer’s Notes<span><a href="#label-Developer-27s+Notes">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Some people might be a little annoyed with the fact that I use a strongtyping library. I’m not a big fan of strong typing myself. So, why did I do this?</p>
+
+<p>Normally when creating code, you setup your own rules as far as what is allowed as an argument. You publish the API, set up a good set of tests, and don’t bother worrying about types because you figure people can read the API and won’t go out of their way to break it. You certainly don’t worry about it yourself because you’re used to dynamic languages and find that you don’t need the strong typing training wheels after all, right?</p>
+
+<p>However, <a href="HTML.html"><code>HTML</code></a> tables have a predefined set of rules as far as what content is valid, and where it’s placed in order to be <a href="HTML.html"><code>HTML</code></a> compliant. For example, if a caption is included, it should be at the ‘top’ of your table syntax, you can only have one foot section, and so on. I therefore chose to enforce these conventions and rules in Ruby via a module. I could have lived without it, and instead chose to do a plethora of “kind_of?” checks, but the strongtyping lib is simply more convenient all around.</p>
+
+<p>UPDATE: I originally used Ryan Pavlik’s strongtyping library as a dependency. As of version 1.6.0 I now simply include a pure Ruby version with this library. This makes it easier to work with JRuby and eliminates a dependency.</p>
+
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.4.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

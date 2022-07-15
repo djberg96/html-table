@@ -1,0 +1,1557 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module HTML::Mixin::AttributeHandler - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+  var index_rel_prefix = "../../";
+</script>
+
+<script src="../../js/navigation.js" defer></script>
+<script src="../../js/search.js" defer></script>
+<script src="../../js/search_index.js" defer></script>
+<script src="../../js/searcher.js" defer></script>
+<script src="../../js/darkfish.js" defer></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    
+<!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    <li ><a href="#method-i-abbr">#abbr</a>
+    <li ><a href="#method-i-abbr-3D">#abbr=</a>
+    <li ><a href="#method-i-align">#align</a>
+    <li ><a href="#method-i-align-3D">#align=</a>
+    <li ><a href="#method-i-axis">#axis</a>
+    <li ><a href="#method-i-axis-3D">#axis=</a>
+    <li ><a href="#method-i-background">#background</a>
+    <li ><a href="#method-i-background-3D">#background=</a>
+    <li ><a href="#method-i-bgcolor">#bgcolor</a>
+    <li ><a href="#method-i-bgcolor-3D">#bgcolor=</a>
+    <li ><a href="#method-i-border">#border</a>
+    <li ><a href="#method-i-border-3D">#border=</a>
+    <li ><a href="#method-i-bordercolor">#bordercolor</a>
+    <li ><a href="#method-i-bordercolor-3D">#bordercolor=</a>
+    <li ><a href="#method-i-bordercolordark">#bordercolordark</a>
+    <li ><a href="#method-i-bordercolordark-3D">#bordercolordark=</a>
+    <li ><a href="#method-i-bordercolorlight">#bordercolorlight</a>
+    <li ><a href="#method-i-bordercolorlight-3D">#bordercolorlight=</a>
+    <li ><a href="#method-i-cellpadding">#cellpadding</a>
+    <li ><a href="#method-i-cellpadding-3D">#cellpadding=</a>
+    <li ><a href="#method-i-cellspacing">#cellspacing</a>
+    <li ><a href="#method-i-cellspacing-3D">#cellspacing=</a>
+    <li ><a href="#method-i-char">#char</a>
+    <li ><a href="#method-i-char-3D">#char=</a>
+    <li ><a href="#method-i-charoff">#charoff</a>
+    <li ><a href="#method-i-charoff-3D">#charoff=</a>
+    <li ><a href="#method-i-class_">#class_</a>
+    <li ><a href="#method-i-class_-3D">#class_=</a>
+    <li ><a href="#method-i-col">#col</a>
+    <li ><a href="#method-i-col-3D">#col=</a>
+    <li ><a href="#method-i-colspan">#colspan</a>
+    <li ><a href="#method-i-colspan-3D">#colspan=</a>
+    <li ><a href="#method-i-configure">#configure</a>
+    <li ><a href="#method-i-content">#content</a>
+    <li ><a href="#method-i-data">#data</a>
+    <li ><a href="#method-i-frame">#frame</a>
+    <li ><a href="#method-i-frame-3D">#frame=</a>
+    <li ><a href="#method-i-height">#height</a>
+    <li ><a href="#method-i-height-3D">#height=</a>
+    <li ><a href="#method-i-hspace">#hspace</a>
+    <li ><a href="#method-i-hspace-3D">#hspace=</a>
+    <li ><a href="#method-i-nowrap">#nowrap</a>
+    <li ><a href="#method-i-nowrap-3D">#nowrap=</a>
+    <li ><a href="#method-i-rowspan">#rowspan</a>
+    <li ><a href="#method-i-rowspan-3D">#rowspan=</a>
+    <li ><a href="#method-i-rules">#rules</a>
+    <li ><a href="#method-i-rules-3D">#rules=</a>
+    <li ><a href="#method-i-span">#span</a>
+    <li ><a href="#method-i-span-3D">#span=</a>
+    <li ><a href="#method-i-style">#style</a>
+    <li ><a href="#method-i-style-3D">#style=</a>
+    <li ><a href="#method-i-summary">#summary</a>
+    <li ><a href="#method-i-summary-3D">#summary=</a>
+    <li ><a href="#method-i-valign">#valign</a>
+    <li ><a href="#method-i-valign-3D">#valign=</a>
+    <li ><a href="#method-i-vspace">#vspace</a>
+    <li ><a href="#method-i-vspace-3D">#vspace=</a>
+    <li ><a href="#method-i-width">#width</a>
+    <li ><a href="#method-i-width-3D">#width=</a>
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-HTML::Mixin::AttributeHandler">
+  <h1 id="module-HTML::Mixin::AttributeHandler" class="module">
+    module HTML::Mixin::AttributeHandler
+  </h1>
+
+  <section class="description">
+    
+<p>The <a href="AttributeHandler.html"><code>AttributeHandler</code></a> module creates methods for each of the various attributes associated with <a href="../../HTML.html"><code>HTML</code></a> tables. In some cases validation is done on the setters.</p>
+
+  </section>
+
+  <section id="5Buntitled-5D" class="documentation-section">
+
+
+
+
+
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+      <div id="method-i-abbr" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">abbr</span><span
+            class="method-args">(string = nil)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="abbr-source">
+            <pre><span class="ruby-comment"># File lib/html/mixin/attribute_handler.rb, line 13</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">abbr</span>(<span class="ruby-identifier">string</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-ivar">@abbr</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">abbr</span> = <span class="ruby-identifier">string</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">string</span>
+  <span class="ruby-ivar">@abbr</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-abbr-3D" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">abbr=</span><span
+            class="method-args">(string)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="abbr-3D-source">
+            <pre><span class="ruby-comment"># File lib/html/mixin/attribute_handler.rb, line 19</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">abbr=</span>(<span class="ruby-identifier">string</span>)
+  <span class="ruby-ivar">@abbr</span> = <span class="ruby-identifier">string</span>
+  <span class="ruby-identifier">modify_html</span>(<span class="ruby-string">&#39;abbr&#39;</span>, <span class="ruby-identifier">string</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-align" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">align</span><span
+            class="method-args">(position = nil)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="align-source">
+            <pre><span class="ruby-comment"># File lib/html/mixin/attribute_handler.rb, line 24</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">align</span>(<span class="ruby-identifier">position</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-ivar">@align</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">align</span> = <span class="ruby-identifier">position</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">position</span>
+  <span class="ruby-ivar">@align</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-align-3D" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">align=</span><span
+            class="method-args">(position)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="align-3D-source">
+            <pre><span class="ruby-comment"># File lib/html/mixin/attribute_handler.rb, line 30</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">align=</span>(<span class="ruby-identifier">position</span>)
+  <span class="ruby-identifier">valid</span> = <span class="ruby-node">%w[top bottom left center right]</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">valid</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">position</span>.<span class="ruby-identifier">downcase</span>)
+  <span class="ruby-ivar">@align</span> = <span class="ruby-identifier">position</span>
+  <span class="ruby-identifier">modify_html</span>(<span class="ruby-string">&#39;align&#39;</span>, <span class="ruby-identifier">position</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-axis" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">axis</span><span
+            class="method-args">(string = nil)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="axis-source">
+            <pre><span class="ruby-comment"># File lib/html/mixin/attribute_handler.rb, line 37</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">axis</span>(<span class="ruby-identifier">string</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-ivar">@axis</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">axis</span> = <span class="ruby-identifier">string</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">string</span>
+  <span class="ruby-ivar">@axis</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-axis-3D" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">axis=</span><span
+            class="method-args">(string)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="axis-3D-source">
+            <pre><span class="ruby-comment"># File lib/html/mixin/attribute_handler.rb, line 43</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">axis=</span>(<span class="ruby-identifier">string</span>)
+  <span class="ruby-ivar">@axis</span> = <span class="ruby-identifier">string</span>
+  <span class="ruby-identifier">modify_html</span>(<span class="ruby-string">&#39;axis&#39;</span>, <span class="ruby-identifier">string</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-background" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">background</span><span
+            class="method-args">(url = nil)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="background-source">
+            <pre><span class="ruby-comment"># File lib/html/mixin/attribute_handler.rb, line 48</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">background</span>(<span class="ruby-identifier">url</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-ivar">@background</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">background</span> = <span class="ruby-identifier">url</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">url</span>
+  <span class="ruby-ivar">@background</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-background-3D" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">background=</span><span
+            class="method-args">(url)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="background-3D-source">
+            <pre><span class="ruby-comment"># File lib/html/mixin/attribute_handler.rb, line 54</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">background=</span>(<span class="ruby-identifier">url</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">TypeError</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">url</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">String</span>)
+  <span class="ruby-identifier">msg</span> = <span class="ruby-string">&quot;&#39;background&#39; is a non-standard extension&quot;</span>
+  <span class="ruby-identifier">warn</span> <span class="ruby-constant">NonStandardExtensionWarning</span>, <span class="ruby-identifier">msg</span>
+  <span class="ruby-ivar">@background</span> = <span class="ruby-identifier">url</span>
+  <span class="ruby-identifier">modify_html</span>(<span class="ruby-string">&#39;background&#39;</span>, <span class="ruby-identifier">url</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-bgcolor" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">bgcolor</span><span
+            class="method-args">(color = nil)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="bgcolor-source">
+            <pre><span class="ruby-comment"># File lib/html/mixin/attribute_handler.rb, line 62</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">bgcolor</span>(<span class="ruby-identifier">color</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-ivar">@bgcolor</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">bgcolor</span> = <span class="ruby-identifier">color</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">color</span>
+  <span class="ruby-ivar">@bgcolor</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-bgcolor-3D" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">bgcolor=</span><span
+            class="method-args">(color)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="bgcolor-3D-source">
+            <pre><span class="ruby-comment"># File lib/html/mixin/attribute_handler.rb, line 68</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">bgcolor=</span>(<span class="ruby-identifier">color</span>)
+  <span class="ruby-ivar">@bgcolor</span> = <span class="ruby-identifier">color</span>
+  <span class="ruby-identifier">modify_html</span>(<span class="ruby-string">&#39;bgcolor&#39;</span>, <span class="ruby-identifier">color</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-border" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">border</span><span
+            class="method-args">(num = nil)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="border-source">
+            <pre><span class="ruby-comment"># File lib/html/mixin/attribute_handler.rb, line 73</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">border</span>(<span class="ruby-identifier">num</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-ivar">@border</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">border</span> = <span class="ruby-identifier">num</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">num</span>
+  <span class="ruby-ivar">@border</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-border-3D" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">border=</span><span
+            class="method-args">(num)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          <p>Allow either true/false or an integer</p>
+
+          <div class="method-source-code" id="border-3D-source">
+            <pre><span class="ruby-comment"># File lib/html/mixin/attribute_handler.rb, line 80</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">border=</span>(<span class="ruby-identifier">num</span>)
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">num</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">TrueClass</span>
+      <span class="ruby-identifier">modify_html</span>(<span class="ruby-string">&#39;border&#39;</span>, <span class="ruby-keyword">true</span>)
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">FalseClass</span>
+      <span class="ruby-comment"># Do nothing</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-ivar">@border</span> = <span class="ruby-identifier">num</span>.<span class="ruby-identifier">to_i</span>
+      <span class="ruby-identifier">modify_html</span>(<span class="ruby-string">&#39;border&#39;</span>, <span class="ruby-identifier">num</span>.<span class="ruby-identifier">to_i</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-bordercolor" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">bordercolor</span><span
+            class="method-args">(color = nil)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="bordercolor-source">
+            <pre><span class="ruby-comment"># File lib/html/mixin/attribute_handler.rb, line 92</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">bordercolor</span>(<span class="ruby-identifier">color</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-ivar">@bordercolor</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">bordercolor</span> = <span class="ruby-identifier">color</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">color</span>
+  <span class="ruby-ivar">@bordercolor</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-bordercolor-3D" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">bordercolor=</span><span
+            class="method-args">(color)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="bordercolor-3D-source">
+            <pre><span class="ruby-comment"># File lib/html/mixin/attribute_handler.rb, line 98</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">bordercolor=</span>(<span class="ruby-identifier">color</span>)
+  <span class="ruby-ivar">@bordercolor</span> = <span class="ruby-identifier">color</span>
+  <span class="ruby-identifier">msg</span> = <span class="ruby-string">&quot;&#39;bordercolor&#39; is a non-standard extension&quot;</span>
+  <span class="ruby-identifier">warn</span> <span class="ruby-constant">NonStandardExtensionWarning</span>, <span class="ruby-identifier">msg</span>
+  <span class="ruby-identifier">modify_html</span>(<span class="ruby-string">&#39;bordercolor&#39;</span>, <span class="ruby-identifier">color</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-bordercolordark" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">bordercolordark</span><span
+            class="method-args">(color = nil)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="bordercolordark-source">
+            <pre><span class="ruby-comment"># File lib/html/mixin/attribute_handler.rb, line 105</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">bordercolordark</span>(<span class="ruby-identifier">color</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-ivar">@bordercolordark</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">bordercolordark</span> = <span class="ruby-identifier">color</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">color</span>
+  <span class="ruby-ivar">@bordercolordark</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-bordercolordark-3D" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">bordercolordark=</span><span
+            class="method-args">(color)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="bordercolordark-3D-source">
+            <pre><span class="ruby-comment"># File lib/html/mixin/attribute_handler.rb, line 111</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">bordercolordark=</span>(<span class="ruby-identifier">color</span>)
+  <span class="ruby-ivar">@bordercolordark</span> = <span class="ruby-identifier">color</span>
+  <span class="ruby-identifier">msg</span> = <span class="ruby-string">&quot;&#39;bordercolordark&#39; is a non-standard extension&quot;</span>
+  <span class="ruby-identifier">warn</span> <span class="ruby-constant">NonStandardExtensionWarning</span>, <span class="ruby-identifier">msg</span>
+  <span class="ruby-identifier">modify_html</span>(<span class="ruby-string">&#39;bordercolordark&#39;</span>, <span class="ruby-identifier">color</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-bordercolorlight" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">bordercolorlight</span><span
+            class="method-args">(color = nil)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="bordercolorlight-source">
+            <pre><span class="ruby-comment"># File lib/html/mixin/attribute_handler.rb, line 118</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">bordercolorlight</span>(<span class="ruby-identifier">color</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-ivar">@bordercolorlight</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">bordercolorlight</span> = <span class="ruby-identifier">color</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">color</span>
+  <span class="ruby-ivar">@bordercolorlight</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-bordercolorlight-3D" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">bordercolorlight=</span><span
+            class="method-args">(color)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="bordercolorlight-3D-source">
+            <pre><span class="ruby-comment"># File lib/html/mixin/attribute_handler.rb, line 124</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">bordercolorlight=</span>(<span class="ruby-identifier">color</span>)
+  <span class="ruby-ivar">@bordercolorlight</span> = <span class="ruby-identifier">color</span>
+  <span class="ruby-identifier">msg</span> = <span class="ruby-string">&quot;&#39;bordercolorlight&#39; is a non-standard extension&quot;</span>
+  <span class="ruby-identifier">warn</span> <span class="ruby-constant">NonStandardExtensionWarning</span>, <span class="ruby-identifier">msg</span>
+  <span class="ruby-identifier">modify_html</span>(<span class="ruby-string">&#39;bordercolorlight&#39;</span>, <span class="ruby-ivar">@bordercolorlight</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-cellpadding" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">cellpadding</span><span
+            class="method-args">(num = nil)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="cellpadding-source">
+            <pre><span class="ruby-comment"># File lib/html/mixin/attribute_handler.rb, line 131</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">cellpadding</span>(<span class="ruby-identifier">num</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-ivar">@cellpadding</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">cellpadding</span> = <span class="ruby-identifier">num</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">num</span>
+  <span class="ruby-ivar">@cellpadding</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-cellpadding-3D" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">cellpadding=</span><span
+            class="method-args">(num)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="cellpadding-3D-source">
+            <pre><span class="ruby-comment"># File lib/html/mixin/attribute_handler.rb, line 137</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">cellpadding=</span>(<span class="ruby-identifier">num</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">num</span>.<span class="ruby-identifier">to_i</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">0</span>
+  <span class="ruby-ivar">@cellpadding</span> = <span class="ruby-identifier">num</span>.<span class="ruby-identifier">to_i</span>
+  <span class="ruby-identifier">modify_html</span>(<span class="ruby-string">&#39;cellpadding&#39;</span>, <span class="ruby-ivar">@cellpadding</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-cellspacing" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">cellspacing</span><span
+            class="method-args">(num = nil)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="cellspacing-source">
+            <pre><span class="ruby-comment"># File lib/html/mixin/attribute_handler.rb, line 143</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">cellspacing</span>(<span class="ruby-identifier">num</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-ivar">@cellspacing</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">cellspacing</span> = <span class="ruby-identifier">num</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">num</span>
+  <span class="ruby-ivar">@cellspacing</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-cellspacing-3D" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">cellspacing=</span><span
+            class="method-args">(num)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="cellspacing-3D-source">
+            <pre><span class="ruby-comment"># File lib/html/mixin/attribute_handler.rb, line 149</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">cellspacing=</span>(<span class="ruby-identifier">num</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">num</span>.<span class="ruby-identifier">to_i</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">0</span>
+  <span class="ruby-ivar">@cellspacing</span> = <span class="ruby-identifier">num</span>.<span class="ruby-identifier">to_i</span>
+  <span class="ruby-identifier">modify_html</span>(<span class="ruby-string">&#39;cellspacing&#39;</span>, <span class="ruby-ivar">@cellspacing</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-char" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">char</span><span
+            class="method-args">(character = nil)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="char-source">
+            <pre><span class="ruby-comment"># File lib/html/mixin/attribute_handler.rb, line 155</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">char</span>(<span class="ruby-identifier">character</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-ivar">@char</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">char</span> = <span class="ruby-identifier">character</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">character</span>
+  <span class="ruby-ivar">@char</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-char-3D" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">char=</span><span
+            class="method-args">(character)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="char-3D-source">
+            <pre><span class="ruby-comment"># File lib/html/mixin/attribute_handler.rb, line 161</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">char=</span>(<span class="ruby-identifier">character</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">character</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>
+  <span class="ruby-ivar">@char</span> = <span class="ruby-identifier">character</span>.<span class="ruby-identifier">to_s</span>
+  <span class="ruby-identifier">modify_html</span>(<span class="ruby-string">&#39;char&#39;</span>, <span class="ruby-identifier">character</span>.<span class="ruby-identifier">to_s</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-charoff" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">charoff</span><span
+            class="method-args">(offset = nil)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="charoff-source">
+            <pre><span class="ruby-comment"># File lib/html/mixin/attribute_handler.rb, line 167</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">charoff</span>(<span class="ruby-identifier">offset</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-ivar">@charoff</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">charoff</span> = <span class="ruby-identifier">offset</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">offset</span>
+  <span class="ruby-ivar">@charoff</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-charoff-3D" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">charoff=</span><span
+            class="method-args">(offset)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="charoff-3D-source">
+            <pre><span class="ruby-comment"># File lib/html/mixin/attribute_handler.rb, line 173</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">charoff=</span>(<span class="ruby-identifier">offset</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">offset</span>.<span class="ruby-identifier">to_i</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">0</span>
+  <span class="ruby-ivar">@charoff</span> = <span class="ruby-identifier">offset</span>
+  <span class="ruby-identifier">modify_html</span>(<span class="ruby-string">&#39;charoff&#39;</span>, <span class="ruby-identifier">offset</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-class_" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">class_</span><span
+            class="method-args">(klass = nil)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          <p>Returns the CSS class. The trailing underscore is necessary in order to avoid conflict with the ‘class’ keyword.</p>
+
+          <div class="method-source-code" id="class_-source">
+            <pre><span class="ruby-comment"># File lib/html/mixin/attribute_handler.rb, line 182</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">class_</span>(<span class="ruby-identifier">klass</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-ivar">@class</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class_</span> = <span class="ruby-identifier">klass</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">klass</span>
+  <span class="ruby-ivar">@class</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-class_-3D" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">class_=</span><span
+            class="method-args">(klass)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          <p>Returns the CSS class.  The trailing underscore is necessary in order to avoid conflict with the ‘class’ keyword.</p>
+
+          <div class="method-source-code" id="class_-3D-source">
+            <pre><span class="ruby-comment"># File lib/html/mixin/attribute_handler.rb, line 191</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">class_=</span>(<span class="ruby-identifier">klass</span>)
+  <span class="ruby-identifier">modify_html</span>(<span class="ruby-string">&#39;class&#39;</span>, <span class="ruby-identifier">klass</span>)
+  <span class="ruby-ivar">@class</span> = <span class="ruby-identifier">klass</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-col" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">col</span><span
+            class="method-args">(num = nil)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="col-source">
+            <pre><span class="ruby-comment"># File lib/html/mixin/attribute_handler.rb, line 196</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">col</span>(<span class="ruby-identifier">num</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-ivar">@col</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">col</span> = <span class="ruby-identifier">num</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">num</span>
+  <span class="ruby-ivar">@col</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-col-3D" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">col=</span><span
+            class="method-args">(num)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="col-3D-source">
+            <pre><span class="ruby-comment"># File lib/html/mixin/attribute_handler.rb, line 202</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">col=</span>(<span class="ruby-identifier">num</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">num</span>.<span class="ruby-identifier">to_i</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">0</span>
+  <span class="ruby-ivar">@col</span> = <span class="ruby-identifier">num</span>.<span class="ruby-identifier">to_i</span>
+  <span class="ruby-identifier">modify_html</span>(<span class="ruby-string">&#39;col&#39;</span>, <span class="ruby-ivar">@col</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-colspan" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">colspan</span><span
+            class="method-args">(span = nil)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="colspan-source">
+            <pre><span class="ruby-comment"># File lib/html/mixin/attribute_handler.rb, line 208</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">colspan</span>(<span class="ruby-identifier">span</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-ivar">@colspan</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">colspan</span> = <span class="ruby-identifier">span</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">span</span>
+  <span class="ruby-ivar">@colspan</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-colspan-3D" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">colspan=</span><span
+            class="method-args">(span)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="colspan-3D-source">
+            <pre><span class="ruby-comment"># File lib/html/mixin/attribute_handler.rb, line 214</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">colspan=</span>(<span class="ruby-identifier">span</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">span</span>.<span class="ruby-identifier">to_i</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">0</span>
+  <span class="ruby-ivar">@colspan</span> = <span class="ruby-identifier">span</span>.<span class="ruby-identifier">to_i</span>
+  <span class="ruby-identifier">modify_html</span>(<span class="ruby-string">&#39;colspan&#39;</span>, <span class="ruby-ivar">@colspan</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-configure" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">configure</span><span
+            class="method-args">(row, col = nil) { |self[col]| ... }</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          <p>Allows you to configure various attributes by row or row + column.</p>
+
+          <div class="method-source-code" id="configure-source">
+            <pre><span class="ruby-comment"># File lib/html/mixin/attribute_handler.rb, line 222</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">configure</span>(<span class="ruby-identifier">row</span>, <span class="ruby-identifier">col</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">col</span>
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-keyword">yield</span> <span class="ruby-keyword">self</span>[<span class="ruby-identifier">row</span>][<span class="ruby-identifier">col</span>]
+    <span class="ruby-keyword">rescue</span> <span class="ruby-constant">NameError</span>
+      <span class="ruby-identifier">msg</span> = <span class="ruby-node">&quot;No column to configure in a #{self.class} class&quot;</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-identifier">msg</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">yield</span> <span class="ruby-keyword">self</span>[<span class="ruby-identifier">row</span>]
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-content" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">content</span><span
+            class="method-args">(arg = nil, &amp;block)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          <p>Returns the <a href="../../HTML.html"><code>HTML</code></a> content (i.e. text).</p>
+
+          <div class="method-source-code" id="content-source">
+            <pre><span class="ruby-comment"># File lib/html/mixin/attribute_handler.rb, line 237</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">content</span>(<span class="ruby-identifier">arg</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">arg</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">String</span>
+      <span class="ruby-keyword">self</span>.<span class="ruby-identifier">content</span> = <span class="ruby-constant">Table</span><span class="ruby-operator">::</span><span class="ruby-constant">Content</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">arg</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">Array</span>
+      <span class="ruby-identifier">arg</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">e</span><span class="ruby-operator">|</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Array</span>)
+          <span class="ruby-identifier">row</span> = <span class="ruby-constant">Table</span><span class="ruby-operator">::</span><span class="ruby-constant">Row</span>.<span class="ruby-identifier">new</span>
+          <span class="ruby-identifier">e</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">element</span><span class="ruby-operator">|</span> <span class="ruby-identifier">row</span>.<span class="ruby-identifier">push</span>(<span class="ruby-constant">Table</span><span class="ruby-operator">::</span><span class="ruby-constant">Content</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">element</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)) }
+          <span class="ruby-identifier">push</span>(<span class="ruby-identifier">row</span>)
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-keyword">self</span>.<span class="ruby-identifier">content</span> = <span class="ruby-constant">Table</span><span class="ruby-operator">::</span><span class="ruby-constant">Content</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">e</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-keyword">self</span>.<span class="ruby-identifier">content</span> = <span class="ruby-identifier">arg</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">arg</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@html_body</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+        <div class="aliases">
+          Also aliased as: <a href="AttributeHandler.html#method-i-data">data</a>
+        </div>
+
+      </div>
+
+      <div id="method-i-data" class="method-detail method-alias">
+        <div class="method-heading">
+          <span class="method-name">data</span><span
+            class="method-args">(arg = nil, &amp;block)</span>
+        </div>
+
+        <div class="method-description">
+          
+
+        </div>
+
+
+        <div class="aliases">
+          Alias for: <a href="AttributeHandler.html#method-i-content">content</a>
+        </div>
+      </div>
+
+      <div id="method-i-frame" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">frame</span><span
+            class="method-args">(type = nil)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="frame-source">
+            <pre><span class="ruby-comment"># File lib/html/mixin/attribute_handler.rb, line 259</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">frame</span>(<span class="ruby-identifier">type</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-ivar">@frame</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">frame</span> = <span class="ruby-identifier">type</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">type</span>
+  <span class="ruby-ivar">@frame</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-frame-3D" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">frame=</span><span
+            class="method-args">(type)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="frame-3D-source">
+            <pre><span class="ruby-comment"># File lib/html/mixin/attribute_handler.rb, line 265</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">frame=</span>(<span class="ruby-identifier">type</span>)
+  <span class="ruby-identifier">valid</span> = <span class="ruby-node">%w[border void above below hsides lhs rhs vsides box]</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">valid</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">type</span>.<span class="ruby-identifier">downcase</span>)
+  <span class="ruby-ivar">@frame</span> = <span class="ruby-identifier">type</span>
+  <span class="ruby-identifier">modify_html</span>(<span class="ruby-string">&#39;frame&#39;</span>, <span class="ruby-ivar">@frame</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-height" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">height</span><span
+            class="method-args">(num = nil)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="height-source">
+            <pre><span class="ruby-comment"># File lib/html/mixin/attribute_handler.rb, line 272</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">height</span>(<span class="ruby-identifier">num</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-ivar">@height</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">height</span> = <span class="ruby-identifier">num</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">num</span>
+  <span class="ruby-ivar">@height</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-height-3D" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">height=</span><span
+            class="method-args">(num)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="height-3D-source">
+            <pre><span class="ruby-comment"># File lib/html/mixin/attribute_handler.rb, line 278</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">height=</span>(<span class="ruby-identifier">num</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">num</span>.<span class="ruby-identifier">to_i</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">0</span>
+  <span class="ruby-ivar">@height</span> = <span class="ruby-identifier">num</span>.<span class="ruby-identifier">to_i</span>
+  <span class="ruby-identifier">modify_html</span>(<span class="ruby-string">&#39;height&#39;</span>, <span class="ruby-ivar">@height</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-hspace" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">hspace</span><span
+            class="method-args">(num = nil)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="hspace-source">
+            <pre><span class="ruby-comment"># File lib/html/mixin/attribute_handler.rb, line 284</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">hspace</span>(<span class="ruby-identifier">num</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-ivar">@hspace</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">hspace</span> = <span class="ruby-identifier">num</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">num</span>
+  <span class="ruby-ivar">@hspace</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-hspace-3D" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">hspace=</span><span
+            class="method-args">(num)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="hspace-3D-source">
+            <pre><span class="ruby-comment"># File lib/html/mixin/attribute_handler.rb, line 290</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">hspace=</span>(<span class="ruby-identifier">num</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">num</span>.<span class="ruby-identifier">to_i</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">0</span>
+  <span class="ruby-ivar">@hspace</span> = <span class="ruby-identifier">num</span>.<span class="ruby-identifier">to_i</span>
+  <span class="ruby-identifier">modify_html</span>(<span class="ruby-string">&#39;hspace&#39;</span>, <span class="ruby-ivar">@hspace</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-nowrap" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">nowrap</span><span
+            class="method-args">(bool = nil)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="nowrap-source">
+            <pre><span class="ruby-comment"># File lib/html/mixin/attribute_handler.rb, line 296</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">nowrap</span>(<span class="ruby-identifier">bool</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-ivar">@nowrap</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">nowrap</span> = <span class="ruby-identifier">bool</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">bool</span>
+  <span class="ruby-ivar">@nowrap</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-nowrap-3D" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">nowrap=</span><span
+            class="method-args">(bool)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="nowrap-3D-source">
+            <pre><span class="ruby-comment"># File lib/html/mixin/attribute_handler.rb, line 302</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">nowrap=</span>(<span class="ruby-identifier">bool</span>)
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">bool</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">TrueClass</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">bool</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">FalseClass</span>)
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">TypeError</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@nowrap</span> = <span class="ruby-identifier">bool</span>
+  <span class="ruby-identifier">modify_html</span>(<span class="ruby-string">&#39;nowrap&#39;</span>, <span class="ruby-ivar">@nowrap</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-rowspan" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">rowspan</span><span
+            class="method-args">(num = nil)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="rowspan-source">
+            <pre><span class="ruby-comment"># File lib/html/mixin/attribute_handler.rb, line 310</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">rowspan</span>(<span class="ruby-identifier">num</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-ivar">@rowspan</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">rowspan</span> = <span class="ruby-identifier">num</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">num</span>
+  <span class="ruby-ivar">@rowspan</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-rowspan-3D" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">rowspan=</span><span
+            class="method-args">(num)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="rowspan-3D-source">
+            <pre><span class="ruby-comment"># File lib/html/mixin/attribute_handler.rb, line 316</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">rowspan=</span>(<span class="ruby-identifier">num</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">num</span>.<span class="ruby-identifier">to_i</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">0</span>
+  <span class="ruby-ivar">@rowspan</span> = <span class="ruby-identifier">num</span>.<span class="ruby-identifier">to_i</span>
+  <span class="ruby-identifier">modify_html</span>(<span class="ruby-string">&#39;rowspan&#39;</span>, <span class="ruby-ivar">@rowspan</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-rules" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">rules</span><span
+            class="method-args">(edges = nil)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="rules-source">
+            <pre><span class="ruby-comment"># File lib/html/mixin/attribute_handler.rb, line 322</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">rules</span>(<span class="ruby-identifier">edges</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-ivar">@rules</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">rules</span> = <span class="ruby-identifier">edges</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">edges</span>
+  <span class="ruby-ivar">@rules</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-rules-3D" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">rules=</span><span
+            class="method-args">(edges)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="rules-3D-source">
+            <pre><span class="ruby-comment"># File lib/html/mixin/attribute_handler.rb, line 328</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">rules=</span>(<span class="ruby-identifier">edges</span>)
+  <span class="ruby-identifier">valid</span> = <span class="ruby-node">%w[all groups rows cols none]</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">valid</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">edges</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">downcase</span>)
+  <span class="ruby-ivar">@rules</span> = <span class="ruby-identifier">edges</span>
+  <span class="ruby-identifier">modify_html</span>(<span class="ruby-string">&#39;rules&#39;</span>, <span class="ruby-ivar">@rules</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-span" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">span</span><span
+            class="method-args">(num = nil)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="span-source">
+            <pre><span class="ruby-comment"># File lib/html/mixin/attribute_handler.rb, line 335</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">span</span>(<span class="ruby-identifier">num</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-ivar">@span</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">span</span> = <span class="ruby-identifier">num</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">num</span>
+  <span class="ruby-ivar">@span</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-span-3D" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">span=</span><span
+            class="method-args">(num)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="span-3D-source">
+            <pre><span class="ruby-comment"># File lib/html/mixin/attribute_handler.rb, line 341</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">span=</span>(<span class="ruby-identifier">num</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">num</span>.<span class="ruby-identifier">to_i</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">0</span>
+  <span class="ruby-ivar">@span</span> = <span class="ruby-identifier">num</span>.<span class="ruby-identifier">to_i</span>
+  <span class="ruby-identifier">modify_html</span>(<span class="ruby-string">&#39;span&#39;</span>, <span class="ruby-ivar">@span</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-style" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">style</span><span
+            class="method-args">(string = nil)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="style-source">
+            <pre><span class="ruby-comment"># File lib/html/mixin/attribute_handler.rb, line 347</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">style</span>(<span class="ruby-identifier">string</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-ivar">@style</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">style</span> = <span class="ruby-identifier">string</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">string</span>
+  <span class="ruby-ivar">@style</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-style-3D" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">style=</span><span
+            class="method-args">(string)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="style-3D-source">
+            <pre><span class="ruby-comment"># File lib/html/mixin/attribute_handler.rb, line 353</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">style=</span>(<span class="ruby-identifier">string</span>)
+  <span class="ruby-ivar">@style</span> = <span class="ruby-identifier">string</span>.<span class="ruby-identifier">to_s</span>
+  <span class="ruby-identifier">modify_html</span>(<span class="ruby-string">&#39;style&#39;</span>, <span class="ruby-ivar">@style</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-summary" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">summary</span><span
+            class="method-args">(string = nil)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="summary-source">
+            <pre><span class="ruby-comment"># File lib/html/mixin/attribute_handler.rb, line 358</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">summary</span>(<span class="ruby-identifier">string</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-ivar">@summary</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">summary</span> = <span class="ruby-identifier">string</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">string</span>
+  <span class="ruby-ivar">@summary</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-summary-3D" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">summary=</span><span
+            class="method-args">(string)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="summary-3D-source">
+            <pre><span class="ruby-comment"># File lib/html/mixin/attribute_handler.rb, line 364</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">summary=</span>(<span class="ruby-identifier">string</span>)
+  <span class="ruby-ivar">@summary</span> = <span class="ruby-identifier">string</span>.<span class="ruby-identifier">to_s</span>
+  <span class="ruby-identifier">modify_html</span>(<span class="ruby-string">&#39;summary&#39;</span>, <span class="ruby-ivar">@summary</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-valign" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">valign</span><span
+            class="method-args">(position = nil)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="valign-source">
+            <pre><span class="ruby-comment"># File lib/html/mixin/attribute_handler.rb, line 369</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">valign</span>(<span class="ruby-identifier">position</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-ivar">@valign</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">valign</span> = <span class="ruby-identifier">position</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">position</span>
+  <span class="ruby-ivar">@valign</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-valign-3D" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">valign=</span><span
+            class="method-args">(position)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="valign-3D-source">
+            <pre><span class="ruby-comment"># File lib/html/mixin/attribute_handler.rb, line 375</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">valign=</span>(<span class="ruby-identifier">position</span>)
+  <span class="ruby-identifier">valid</span> = <span class="ruby-node">%w[top center bottom baseline]</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">valid</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">position</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">downcase</span>)
+  <span class="ruby-ivar">@valign</span> = <span class="ruby-identifier">position</span>
+  <span class="ruby-identifier">modify_html</span>(<span class="ruby-string">&#39;valign&#39;</span>, <span class="ruby-ivar">@valign</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-vspace" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">vspace</span><span
+            class="method-args">(num = nil)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="vspace-source">
+            <pre><span class="ruby-comment"># File lib/html/mixin/attribute_handler.rb, line 382</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">vspace</span>(<span class="ruby-identifier">num</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-ivar">@vspace</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">vspace</span> = <span class="ruby-identifier">num</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">num</span>
+  <span class="ruby-ivar">@vspace</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-vspace-3D" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">vspace=</span><span
+            class="method-args">(num)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="vspace-3D-source">
+            <pre><span class="ruby-comment"># File lib/html/mixin/attribute_handler.rb, line 388</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">vspace=</span>(<span class="ruby-identifier">num</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">num</span>.<span class="ruby-identifier">to_i</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">0</span>
+  <span class="ruby-ivar">@vspace</span> = <span class="ruby-identifier">num</span>.<span class="ruby-identifier">to_i</span>
+  <span class="ruby-identifier">modify_html</span>(<span class="ruby-string">&#39;vspace&#39;</span>, <span class="ruby-ivar">@vspace</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-width" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">width</span><span
+            class="method-args">(num = nil)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="width-source">
+            <pre><span class="ruby-comment"># File lib/html/mixin/attribute_handler.rb, line 394</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">width</span>(<span class="ruby-identifier">num</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-ivar">@width</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">width</span> = <span class="ruby-identifier">num</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">num</span>
+  <span class="ruby-ivar">@width</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-width-3D" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">width=</span><span
+            class="method-args">(num)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="width-3D-source">
+            <pre><span class="ruby-comment"># File lib/html/mixin/attribute_handler.rb, line 400</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">width=</span>(<span class="ruby-identifier">num</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">num</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/%/</span>
+    <span class="ruby-ivar">@width</span> = <span class="ruby-identifier">num</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">num</span>.<span class="ruby-identifier">to_i</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">0</span>
+    <span class="ruby-ivar">@width</span> = <span class="ruby-identifier">num</span>.<span class="ruby-identifier">to_i</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">modify_html</span>(<span class="ruby-string">&#39;width&#39;</span>, <span class="ruby-ivar">@width</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+    </section>
+
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.4.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
