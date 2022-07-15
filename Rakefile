@@ -2,6 +2,7 @@ require 'rake'
 require 'rake/clean'
 require 'rspec/core/rake_task'
 require 'rubocop/rake_task'
+require 'rdoc/task'
 
 CLEAN.include("**/*.gem", "**/*.rbc", "**/*.lock")
 
@@ -51,6 +52,11 @@ namespace 'example' do
   task :advanced do
     sh 'ruby -Ilib examples/advanced.rb'
   end
+end
+
+RDoc::Task.new do |rdoc|
+  rdoc.main = 'README.md'
+  rdoc.rdoc_files.include('README.md', 'lib/**/*.rb')
 end
 
 RuboCop::RakeTask.new
