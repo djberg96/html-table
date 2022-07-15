@@ -88,6 +88,10 @@ Using a non-standard extension (e.g. "background") will emit a
 NonStandardExtensionWarning. See the documentation for structured_warnings
 for more information on how to control these.
 
+## Documentation
+
+https://djberg96.github.io/html-table/
+
 ## Known Bugs
 None that I'm aware of. Please report bugs on the project page at:
 
