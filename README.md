@@ -44,16 +44,16 @@ table[1] = row
 puts table.html
 ```
 Output:
-```
+```html
 <table border=1 bgcolor='red'>
-   <tr align='left' bgcolor='green'>  # row 0
-      <td>foo</td>                    # column 0
-      <td>bar</td>                    # column 1
-      <td>baz</td>                    # column 2
-   </tr>
-   <tr align='right' bgcolor='blue'>  # row 1
-      <td>hello world</td>            # column 0
-   </tr>
+  <tr align='left' bgcolor='green'>  # row 0
+    <td>foo</td>                    # column 0
+    <td>bar</td>                    # column 1
+    <td>baz</td>                    # column 2
+  </tr>
+  <tr align='right' bgcolor='blue'>  # row 1
+    <td>hello world</td>            # column 0
+  </tr>
 </table>
 ```
 See the 'examples' directory under 'doc' for more examples.
