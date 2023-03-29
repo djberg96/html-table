@@ -78,6 +78,6 @@ RSpec.describe HTML::Table::Caption do
   example 'automatically_set_to_row_zero' do
     @table.content = 'hello', 'world'
     @table.push(@tcaption)
-    expect(@table[0]).to be_kind_of(described_class)
+    expect(@table[0]).to be_a(described_class)
   end
 end

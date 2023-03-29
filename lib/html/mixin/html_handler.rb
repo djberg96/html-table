@@ -51,7 +51,7 @@ module HTML
           ilevel = self.class.indent_level
         end
 
-        html          = (' ' * ilevel) + @html_begin[0..-1]
+        html          = (' ' * ilevel) + @html_begin[0..]
         len           = html.length
         html[len, len] = '>'
 

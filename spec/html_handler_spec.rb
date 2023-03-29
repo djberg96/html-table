@@ -15,7 +15,7 @@ RSpec.describe HTML::Mixin::HtmlHandler do
   example 'html basic functionality' do
     expect(@table).to respond_to(:html)
     expect{ @table.html }.not_to raise_error
-    expect(@table.html).to be_kind_of(String)
+    expect(@table.html).to be_a(String)
     expect(!@table.html.empty?).to be(true)
   end
 
