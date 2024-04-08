@@ -60,23 +60,20 @@ See the 'examples' directory under 'doc' for more examples.
 
 ## Mixins
 Table is a subclass of Array, and therefore mixes in Enumerable. The
-+push+, +unshift+ and []= methods have been modified. See below for details.    
+`push`, `unshift` and `[]=` methods have been modified. See below for details.    
    
-Table also mixes in AttributeHandler which provides methods for adding
+Table also mixes in `AttributeHandler` which provides methods for adding
 attributes to each of the tag types. See attributes.rdoc for more details.
 
 ## Notes
-A Table consists of Table::Row, Table::Caption, Table::ColGroup,
-Table::Body, Table::Foot, Table::Head and Table::Row objects.
+A Table consists of `Table::Row`, `Table::Caption`, `Table::ColGroup,`
+`Table::Body`, `Table::Foot`, `Table::Head` and `Table::Row` objects.
 
-Table::Row objects in turn consist of Table::Row::Data and
-Table::Row::Header objects.
+`Table::Row` objects in turn consist of `Table::Row::Data` and `Table::Row::Header` objects.
 
-Table::ColGroup objects consist of Table::ColGroup::Col
-objects.
+`Table::ColGroup` objects consist of `Table::ColGroup::Col` objects.
 
-Table::Head, Table::Body and Table::Foot objects consist
-of Table::Row objects.
+`Table::Head`, `Table::Body` and `Table::Foot` objects consist of `Table::Row` objects.
     
 String attributes are quoted. Numeric attributes are not.
 
@@ -85,7 +82,7 @@ the latter case, it is case-insensitive. See the documentation on
 specific methods for more details.
 
 Using a non-standard extension (e.g. "background") will emit a
-NonStandardExtensionWarning. See the documentation for structured_warnings
+`NonStandardExtensionWarning`. See the documentation for `structured_warnings`
 for more information on how to control these.
 
 ## Documentation
@@ -101,14 +98,14 @@ http://github.com/djberg96/html-table
 None at this time.
 
 ## Acknowledgements
-Anthony Peacock, for giving me ideas with his HTML::Table Perl module.
+Anthony Peacock, for giving me ideas with his `HTML::Table` Perl module.
 Holden Glova and Culley Harrelson for API suggestions and comments.
 
 ## License
 Apache-2.0
 
 ## Copyright
-(C) 2003-2021 Daniel J. Berger
+(C) 2003-2024 Daniel J. Berger
 All Rights Reserved
 
 ## Warranty
