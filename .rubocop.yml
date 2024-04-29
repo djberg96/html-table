@@ -12,6 +12,8 @@ RSpec/BeforeAfterAll:
   Enabled: false
 RSpec/ExampleLength:
   Max: 10
+RSpec/SpecFilePathFormat:
+  Enabled: false
 
 AllCops:
   NewCops: enable
@@ -51,7 +53,7 @@ Layout/EmptyLinesAroundModuleBody:
 Metrics/AbcSize:
   Enabled: false
 Metrics/BlockLength:
-  IgnoredMethods: ['describe', 'context']
+  AllowedMethods: ['describe', 'context']
 Metrics/BlockNesting:
   Max: 5
 Metrics/ClassLength:
