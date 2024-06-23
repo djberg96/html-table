@@ -81,7 +81,7 @@ module HTML
         msg += ": #{obj.class}"
         raise TypeError, msg
       end
-      super(obj)
+      super
     end
 
     # This method has been redefined to only allow ColGroup::Col objects

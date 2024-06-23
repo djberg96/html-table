@@ -292,7 +292,7 @@ module HTML
             self[0], self[1] = self[1], self[0]
           end
         else
-          super(obj)
+          super
       end
     end
 

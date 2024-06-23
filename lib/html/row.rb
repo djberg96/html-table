@@ -171,7 +171,7 @@ module HTML
       else
         expect(obj, [Data, Header])
       end
-      super(obj)
+      super
     end
 
     # This method has been redefined to only allow certain classes to be
@@ -185,7 +185,7 @@ module HTML
       else
         expect(obj, [Data, Header])
       end
-      super(obj)
+      super
     end
 
     alias to_s html
