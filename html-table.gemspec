@@ -28,7 +28,9 @@ Gem::Specification.new do |spec|
     'documentation_uri'     => 'https://djberg96.github.io/html-table',
     'source_code_uri'       => 'https://github.com/djberg96/html-table',
     'wiki_uri'              => 'https://github.com/djberg96/html-table/wiki',
-    'rubygems_mfa_required' => 'true'
+    'rubygems_mfa_required' => 'true',
+    'github_repo'           => 'https://github.com/djberg96/html-table',
+    'funding_uri'           => 'https://github.com/sponsors/djberg96'
   }
 
   spec.description = <<-EOF
