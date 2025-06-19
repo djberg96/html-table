@@ -1,6 +1,5 @@
 # The HTML module is a namespace only.
 module HTML
-
   # The Table::Row class is a subclass of array that encapsulates an
   # html table row, i.e. <tr> element.
   class Table::Row < Array
@@ -12,9 +11,13 @@ module HTML
     @indent_level = 3
     @end_tags     = true
 
-    # Returns a new Table::Row object.  Optionally takes a block.  If +arg+
-    # is provided it is treated as content.  If +header+ is false, that
-    # content is transformed into a Row::Data object.  Otherwise, it is
+    # Gets and sets whether or not content is converted into a Row::Header
+    # object or a Row::Data object.
+    attr_accessor :header
+
+    # Returns a new Table::Row object. Optionally takes a block. If +arg+
+    # is provided it is treated as content. If +header+ is false, that
+    # content is transformed into a Row::Data object. Otherwise, it is
     # converted into a Row::Header object.
     #
     # See the # Table::Row#content= method for more information.
@@ -24,9 +27,7 @@ module HTML
     def initialize(arg = nil, header = false, &block)
       @html_begin = '<tr'
       @html_end   = '</tr>'
-
       @header = header
-
       instance_eval(&block) if block_given?
       self.content = arg if arg
     end
@@ -36,13 +37,6 @@ module HTML
     #
     def header?
       @header
-    end
-
-    # Sets whether or not content is converted into a Row::Header object
-    # or a Row::Data object.
-    #
-    def header=(bool)
-      @header = bool
     end
 
     # Adds content to the Row object.
@@ -70,27 +64,8 @@ module HTML
     # row.html => <tr><th>foo</th></tr>
     #
     def content=(arg)
-      case arg
-        when String
-          if @header
-            push(Table::Row::Header.new(arg))
-          else
-            push(Table::Row::Data.new(arg))
-          end
-        when Array
-          arg.each do |e|
-            if e.is_a?(Table::Row::Data) || e.is_a?(Table::Row::Header)
-              push(e)
-            else
-              if @header
-                push(Table::Row::Header.new(e))
-              else
-                push(Table::Row::Data.new(e))
-              end
-            end
-          end
-        else
-          push(arg)
+      Array(arg).each do |e|
+        push_content(e)
       end
     end
 
@@ -105,7 +80,7 @@ module HTML
     #
     def self.indent_level=(num)
       expect(num, Integer)
-      raise ArgumentError if num < 0
+      raise ArgumentError, "Indent level must be non-negative" if num < 0
       @indent_level = num
     end
 
@@ -118,7 +93,7 @@ module HTML
     end
 
     # Sets the behavior for whether or not the end tags for this class,
-    # </tr>, are included for each row or not.  Only true and false are
+    # </tr>, are included for each row or not. Only true and false are
     # valid arguments.
     #
     def self.end_tags=(bool)
@@ -127,68 +102,60 @@ module HTML
     end
 
     # This method has been redefined to only allow certain classes to be
-    # accepted as arguments.  Specifically, they are Data and Header.  An
-    # Array is also valid, but only if it only includes Data or Header
-    # objects.
+    # accepted as arguments.  Specifically, they are Data and Header. An
+    # Array is also valid, but only if it only includes Data or Header objects.
     #
     def []=(index, obj)
-      if obj.is_a?(Array)
-        obj.each { |o| expect(o, [Data, Header]) }
-      else
-        expect(obj, [Data, Header])
-      end
+      objs = obj.is_a?(Array) ? obj : [obj]
+      objs.each { |o| expect(o, [Data, Header]) }
       super
     end
 
     # This method has been redefined to only allow certain classes to be
-    # accepted as arguments.  Specifically, they are String, Integer,
-    # Data and Header.
+    # accepted as arguments. Specifically, they are String, Integer, Data,
+    # and Header.
     #
     # A plain string or number pushed onto a Row is automatically
     # converted to a Data object.
     #
     def push(*args)
-      args.each do |obj|
-        if obj.is_a?(String) || obj.is_a?(Integer)
-          td = Table::Row::Data.new(obj.to_s)
-          super(td)
-          next
-        else
-          expect(obj, [Data, Header])
-        end
-        super(obj)
-      end
+      args.each { |obj| super(convert_content(obj)) }
     end
 
     # This method has been redefined to only allow certain classes to be
-    # accepted as arguments.  The rules are the same as they are for
-    # Row#push.
+    # accepted as arguments. The rules are the same as they are for Row#push.
     #
     def <<(obj)
-      if obj.is_a?(String) || obj.is_a?(Integer)
-        td = Table::Row::Data.new(obj.to_s)
-        super(td)
-      else
-        expect(obj, [Data, Header])
-      end
-      super
+      super(convert_content(obj))
     end
 
     # This method has been redefined to only allow certain classes to be
-    # accepted as arguments.  The rules are the same as they are for
-    # Row#push.
+    # accepted as arguments. The rules are the same as they are for Row#push.
     #
     def unshift(obj)
-      if obj.is_a?(String) || obj.is_a?(Integer)
-        td = Table::Row::Data.new(obj.to_s)
-        super(td)
-      else
-        expect(obj, [Data, Header])
-      end
-      super
+      super(convert_content(obj))
     end
 
     alias to_s html
     alias to_str html
+
+    private
+
+    def push_content(e)
+      if e.is_a?(Table::Row::Data) || e.is_a?(Table::Row::Header)
+        push(e)
+      else
+        push(@header ? Table::Row::Header.new(e) : Table::Row::Data.new(e))
+      end
+    end
+
+    def convert_content(obj)
+      if obj.is_a?(String) || obj.is_a?(Integer)
+        Table::Row::Data.new(obj.to_s)
+      else
+        expect(obj, [Data, Header])
+        obj
+      end
+    end
   end
 end
