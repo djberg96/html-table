@@ -51,9 +51,9 @@ RSpec.describe HTML::Table::ColGroup do
   end
 
   example 'double_arrow_constraints' do
-    expect{ @cgroup << 7 }.to raise_error(TypeError)
-    expect{ @cgroup << 'hello' }.to raise_error(TypeError)
-    expect{ @cgroup << HTML::Table::Row.new }.to raise_error(TypeError)
+    expect{ @cgroup << 7 }.to raise_error(ArgumentTypeError)
+    expect{ @cgroup << 'hello' }.to raise_error(ArgumentTypeError)
+    expect{ @cgroup << HTML::Table::Row.new }.to raise_error(ArgumentTypeError)
     expect{ @cgroup << HTML::Table::ColGroup::Col.new }.not_to raise_error
   end
 
