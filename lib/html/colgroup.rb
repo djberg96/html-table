@@ -84,10 +84,7 @@ module HTML
     # to be unshifted onto a ColGroup instance.
     #
     def unshift(obj)
-      unless obj.is_a?(Table::ColGroup::Col)
-        msg = 'Can only assign Data and Header objects to Row class'
-        raise TypeError, msg
-      end
+      expect(obj, Table::ColGroup::Col)
       super
     end
 
