@@ -1,4 +1,5 @@
-## 1.7.1 - 12-Jan-2021
+## 1.7.1 - 20-Jun-2025
+* Mostly internal refactoring and rubocop updates.
 * Switch from rdoc to markdown since github isn't rendering rdoc properly.
 
 ## 1.7.0 - 8-Sep-2020
