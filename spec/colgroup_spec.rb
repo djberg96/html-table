@@ -15,7 +15,7 @@ RSpec.describe HTML::Table::ColGroup do
   example 'constructor' do
     expect{ described_class.new }.not_to raise_error
     expect{ described_class.new(@col) }.not_to raise_error
-    expect{ described_class.new('foo') }.to raise_error(TypeError)
+    expect{ described_class.new('foo') }.to raise_error(ArgumentTypeError)
   end
 
   example 'basic' do
@@ -44,9 +44,9 @@ RSpec.describe HTML::Table::ColGroup do
   end
 
   example 'push constraints' do
-    expect{ @cgroup.push(7) }.to raise_error(TypeError)
-    expect{ @cgroup.push('hello') }.to raise_error(TypeError)
-    expect{ @cgroup.push(HTML::Table::Row.new) }.to raise_error(TypeError)
+    expect{ @cgroup.push(7) }.to raise_error(ArgumentTypeError)
+    expect{ @cgroup.push('hello') }.to raise_error(ArgumentTypeError)
+    expect{ @cgroup.push(HTML::Table::Row.new) }.to raise_error(ArgumentTypeError)
     expect{ @cgroup.push(HTML::Table::ColGroup::Col.new) }.not_to raise_error
   end
 

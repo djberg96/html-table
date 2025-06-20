@@ -63,11 +63,7 @@ module HTML
     #
     def push(*args)
       args.each do |obj|
-        unless obj.is_a?(Table::ColGroup::Col)
-          msg = 'Can only assign Col objects to ColGroup class'
-          msg += ": #{obj.class}"
-          raise TypeError, msg
-        end
+        expect(obj, Table::ColGroup::Col)
         super(obj)
       end
     end
