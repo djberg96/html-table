@@ -14,11 +14,11 @@ module HTML
         if @html_begin.scan(/\b#{attribute}\b/).empty?
           case arg
             when Integer
-              @html_begin << " #{attribute}=#{arg}"
+              @html_begin += " #{attribute}=#{arg}"
             when TrueClass
-              @html_begin << " #{attribute}"
+              @html_begin += " #{attribute}"
             else
-              @html_begin << " #{attribute}='#{arg}'"
+              @html_begin += " #{attribute}='#{arg}'"
           end
         else
           case arg
@@ -41,8 +41,8 @@ module HTML
       #
       def html(formatting = true)
         if HTML::Table.html_case == 'upper'
-          @html_begin.upcase!
-          @html_end.upcase!
+          @html_begin = @html_begin.upcase
+          @html_end = @html_end.upcase
         end
 
         ilevel = 0
@@ -57,12 +57,12 @@ module HTML
 
         if is_a?(Array)
           if formatting
-            html << map { |e| "\n#{e.html(formatting)}" }.join
+            html += map { |e| "\n#{e.html(formatting)}" }.join
           else
-            html << map { |e| e.html(formatting).to_s }.join
+            html += map { |e| e.html(formatting).to_s }.join
           end
         else
-          html << @html_body
+          html += @html_body
         end
 
         #####################################################################
@@ -78,37 +78,37 @@ module HTML
             if self.class.respond_to?(:end_tags?)
               if formatting
                 if self.class.end_tags?
-                  html << ("\n" << (' ' * ilevel) << @html_end)
+                  html += ("\n" + (' ' * ilevel) + @html_end)
                 end
               else
-                html << ((' ' * ilevel) << @html_end) if self.class.end_tags?
+                html += ((' ' * ilevel) + @html_end) if self.class.end_tags?
               end
             else
               if formatting
-                html << ("\n" << (' ' * ilevel) << @html_end)
+                html += ("\n" + (' ' * ilevel) + @html_end)
               else
-                html << ((' ' * ilevel) << @html_end)
+                html += ((' ' * ilevel) + @html_end)
               end
             end
           else
             unless self.class.respond_to?(:end_tags?)
               if formatting
-                html << ("\n" << (' ' * ilevel) << @html_end)
+                html += ("\n" + (' ' * ilevel) + @html_end)
               else
-                html << ((' ' * ilevel) << @html_end)
+                html += ((' ' * ilevel) + @html_end)
               end
             end
           end
         else
           if HTML::Table.global_end_tags?
             if self.class.respond_to?(:end_tags?)
-              html << @html_end if self.class.end_tags?
+              html += @html_end if self.class.end_tags?
             else
-              html << @html_end
+              html += @html_end
             end
           else
             unless self.class.respond_to?(:end_tags?)
-              html << @html_end
+              html += @html_end
             end
           end
         end
