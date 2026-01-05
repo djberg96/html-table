@@ -66,7 +66,6 @@ module HTML
     #       <tr>
     #          <td>Guido</td>
     #       </tr>
-    #       </tr>
     #    </table>
     #
     #    # Multiple data items per row

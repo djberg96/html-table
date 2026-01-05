@@ -54,7 +54,7 @@ module HTML
     # row.content = 'foo'
     # row.html => <tr><td>foo</td></tr>
     #
-    # row.content = [['foo,'bar']]
+    # row.content = [['foo','bar']]
     # row.html => <tr><td>foo</td><td>bar</td></tr>
     #
     # row.content = Table::Row::Data.new('foo')
