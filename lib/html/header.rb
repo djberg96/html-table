@@ -63,5 +63,8 @@ module HTML
       expect(bool, [TrueClass, FalseClass])
       @end_tags = bool
     end
+
+    alias to_s html
+    alias to_str html
   end
 end
