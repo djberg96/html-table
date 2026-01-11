@@ -67,7 +67,7 @@ RSpec.describe HTML::Table::Row::Data do
   example 'indent_level' do
     expect(described_class).to respond_to(:indent_level)
     expect(described_class).to respond_to(:indent_level=)
-    expect{ described_class.indent_level = 'foo' }.to raise_error(ArgumentTypeError)
+    expect{ described_class.indent_level = 'foo' }.to raise_error(TypeError)
     expect{ described_class.indent_level = 6 }.not_to raise_error
   end
 
@@ -82,7 +82,7 @@ RSpec.describe HTML::Table::Row::Data do
   end
 
   example 'end_tags= raises an error on an invalid value' do
-    expect{ described_class.end_tags = 'foo' }.to raise_error(ArgumentTypeError)
-    expect{ described_class.end_tags = 1 }.to raise_error(ArgumentTypeError)
+    expect{ described_class.end_tags = 'foo' }.to raise_error(TypeError)
+    expect{ described_class.end_tags = 1 }.to raise_error(TypeError)
   end
 end

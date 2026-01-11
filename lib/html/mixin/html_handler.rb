@@ -1,3 +1,4 @@
+# typed: strict
 # The HTML module serves as a namespace only.
 module HTML
   # The Mixin module is a namespace for html-table mixins.

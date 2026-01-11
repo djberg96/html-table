@@ -1,3 +1,4 @@
+# typed: strict
 # The HTML module serves as a namespace only.
 module HTML
 
@@ -8,8 +9,7 @@ module HTML
   class Table::ColGroup < Array
     include HTML::Mixin::AttributeHandler
     include HTML::Mixin::HtmlHandler
-    include HTML::Mixin::StrongTyping
-    extend HTML::Mixin::StrongTyping
+    # Sorbet type signatures can be added here
 
     @indent_level = 3
     @end_tags     = true
@@ -38,7 +38,7 @@ module HTML
     # is 3.
     #
     def self.indent_level=(num)
-      expect(num, Integer)
+      raise TypeError, 'indent_level must be an Integer' unless num.is_a?(Integer)
       raise ArgumentError, 'indent_level must be >= 0' if num < 0
       @indent_level = num
     end
@@ -47,13 +47,18 @@ module HTML
     # to be assigned.
     #
     def []=(index, obj)
+      if obj.nil?
+        super
+        return
+      end
       if obj.is_a?(Array)
-        expect(obj.first, Col) # In case of 0 length Array
-        obj.each do |o|
-          expect(o, Col)
-        end
+        raise TypeError, 'All elements must be Table::ColGroup::Col' unless obj.all? { |o| o.is_a?(Table::ColGroup::Col) }
       else
-        expect(obj, Col)
+        raise TypeError, 'Object must be Table::ColGroup::Col' unless obj.is_a?(Table::ColGroup::Col)
+      end
+      # Ensure array is expanded if needed, then assign
+      if index >= self.length
+        (self.length..index-1).each { self << nil }
       end
       super
     end
@@ -63,7 +68,7 @@ module HTML
     #
     def push(*args)
       args.each do |obj|
-        expect(obj, Table::ColGroup::Col)
+        raise TypeError, 'Object must be Table::ColGroup::Col' unless obj.is_a?(Table::ColGroup::Col)
         super(obj)
       end
     end
@@ -72,7 +77,7 @@ module HTML
     # to be pushed onto a ColGroup instance.
     #
     def <<(obj)
-      expect(obj, Table::ColGroup::Col)
+      raise TypeError, 'Object must be Table::ColGroup::Col' unless obj.is_a?(Table::ColGroup::Col)
       super
     end
 
@@ -80,7 +85,7 @@ module HTML
     # to be unshifted onto a ColGroup instance.
     #
     def unshift(obj)
-      expect(obj, Table::ColGroup::Col)
+      raise TypeError, 'Object must be Table::ColGroup::Col' unless obj.is_a?(Table::ColGroup::Col)
       super
     end
 
@@ -96,7 +101,9 @@ module HTML
     # valid arguments.
     #
     def self.end_tags=(bool)
-      expect(bool, [TrueClass, FalseClass])
+      unless [true, false].include?(bool)
+        raise TypeError, 'Expected true or false'
+      end
       @end_tags = bool
     end
 

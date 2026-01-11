@@ -1,3 +1,4 @@
+# typed: strict
 require_relative 'mixin/tag_handler'
 
 # The HTML module is a namespace only.

@@ -1,3 +1,4 @@
+# typed: strict
 require 'singleton'
 
 # The HTML module serves as a namespace only.
@@ -8,7 +9,7 @@ module HTML
   #
   class Table::Foot < Table::TableSection
     include Singleton
-    extend HTML::Mixin::StrongTyping
+    # Sorbet type signatures can be added here
 
     @indent_level = 3
     @end_tags     = true
@@ -49,7 +50,9 @@ module HTML
     # valid arguments.
     #
     def self.end_tags=(bool)
-      expect(bool, [TrueClass, FalseClass])
+      unless [true, false].include?(bool)
+        raise TypeError, 'Expected true or false'
+      end
       @end_tags = bool
     end
   end

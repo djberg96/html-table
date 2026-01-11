@@ -1,6 +1,7 @@
+# typed: strict
 require_relative 'mixin/attribute_handler'
 require_relative 'mixin/html_handler'
-require_relative 'mixin/strongtyping'
+require 'sorbet-runtime'
 require 'structured_warnings'
 
 # Warning raised if a non-standard extension is used.
@@ -9,8 +10,7 @@ class NonStandardExtensionWarning < StructuredWarnings::StandardWarning; end
 # Please, think of the children before using the blink tag.
 class BlinkWarning < StructuredWarnings::StandardWarning; end
 
-# Used by the strongtyping mixin.
-class ArgumentTypeError < ArgumentError; end
+
 
 # The HTML module serves as a namespace only.
 module HTML
@@ -20,8 +20,7 @@ module HTML
   class Table < Array
     include HTML::Mixin::AttributeHandler
     include HTML::Mixin::HtmlHandler
-    include HTML::Mixin::StrongTyping
-    extend HTML::Mixin::StrongTyping
+    # Sorbet type signatures can be added here as needed
 
     # The version of the html-table library
     VERSION = '1.7.1'.freeze
@@ -152,7 +151,9 @@ module HTML
     # Note that mandatory end tags are unaffected by this setting.
     #
     def self.global_end_tags=(bool)
-      expect(bool, [TrueClass, FalseClass])
+      unless [true, false].include?(bool)
+        raise TypeError, 'Expected true or false'
+      end
       @global_end_tags = bool
     end
 
@@ -167,7 +168,7 @@ module HTML
     # valid arguments to this method are 'upper' or 'lower'.
     #
     def self.html_case=(arg)
-      expect(arg, String)
+      raise TypeError, 'Expected String' unless arg.is_a?(String)
       unless %w[upper lower].include?(arg.downcase)
         msg = "Argument to html_case() must be 'upper' or 'lower'"
         raise ArgumentError, msg
@@ -188,7 +189,7 @@ module HTML
     # Sets the number of spaces that tags for this class are indented.
     #
     def self.indent_level=(num)
-      expect(num, Integer)
+      raise TypeError, 'Expected Integer' unless num.is_a?(Integer)
       raise ArgumentError, 'indent level must be >= 0' if num < 0
       @indent_level = num
     end
@@ -203,7 +204,10 @@ module HTML
     # A Foot may only be assigned as the last element.
     #
     def []=(index, obj)
-      expect(obj, [Caption, ColGroup, Body, Foot, Head, Row])
+      allowed = [Caption, ColGroup, Body, Foot, Head, Row]
+      unless allowed.any? { |klass| obj.is_a?(klass) }
+        raise TypeError, "Expected one of: #{allowed.map(&:name).join(', ')}"
+      end
 
       # Only allow Caption objects at index 0
       if index != 0 && obj.is_a?(HTML::Table::Caption)
@@ -245,7 +249,10 @@ module HTML
     #
     def push(*args)
       args.each do |obj|
-        expect(obj, [Caption, ColGroup, Body, Foot, Head, Row, Row::Data, Row::Header])
+        allowed = [Caption, ColGroup, Body, Foot, Head, Row, Row::Data, Row::Header]
+        unless allowed.any? { |klass| obj.is_a?(klass) }
+          raise TypeError, "Expected one of: #{allowed.map(&:name).join(', ')}"
+        end
 
         case obj
           when Table::Row::Data, Table::Row::Header
@@ -273,7 +280,10 @@ module HTML
     # The restrictions and behavior are identical to the push() method.
     #
     def <<(obj)
-      expect(obj, [Caption, ColGroup, Body, Foot, Head, Row, Row::Data, Row::Header])
+      allowed = [Caption, ColGroup, Body, Foot, Head, Row, Row::Data, Row::Header]
+      unless allowed.any? { |klass| obj.is_a?(klass) }
+        raise TypeError, "Expected one of: #{allowed.map(&:name).join(', ')}"
+      end
 
       case obj
         when Table::Row::Data, Table::Row::Header # Each get their own row
@@ -299,7 +309,10 @@ module HTML
     # ColGroup, Body, Foot, Head and Row.
     #
     def unshift(obj)
-      expect(obj, [Caption, ColGroup, Body, Foot, Head, Row])
+      allowed = [Caption, ColGroup, Body, Foot, Head, Row]
+      unless allowed.any? { |klass| obj.is_a?(klass) }
+        raise TypeError, "Expected one of: #{allowed.map(&:name).join(', ')}"
+      end
       super
     end
 

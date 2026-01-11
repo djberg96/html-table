@@ -53,7 +53,7 @@ RSpec.describe HTML::Table do
     expect{ described_class.html_case = 'upper' }.not_to raise_error
     expect{ described_class.html_case = 'lower' }.not_to raise_error
     expect{ described_class.html_case = 'foo' }.to raise_error(ArgumentError)
-    expect{ described_class.html_case = 7 }.to raise_error(ArgumentTypeError)
+    expect{ described_class.html_case = 7 }.to raise_error(TypeError)
   end
 
   example 'html_case causes uppercased output as expected' do
@@ -67,11 +67,11 @@ RSpec.describe HTML::Table do
     expect(described_class).to respond_to(:indent_level)
     expect(described_class).to respond_to(:indent_level=)
     expect{ described_class.indent_level = 0 }.not_to raise_error
-    expect{ described_class.indent_level = 'foo' }.to raise_error(ArgumentTypeError)
+    expect{ described_class.indent_level = 'foo' }.to raise_error(TypeError)
   end
 
   example 'index' do
-    expect{ @table[0] = 'foo' }.to raise_error(ArgumentTypeError)
+    expect{ @table[0] = 'foo' }.to raise_error(TypeError)
   end
 
   example 'caption_index_constraints' do
@@ -95,15 +95,15 @@ RSpec.describe HTML::Table do
 
   example 'unshift_constraints' do
     expect{ @table.unshift described_class::Row.new }.not_to raise_error
-    expect{ @table.unshift described_class::Row::Data.new }.to raise_error(ArgumentTypeError)
-    expect{ @table.unshift 'foo' }.to raise_error(ArgumentTypeError)
+    expect{ @table.unshift described_class::Row::Data.new }.to raise_error(TypeError)
+    expect{ @table.unshift 'foo' }.to raise_error(TypeError)
   end
 
   example 'push_constraints' do
     expect{ @table.push described_class::Row.new }.not_to raise_error
-    expect{ @table.push('foo') }.to raise_error(ArgumentTypeError)
-    expect{ @table.push(7) }.to raise_error(ArgumentTypeError)
-    expect{ @table.push(nil) }.to raise_error(ArgumentTypeError)
+    expect{ @table.push('foo') }.to raise_error(TypeError)
+    expect{ @table.push(7) }.to raise_error(TypeError)
+    expect{ @table.push(nil) }.to raise_error(TypeError)
   end
 
   example 'double arrow allows valid values' do
@@ -112,9 +112,9 @@ RSpec.describe HTML::Table do
   end
 
   example 'double arrow raises an error for invalid types' do
-    expect{ @table << 'foo' }.to raise_error(ArgumentTypeError)
-    expect{ @table << 7 }.to raise_error(ArgumentTypeError)
-    expect{ @table << nil }.to raise_error(ArgumentTypeError)
+    expect{ @table << 'foo' }.to raise_error(TypeError)
+    expect{ @table << 7 }.to raise_error(TypeError)
+    expect{ @table << nil }.to raise_error(TypeError)
   end
 
   example 'basic' do
@@ -181,6 +181,6 @@ RSpec.describe HTML::Table do
   example 'global_end_tags= only accepts valid values' do
     expect{ described_class.global_end_tags = false }.not_to raise_error
     expect{ described_class.global_end_tags = true }.not_to raise_error
-    expect{ described_class.global_end_tags = 'foo' }.to raise_error(ArgumentTypeError)
+    expect{ described_class.global_end_tags = 'foo' }.to raise_error(TypeError)
   end
 end

@@ -67,7 +67,7 @@ RSpec.describe HTML::Table::Caption do
   example 'indent_level' do
     expect(described_class).to respond_to(:indent_level)
     expect(described_class).to respond_to(:indent_level=)
-    expect{ described_class.indent_level = 'foo' }.to raise_error(ArgumentTypeError)
+    expect{ described_class.indent_level = 'foo' }.to raise_error(TypeError)
     expect{ described_class.indent_level = 3 }.not_to raise_error
   end
 

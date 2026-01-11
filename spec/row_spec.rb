@@ -52,9 +52,9 @@ RSpec.describe HTML::Table::Row do
   end
 
   example 'index assignment raises an error for invalid types' do
-    expect{ @trow[0] = 'foo' }.to raise_error(ArgumentTypeError)
-    expect{ @trow[0] = 1 }.to raise_error(ArgumentTypeError)
-    expect{ @trow[0] = HTML::Table::Caption.new }.to raise_error(ArgumentTypeError)
+    expect{ @trow[0] = 'foo' }.to raise_error(TypeError)
+    expect{ @trow[0] = 1 }.to raise_error(TypeError)
+    expect{ @trow[0] = HTML::Table::Caption.new }.to raise_error(TypeError)
   end
 
   example 'push allows valid types' do
@@ -65,8 +65,8 @@ RSpec.describe HTML::Table::Row do
   end
 
   example 'push raises an error for invalid types' do
-    expect{ @trow.push(HTML::Table::Caption.new) }.to raise_error(ArgumentTypeError)
-    expect{ @trow.push(nil) }.to raise_error(ArgumentTypeError)
+    expect{ @trow.push(HTML::Table::Caption.new) }.to raise_error(TypeError)
+    expect{ @trow.push(nil) }.to raise_error(TypeError)
   end
 
   example 'double arrow allows valid types' do
@@ -77,7 +77,7 @@ RSpec.describe HTML::Table::Row do
   end
 
   example 'double arrow raises an error for invalid types' do
-    expect{ @trow << HTML::Table::Caption.new }.to raise_error(ArgumentTypeError)
+    expect{ @trow << HTML::Table::Caption.new }.to raise_error(TypeError)
   end
 
   example 'header in constructor' do
@@ -124,8 +124,8 @@ RSpec.describe HTML::Table::Row do
   end
 
   example 'unshift does not allow invalid types' do
-    expect{ @trow.unshift(HTML::Table::Caption.new) }.to raise_error(ArgumentTypeError)
-    expect{ @trow.unshift(nil) }.to raise_error(ArgumentTypeError)
+    expect{ @trow.unshift(HTML::Table::Caption.new) }.to raise_error(TypeError)
+    expect{ @trow.unshift(nil) }.to raise_error(TypeError)
   end
 
   example 'unshift allows proper types' do
@@ -142,7 +142,7 @@ RSpec.describe HTML::Table::Row do
   example 'indent_level' do
     expect(described_class).to respond_to(:indent_level)
     expect(described_class).to respond_to(:indent_level=)
-    expect{ described_class.indent_level = 'foo' }.to raise_error(ArgumentTypeError)
+    expect{ described_class.indent_level = 'foo' }.to raise_error(TypeError)
     expect{ described_class.indent_level = 3 }.not_to raise_error
   end
 
@@ -157,7 +157,7 @@ RSpec.describe HTML::Table::Row do
   end
 
   example 'end_tags= rejects invalid values' do
-    expect{ described_class.end_tags = 'foo' }.to raise_error(ArgumentTypeError)
-    expect{ described_class.end_tags = 1 }.to raise_error(ArgumentTypeError)
+    expect{ described_class.end_tags = 'foo' }.to raise_error(TypeError)
+    expect{ described_class.end_tags = 1 }.to raise_error(TypeError)
   end
 end

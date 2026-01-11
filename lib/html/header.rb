@@ -1,3 +1,4 @@
+# typed: strict
 # The HTML module serves as a namespace only.
 module HTML
 
@@ -7,7 +8,7 @@ module HTML
   class Table::Row::Header
     include HTML::Mixin::AttributeHandler
     include HTML::Mixin::HtmlHandler
-    extend HTML::Mixin::StrongTyping
+    # Sorbet type signatures can be added here
 
     undef_method :configure
 
@@ -43,7 +44,7 @@ module HTML
     # is 6.
     #
     def self.indent_level=(num)
-      expect(num, Integer)
+      raise TypeError, 'Expected Integer' unless num.is_a?(Integer)
       raise ArgumentError, 'indent_level must be >= 0' if num < 0
       @indent_level = num
     end
@@ -60,7 +61,9 @@ module HTML
     # valid arguments.
     #
     def self.end_tags=(bool)
-      expect(bool, [TrueClass, FalseClass])
+      unless [true, false].include?(bool)
+        raise TypeError, 'Expected true or false'
+      end
       @end_tags = bool
     end
 

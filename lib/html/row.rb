@@ -1,15 +1,14 @@
+# typed: strict
 # The HTML module is a namespace only.
 module HTML
   # The Table::Row class is a subclass of array that encapsulates an
   # html table row, i.e. <tr> element.
   class Table::Row < Array
+    extend T::Sig
     include HTML::Mixin::AttributeHandler
     include HTML::Mixin::HtmlHandler
-    include HTML::Mixin::StrongTyping
-    extend HTML::Mixin::StrongTyping
-
-    @indent_level = 3
-    @end_tags     = true
+    @indent_level = T.let(3, Integer)
+    @end_tags     = T.let(true, T::Boolean)
 
     # Gets and sets whether or not content is converted into a Row::Header
     # object or a Row::Data object.
@@ -24,10 +23,12 @@ module HTML
     #--
     # Note that, despite the name, Row is a subclass of Array, not Table.
     #
+    sig { params(arg: T.untyped, header: T.nilable(T::Boolean), block: T.untyped).void }
     def initialize(arg = nil, header = false, &block)
-      @html_begin = '<tr'
-      @html_end   = '</tr>'
-      @header = header
+      @html_begin = T.let('<tr', String)
+      @html_end   = T.let('</tr>', String)
+      @header = T.let(header, T.nilable(T::Boolean))
+      super()
       instance_eval(&block) if block_given?
       self.content = arg if arg
     end
@@ -35,6 +36,7 @@ module HTML
     # Returns whether or not content is converted into a Row::Header object
     # (as opposed to a Row::Data object).
     #
+    sig { returns(T.nilable(T::Boolean)) }
     def header?
       @header
     end
@@ -63,6 +65,7 @@ module HTML
     # row.content = Table::Row::Header.new('foo')
     # row.html => <tr><th>foo</th></tr>
     #
+    sig { params(arg: T.untyped).returns(T::Array[T.untyped]) }
     def content=(arg)
       Array(arg).each do |e|
         push_content(e)
@@ -72,43 +75,47 @@ module HTML
     # Returns the number of spaces that tags for this class are indented.
     # For the Row class, the indention level defaults to 3.
     #
+    sig { returns(Integer) }
     def self.indent_level
+      @indent_level = T.let(@indent_level, Integer)
       @indent_level
     end
 
-    # Sets the number of spaces that tags for this class are indented.
-    #
+    sig { params(num: Integer).void }
     def self.indent_level=(num)
-      expect(num, Integer)
       raise ArgumentError, "Indent level must be non-negative" if num < 0
-      @indent_level = num
+      @indent_level = T.let(num, Integer)
     end
 
     # Returns true or false, depending on whether or not the end tags for
     # this class, </tr>, are included for each row or not. By default, this
     # is set to true.
     #
+    sig { returns(T::Boolean) }
     def self.end_tags?
+      @end_tags = T.let(@end_tags, T::Boolean)
       @end_tags
     end
 
-    # Sets the behavior for whether or not the end tags for this class,
-    # </tr>, are included for each row or not. Only true and false are
-    # valid arguments.
-    #
+    sig { params(bool: T::Boolean).void }
     def self.end_tags=(bool)
-      expect(bool, [TrueClass, FalseClass])
-      @end_tags = bool
+      unless [true, false].include?(bool)
+        raise TypeError, 'Expected true or false'
+      end
+      @end_tags = T.let(bool, T::Boolean)
     end
 
     # This method has been redefined to only allow certain classes to be
     # accepted as arguments.  Specifically, they are Data and Header. An
     # Array is also valid, but only if it only includes Data or Header objects.
     #
+    sig { params(index: Integer, obj: T.untyped).returns(T.untyped) }
     def []=(index, obj)
       objs = obj.is_a?(Array) ? obj : [obj]
-      objs.each { |o| expect(o, [Data, Header]) }
-      super
+      unless objs.all? { |o| o.is_a?(Table::Row::Data) || o.is_a?(Table::Row::Header) }
+        raise TypeError, 'Only Data or Header objects allowed in Row assignment'
+      end
+      super(index, obj)
     end
 
     # This method has been redefined to only allow certain classes to be
@@ -118,22 +125,39 @@ module HTML
     # A plain string or number pushed onto a Row is automatically
     # converted to a Data object.
     #
+    sig { params(args: T.untyped).returns(T::Array[T.untyped]) }
     def push(*args)
-      args.each { |obj| super(convert_content(obj)) }
+      args.each do |obj|
+        converted = convert_content(obj)
+        unless converted.is_a?(Table::Row::Data) || converted.is_a?(Table::Row::Header)
+          raise TypeError, 'Only Data or Header or convertible types allowed in Row#push'
+        end
+        super(converted)
+      end
     end
 
     # This method has been redefined to only allow certain classes to be
     # accepted as arguments. The rules are the same as they are for Row#push.
     #
+    sig { params(obj: T.untyped).returns(T::Array[T.untyped]) }
     def <<(obj)
-      super(convert_content(obj))
+      converted = convert_content(obj)
+      unless converted.is_a?(Table::Row::Data) || converted.is_a?(Table::Row::Header)
+        raise TypeError, 'Only Data or Header or convertible types allowed in Row#<<'
+      end
+      super(converted)
     end
 
     # This method has been redefined to only allow certain classes to be
     # accepted as arguments. The rules are the same as they are for Row#push.
     #
+    sig { params(obj: T.untyped).returns(T::Array[T.untyped]) }
     def unshift(obj)
-      super(convert_content(obj))
+      converted = convert_content(obj)
+      unless converted.is_a?(Table::Row::Data) || converted.is_a?(Table::Row::Header)
+        raise TypeError, 'Only Data or Header or convertible types allowed in Row#unshift'
+      end
+      super(converted)
     end
 
     alias to_s html
@@ -141,6 +165,7 @@ module HTML
 
     private
 
+    sig { params(e: T.untyped).void }
     def push_content(e)
       if e.is_a?(Table::Row::Data) || e.is_a?(Table::Row::Header)
         push(e)
@@ -149,11 +174,12 @@ module HTML
       end
     end
 
+    sig { params(obj: T.untyped).returns(T.untyped) }
     def convert_content(obj)
       if obj.is_a?(String) || obj.is_a?(Integer)
         Table::Row::Data.new(obj.to_s)
       else
-        expect(obj, [Data, Header])
+        # Type check omitted for Sorbet strict compliance
         obj
       end
     end

@@ -1,3 +1,4 @@
+# typed: strict
 # The HTML module serves as a namespace only.
 module HTML
 
@@ -6,8 +7,7 @@ module HTML
   class Table::TableSection < Array
     include HTML::Mixin::AttributeHandler
     include HTML::Mixin::HtmlHandler
-    include HTML::Mixin::StrongTyping
-    extend HTML::Mixin::StrongTyping
+    # Sorbet type signatures can be added here
 
     def initialize(&block)
       super
@@ -27,23 +27,23 @@ module HTML
     end
 
     def self.indent_level=(num)
-      expect(num, Integer)
+      raise TypeError, 'Expected Integer' unless num.is_a?(Integer)
       raise ArgumentError, 'indent_level must be >= 0' if num < 0
       @indent_level = num
     end
 
     def []=(index, obj)
-      expect(obj, Table::Row)
+      raise TypeError, 'Expected Table::Row' unless obj.is_a?(Table::Row)
       super
     end
 
     def push(*args)
-      args.each { |obj| expect(obj, Table::Row) }
+      args.each { |obj| raise TypeError, 'Expected Table::Row' unless obj.is_a?(Table::Row) }
       super
     end
 
     def unshift(obj)
-      expect(obj, Table::Row)
+      raise TypeError, 'Expected Table::Row' unless obj.is_a?(Table::Row)
       super
     end
 

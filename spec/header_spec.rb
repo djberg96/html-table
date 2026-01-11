@@ -67,7 +67,7 @@ RSpec.describe HTML::Table::Row::Header do
   example 'indent_level' do
     expect(described_class).to respond_to(:indent_level)
     expect(described_class).to respond_to(:indent_level=)
-    expect{ described_class.indent_level = 'foo' }.to raise_error(ArgumentTypeError)
+    expect{ described_class.indent_level = 'foo' }.to raise_error(TypeError)
     expect{ described_class.indent_level = 6 }.not_to raise_error
   end
 
@@ -78,8 +78,8 @@ RSpec.describe HTML::Table::Row::Header do
 
   example 'end_tags= only accepts valid types' do
     expect(described_class).to respond_to(:end_tags=)
-    expect{ described_class.end_tags = 'foo' }.to raise_error(ArgumentTypeError)
-    expect{ described_class.end_tags = 1 }.to raise_error(ArgumentTypeError)
+    expect{ described_class.end_tags = 'foo' }.to raise_error(TypeError)
+    expect{ described_class.end_tags = 1 }.to raise_error(TypeError)
     expect{ described_class.end_tags = true }.not_to raise_error
   end
 end

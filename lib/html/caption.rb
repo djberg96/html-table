@@ -1,3 +1,4 @@
+# typed: strict
 # The HTML module serves as a namespace only.
 module HTML
 
@@ -7,7 +8,7 @@ module HTML
   class Table::Caption
     include HTML::Mixin::AttributeHandler
     include HTML::Mixin::HtmlHandler
-    extend HTML::Mixin::StrongTyping
+    # Sorbet type signatures can be added here
 
     undef_method :configure
     @indent_level = 3
@@ -40,7 +41,7 @@ module HTML
     # Sets the number of spaces that tags for this class are indented.
     #
     def self.indent_level=(num)
-      expect(num, Integer)
+      raise TypeError, 'indent_level must be an Integer' unless num.is_a?(Integer)
       raise ArgumentError, 'indent level must be >= 0' if num < 0
       @indent_level = num
     end

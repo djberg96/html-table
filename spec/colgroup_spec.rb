@@ -15,7 +15,7 @@ RSpec.describe HTML::Table::ColGroup do
   example 'constructor' do
     expect{ described_class.new }.not_to raise_error
     expect{ described_class.new(@col) }.not_to raise_error
-    expect{ described_class.new('foo') }.to raise_error(ArgumentTypeError)
+    expect{ described_class.new('foo') }.to raise_error(TypeError)
   end
 
   example 'basic' do
@@ -37,30 +37,30 @@ RSpec.describe HTML::Table::ColGroup do
   end
 
   example 'index assignment constraints' do
-    expect{ @cgroup[0] = 'foo' }.to raise_error(ArgumentTypeError)
-    expect{ @cgroup[0] = 1 }.to raise_error(ArgumentTypeError)
-    expect{ @cgroup[1] = HTML::Table::Row.new }.to raise_error(ArgumentTypeError)
+    expect{ @cgroup[0] = 'foo' }.to raise_error(TypeError)
+    expect{ @cgroup[0] = 1 }.to raise_error(TypeError)
+    expect{ @cgroup[1] = HTML::Table::Row.new }.to raise_error(TypeError)
     expect{ @cgroup[0] = HTML::Table::ColGroup::Col.new }.not_to raise_error
   end
 
   example 'push constraints' do
-    expect{ @cgroup.push(7) }.to raise_error(ArgumentTypeError)
-    expect{ @cgroup.push('hello') }.to raise_error(ArgumentTypeError)
-    expect{ @cgroup.push(HTML::Table::Row.new) }.to raise_error(ArgumentTypeError)
+    expect{ @cgroup.push(7) }.to raise_error(TypeError)
+    expect{ @cgroup.push('hello') }.to raise_error(TypeError)
+    expect{ @cgroup.push(HTML::Table::Row.new) }.to raise_error(TypeError)
     expect{ @cgroup.push(HTML::Table::ColGroup::Col.new) }.not_to raise_error
   end
 
   example 'double arrow constraints' do
-    expect{ @cgroup << 7 }.to raise_error(ArgumentTypeError)
-    expect{ @cgroup << 'hello' }.to raise_error(ArgumentTypeError)
-    expect{ @cgroup << HTML::Table::Row.new }.to raise_error(ArgumentTypeError)
+    expect{ @cgroup << 7 }.to raise_error(TypeError)
+    expect{ @cgroup << 'hello' }.to raise_error(TypeError)
+    expect{ @cgroup << HTML::Table::Row.new }.to raise_error(TypeError)
     expect{ @cgroup << HTML::Table::ColGroup::Col.new }.not_to raise_error
   end
 
   example 'unshift constraints' do
-    expect{ @cgroup.unshift(7) }.to raise_error(ArgumentTypeError)
-    expect{ @cgroup.unshift('hello') }.to raise_error(ArgumentTypeError)
-    expect{ @cgroup.unshift(HTML::Table::Row.new) }.to raise_error(ArgumentTypeError)
+    expect{ @cgroup.unshift(7) }.to raise_error(TypeError)
+    expect{ @cgroup.unshift('hello') }.to raise_error(TypeError)
+    expect{ @cgroup.unshift(HTML::Table::Row.new) }.to raise_error(TypeError)
     expect{ @cgroup.unshift(HTML::Table::ColGroup::Col.new) }.not_to raise_error
   end
 
@@ -76,7 +76,7 @@ RSpec.describe HTML::Table::ColGroup do
   example 'indent_level' do
     expect(described_class).to respond_to(:indent_level)
     expect(described_class).to respond_to(:indent_level=)
-    expect{ described_class.indent_level = 'foo' }.to raise_error(ArgumentTypeError)
+    expect{ described_class.indent_level = 'foo' }.to raise_error(TypeError)
     expect{ described_class.indent_level = 6 }.not_to raise_error
   end
 
@@ -91,7 +91,7 @@ RSpec.describe HTML::Table::ColGroup do
   end
 
   example 'end_tags= raises an error if an invalid type is assigned' do
-    expect{ described_class.end_tags = 'foo' }.to raise_error(ArgumentTypeError)
-    expect{ described_class.end_tags = 1 }.to raise_error(ArgumentTypeError)
+    expect{ described_class.end_tags = 'foo' }.to raise_error(TypeError)
+    expect{ described_class.end_tags = 1 }.to raise_error(TypeError)
   end
 end
